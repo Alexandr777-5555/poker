@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/c"
+       xmlns:cache="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--    игроки-->
+    <bean id="player1" class="ps.GamePlayer">
+        <constructor-arg value="1"/>
+        <constructor-arg value="3000"/>
+    </bean>
+
+    <bean id="player2" class="ps.GamePlayer">
+        <constructor-arg value="2"/>
+        <constructor-arg value="3000"/>
+    </bean>
+
+    <bean id="player3" class="ps.GamePlayer">
+        <constructor-arg value="3"/>
+        <constructor-arg value="3000"/>
+    </bean>
+
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--   список игроков -->
+
+<!--    <bean id="listPlayers" class="ps.Players">-->
+<!--        <constructor-arg>-->
+<!--            <list >-->
+<!--                <ref bean="player1"/>-->
+<!--                <ref bean="player2"/>-->
+<!--                <ref bean="player3"/>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--    игровой стол -->
+
+<!--    -->
+    <bean id="table" class="ps.GameTable" init-method="init" destroy-method="destroy"  >
+            <constructor-arg>
+                <list >
+                    <ref bean="player1"/>
+                    <ref bean="player2"/>
+                    <ref bean="player3"/>
+                </list>
+            </constructor-arg>
+            <property name="deck" ref="cardDesk"/>
+        </bean>
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+    <!--     мозг игрока который думает по схеме A-->
+<!--    <bean id="think10" class="ps.SchemeAThink"/>-->
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--               колода карт-->
+
+    <bean id="cardDesk" class="ps.CardsDeck"  lazy-init="true"/>
+
+
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--    регестрируем реализацию BeanFactoryPostProcessor-->
+    <bean id="beanCounter" class="ps.counters.BeanCounter"/>
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <bean id="checkDealCards" class="ps.aop.CheckDealCards"/>
+
+    <aop:config >
+        <aop:aspect ref="checkDealCards">
+            <aop:pointcut id="game"  expression="execution(* *.game(..))" />
+            <aop:before pointcut-ref="game"
+                        method="beforeDealCards"/>
+            <aop:after pointcut-ref="game"
+                       method="afterDealCards"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+
+</beans>
