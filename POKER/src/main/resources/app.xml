@@ -2,9 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/c"
-       xmlns:cache="http://www.springframework.org/schema/cache"
+       xmlns:cache="http://www.springframework.org/schema/cache" xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    игроки-->
@@ -25,54 +26,41 @@
 
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <!--   список игроков -->
 
-<!--    <bean id="listPlayers" class="ps.Players">-->
+
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+    <!--    игровой стол -->
+
+<!--    <bean id="table" class="ps.GameTable" init-method="init" destroy-method="destroy">-->
 <!--        <constructor-arg>-->
-<!--            <list >-->
+<!--            <list>-->
 <!--                <ref bean="player1"/>-->
 <!--                <ref bean="player2"/>-->
 <!--                <ref bean="player3"/>-->
 <!--            </list>-->
 <!--        </constructor-arg>-->
 <!--    </bean>-->
-
-    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-    <!--    игровой стол -->
-
-<!--    -->
-    <bean id="table" class="ps.GameTable" init-method="init" destroy-method="destroy"  >
-            <constructor-arg>
-                <list >
-                    <ref bean="player1"/>
-                    <ref bean="player2"/>
-                    <ref bean="player3"/>
-                </list>
-            </constructor-arg>
-            <property name="deck" ref="cardDesk"/>
-        </bean>
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
     <!--     мозг игрока который думает по схеме A-->
-<!--    <bean id="think10" class="ps.SchemeAThink"/>-->
+    <!--    <bean id="think10" class="ps.SchemeAThink"/>-->
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<!--               колода карт-->
+    <!--               колода карт-->
 
-    <bean id="cardDesk" class="ps.CardsDeck"  lazy-init="true"/>
-
+<!--    <bean id="cardDesk" class="ps.CardsDeck" lazy-init="true"/>-->
 
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-<!--    регестрируем реализацию BeanFactoryPostProcessor-->
+    <!--    регестрируем реализацию BeanFactoryPostProcessor-->
     <bean id="beanCounter" class="ps.counters.BeanCounter"/>
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <bean id="checkDealCards" class="ps.aop.CheckDealCards"/>
 
-    <aop:config >
+    <aop:config>
         <aop:aspect ref="checkDealCards">
-            <aop:pointcut id="game"  expression="execution(* *.game(..))" />
+            <aop:pointcut id="game" expression="execution(* *.game(..))"/>
             <aop:before pointcut-ref="game"
                         method="beforeDealCards"/>
             <aop:after pointcut-ref="game"
@@ -81,7 +69,17 @@
     </aop:config>
 
 
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--    поддержка автоматического связывания-->
+<!--    <context:annotation-config/>-->
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
+<!--    режим автоматического определения компонентов-->
+<!--     регестрируем все экземпляры колоды карт автоматом -->
+<!--    <context:component-scan base-package="ps">-->
+<!--        <context:include-filter type="assignable" expression="ps.Deck"/>-->
+<!--    </context:component-scan>-->
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 
+    <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 </beans>

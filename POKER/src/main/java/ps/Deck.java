@@ -31,4 +31,38 @@ public interface Deck {
      * @return
      */
     String getCards3Player();
+
+    /**
+     * получить карты флопа
+     * @return
+     */
+    String getFlop();
+
+
+    /**
+     * получить карту терна
+     * @return
+     */
+    String getTern();
+
+    /**
+     * получить карту ривера
+     * @return
+     */
+    String getRiver();
+
+
+    /**
+     * получить все общие карты
+     * @return
+     */
+    String commonCards();
+
+
+    /**
+     * рука игрока с общими картами
+     * @param id
+     * @return
+     */
+    String allHandPlayer(int id);
 }

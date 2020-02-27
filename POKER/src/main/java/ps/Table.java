@@ -8,13 +8,9 @@ public interface Table {
     /**
      * раздать карты игрокам
      */
-    void dealCards(CardsDeck deck);
+    void dealCards(Deck deck);
 
-    void dealFlop();
 
-    void dealTern();
-
-    void dealRiver();
 
     void game();
 }

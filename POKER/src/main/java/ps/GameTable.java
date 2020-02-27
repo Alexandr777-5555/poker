@@ -1,7 +1,10 @@
 package ps;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import ps.evulator.HandEvaluator;
+import ps.qualifiers.DeskAnnotation;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -13,14 +16,17 @@ import java.util.List;
 
 public class GameTable implements Table {
 
-    private CardsDeck deck;
+    @DeskAnnotation
+    private Deck deck;
+
     private List<Player> playerList;
+
     private boolean win;
 
 
-    public void setDeck(CardsDeck deck) {
-        this.deck = deck;
-    }
+//    public void setDeck(CardsDeck deck) {
+//        this.deck = deck;
+//    }
 
     public GameTable(List<Player> playerList) {
         this.playerList = playerList;
@@ -28,7 +34,7 @@ public class GameTable implements Table {
 
 
     @Override
-    public void dealCards(CardsDeck deck) {
+    public void dealCards(Deck deck) {
 
         for (Player player : playerList) {
             int id = player.getId();
@@ -71,15 +77,13 @@ public class GameTable implements Table {
 
             System.out.println("Общий банк равен" + bank);
 
-            // действие игроков на префлопе!!!
-            System.out.println("Карты флоп :" + deck.getFlop()); // раздать флоп
-            System.out.println("Карты терн :" + deck.getTern()); // раздать терн
-            System.out.println("Карты ривер :" + deck.getRiver()); // раздать ривер
+            streetFlop(deck);
+            streetTern(deck);
+            streetRiver(deck);
 
             System.out.println();
 
-
-            System.out.println("ОБЩИЕ КАРТЫ : " + deck.commonCards());
+            allStreets(deck);
 
 
             determinationHandsPLayer();
@@ -91,15 +95,8 @@ public class GameTable implements Table {
 
 
             chipsToWinner(winner, bank);
-            //TODO передаем фишки победителю
-            // делаем проверку если у игрока остаток фишек после раздачи 0 то игрока будем удалять из списка
-
 
             printAmountChips();
-
-
-            count++;
-
 
             checkGameOver();
 
@@ -112,8 +109,25 @@ public class GameTable implements Table {
             }
             destroy();
         }
+    }
 
 
+    public void streetFlop(Deck deck) {
+        System.out.println("Карты флоп :" + deck.getFlop()); // раздать флоп
+    }
+
+
+    public void streetTern(Deck deck) {
+        System.out.println("Карты терн :" + deck.getTern()); // раздать терн
+    }
+
+    public void streetRiver(Deck deck) {
+        System.out.println("Карты ривер :" + deck.getRiver()); // раздать ривер
+    }
+
+
+    public void allStreets(Deck deck) {
+        System.out.println("ОБЩИЕ КАРТЫ : " + deck.commonCards());
     }
 
     /**
@@ -134,7 +148,6 @@ public class GameTable implements Table {
      * @return
      */
     private boolean checkWinner() {
-
         if (playerList.size() == 1) {
             return true;
         }
@@ -149,13 +162,11 @@ public class GameTable implements Table {
      * @param bank
      */
     private void chipsToWinner(int id, int bank) {
-
         for (Player player : playerList) {
             if (player.getId() == id) {
                 player.setChips(player.getChips() + bank);
             }
         }
-
     }
 
 
@@ -165,10 +176,15 @@ public class GameTable implements Table {
     private void determinationHandsPLayer() {
         for (Player player : playerList) {
             player.setStrongHand(0);
-            String allHand = deck.allHandPlayer(player.getId());
-            int strongHand = HandEvaluator.rankHand(CardsDeck.valueOf(allHand));
+            String handPlayer = allHandPlayer(deck, player.getId());
+            int strongHand = HandEvaluator.rankHand(CardsDeck.valueOf(handPlayer));
             player.setStrongHand(strongHand);
         }
+    }
+
+
+    public String allHandPlayer(Deck deck, int id) {
+        return deck.allHandPlayer(id);
     }
 
 
@@ -181,6 +197,8 @@ public class GameTable implements Table {
         for (Player player : playerList) {
             players.add(player.getStrongHand());
         }
+
+        //TODO определение MAX силы руки в отдельный метод сделать
         Integer max = Collections.max(players); // у кого самая сильная рука
         for (Player player : playerList) {
             player.setWin(false);
@@ -196,6 +214,8 @@ public class GameTable implements Table {
         }
         return id;
     }
+
+
 
 
     private void init() {
@@ -221,22 +241,6 @@ public class GameTable implements Table {
         for (Player player : playerList) {
             System.out.println("у игрока " + player.getId() + " остаток фишек : " + player.getChips());
         }
-    }
-
-
-    @Override
-    public void dealFlop() {
-
-    }
-
-    @Override
-    public void dealTern() {
-
-    }
-
-    @Override
-    public void dealRiver() {
-
     }
 
 
