@@ -133,7 +133,7 @@ public class GameTable implements Table {
     /**
      * проверка остатка фишек у игрока
      */
-    private void checkGameOver() {
+    public void checkGameOver() {
         for (int i = 0; i < playerList.size(); i++) {
             if (playerList.get(i).getChips() == 0) {
                 playerList.remove(i);
@@ -162,11 +162,14 @@ public class GameTable implements Table {
      * @param bank
      */
     private void chipsToWinner(int id, int bank) {
+        // TODO попробуй заменить на STREAM  все такие методы 
         for (Player player : playerList) {
             if (player.getId() == id) {
                 player.setChips(player.getChips() + bank);
             }
         }
+
+
     }
 
 

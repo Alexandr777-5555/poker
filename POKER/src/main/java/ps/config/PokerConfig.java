@@ -4,14 +4,18 @@ package ps.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import ps.*;
+import ps.aop.CheckDealCards;
+import ps.counters.BeanCounter;
+import ps.counters.DealCounter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@ComponentScan({"ps"})
+@EnableAspectJAutoProxy // включаем автоматическое проксирование
 public class PokerConfig {
 
 
@@ -35,7 +39,7 @@ public class PokerConfig {
 
     @Bean
     public List<Player> list() {
-        return new ArrayList<Player>(Arrays.asList(player1() , player2() , player3()));
+        return new ArrayList<Player>(Arrays.asList(player1(), player2(), player3()));
     }
 
 
@@ -49,4 +53,25 @@ public class PokerConfig {
     public Deck deck() {
         return new CardsDeck();
     }
+
+    @Bean
+    public BeanCounter beanCounter() {
+        return new BeanCounter();
+    }
+
+    @Bean
+    public CheckDealCards dealCards() {
+        return new CheckDealCards();
+    }
+
+
+    @Bean
+    public DealCounter dealCounter() {
+        return new DealCounter();
+    }
+//
+//    @Bean
+//    public DealCounter dealCounter(){
+//        return new DealCounter();
+//    }
 }

@@ -9,15 +9,17 @@ import org.springframework.util.StopWatch;
 import ps.GameTable;
 import ps.Player;
 import ps.Table;
+import ps.config.PokerConfig;
 
 public class Main {
     public static void main(String[] args) {
 
         //TODO тут заменить что это файл конфигурации  и все будет работать!!!
      //   ApplicationContext context = new ClassPathXmlApplicationContext("app.xml");
-       ApplicationContext context =new AnnotationConfigApplicationContext("ps.config");
+    //   ApplicationContext context =new AnnotationConfigApplicationContext("ps.config");
+        ConfigurableApplicationContext context =new AnnotationConfigApplicationContext(PokerConfig.class);
 
-
+     //   new AnnotationConfigApplicationContext(AppConfig.class);
 
        Table gameTable = context.getBean("table" , Table.class);
 
@@ -27,6 +29,8 @@ public class Main {
         stopWatch.stop();
         System.out.println("сколько :"
                 + stopWatch.getTotalTimeMillis() + "ms");
+
+
 
     }
 }

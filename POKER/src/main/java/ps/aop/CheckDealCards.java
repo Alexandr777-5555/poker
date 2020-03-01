@@ -1,14 +1,27 @@
 package ps.aop;
 
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
 public class CheckDealCards {
+    private int count=0;
 
-    public void beforeDealCards(){
+    @Pointcut("execution(* *.game(..))")
+    public void perform() { }
 
-        System.out.println("перед раздачей");
+    @Before("perform()")
+    public void beforeDealCards() {
+        System.out.println("перед игрой");
     }
 
 
-    public void afterDealCards(){
-        System.out.println("после раздачи карт");
+    @After("execution(* ps.GameTable.game(..))")
+    public void afterDealCards() {
+        System.out.println("после игры");
     }
+
+
 }
