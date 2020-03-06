@@ -16,7 +16,6 @@ public class Card {
     public final static int KING = 13;
     public final static int ACE = 14;
 
-
     public final static int HEARTS = 3;
     public final static int SPADES = 4;
     public final static int CLUBS = 1;
@@ -26,8 +25,7 @@ public class Card {
     public final static int NUM_RANKS = 13;  // по 13 карт каждой
     public final static int NUM_CARDS = 52;  // количеств карт 52
 
-    private int gIndex; // у каждой карты свой индекс!!!
-
+    private int gIndex; // у каждой карты свой индекс
 
     public Card(char rank, char suit) {
         gIndex = chars2index(rank,suit);

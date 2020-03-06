@@ -8,10 +8,8 @@ import ps.model.deckIMPL.CardsDeck;
 import ps.model.evulator.HandEvaluator;
 import ps.qualifiers.DeskAnnotation;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * реализует функциональность игрового стола
@@ -74,6 +72,7 @@ public class GameTable implements Table {
 
     /**
      * раздать флоп на игровой стол ( 3 карты)
+     *
      * @param deck колода карт
      */
     public void streetFlop(Deck deck) {
@@ -86,6 +85,7 @@ public class GameTable implements Table {
 
     /**
      * раздать терн на игровой стол (1 карта)
+     *
      * @param deck
      */
     public void streetTern(Deck deck) {
@@ -98,6 +98,7 @@ public class GameTable implements Table {
 
     /**
      * раздать ривер на игровой стол (1 карта)
+     *
      * @param deck
      */
     public void streetRiver(Deck deck) {
@@ -147,7 +148,7 @@ public class GameTable implements Table {
      * @param bank
      */
     private void chipsToWinner(int id, int bank) {
-        if((id<1)&&(bank<0)) throw new IllegalArgumentException("bad");
+        if ((id < 1) && (bank < 0)) throw new IllegalArgumentException("bad");
         for (Player player : playerList) {
             if (player.getId() == id) {
                 player.setChips(player.getChips() + bank);
@@ -194,15 +195,25 @@ public class GameTable implements Table {
      * @return id победителя в раздаче
      */
     private int winnerId() {
+        Random random = ThreadLocalRandom.current();
+        List<Integer> integers = new ArrayList<>();
         int id = 0;
+        int countWin = 0;
         for (Player player : playerList) {
             if (player.isWin() == true) {
                 id = player.getId();
+                System.out.println("победитель в раздаче " + player.getId());
+                countWin++;
+                integers.add(id);
             }
+        }
+        if (countWin > 1) {
+            System.out.println("победителей " + countWin);
+            System.out.println("поэтому определяем случайным образом");
+            id = integers.get(random.nextInt(integers.size()));
         }
         return id;
     }
-
 
     /**
      * метод определяет сильнешего игрока в раздаче
@@ -210,7 +221,7 @@ public class GameTable implements Table {
      * @param max
      */
     private void powerMAX(int max) {
-        if (max < 0) throw new IllegalArgumentException("unknown number: "+ max);
+        if (max < 0) throw new IllegalArgumentException("unknown number: " + max);
         for (Player player : playerList) {
             player.setWin(false);
             if (player.getStrongHand() == max) {
@@ -218,7 +229,6 @@ public class GameTable implements Table {
             }
         }
     }
-
 
     private void init() {
         deck = new CardsDeck(); // init
