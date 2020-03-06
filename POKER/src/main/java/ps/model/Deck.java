@@ -1,4 +1,4 @@
-package ps;
+package ps.model;
 
 public interface Deck {
 
@@ -13,24 +13,14 @@ public interface Deck {
      */
     void print();
 
-    /**
-     * получить карманные карты 1 игрока
-     * @return
-     */
-    String getCards1Player();
 
     /**
-     * получить карманные карты 2 игрока
+     * получить карманные карты для игрока
+     * @param id идентификатор игрока  id>0
      * @return
      */
-    String getCards2Player();
+    String getCardsPlayer(int id);
 
-    /**
-     *
-     * получить кармманые карты 3 игрока
-     * @return
-     */
-    String getCards3Player();
 
     /**
      * получить карты флопа

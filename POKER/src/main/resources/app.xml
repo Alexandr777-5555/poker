@@ -19,17 +19,17 @@
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    игроки-->
-    <!--    <bean id="player1" class="ps.GamePlayer">-->
+    <!--    <bean id="player1" class="ps.model.playerIMPL.GamePlayer">-->
     <!--        <constructor-arg value="1"/>-->
     <!--        <constructor-arg value="3000"/>-->
     <!--    </bean>-->
 
-    <!--    <bean id="player2" class="ps.GamePlayer">-->
+    <!--    <bean id="player2" class="ps.model.playerIMPL.GamePlayer">-->
     <!--        <constructor-arg value="2"/>-->
     <!--        <constructor-arg value="3000"/>-->
     <!--    </bean>-->
 
-    <!--    <bean id="player3" class="ps.GamePlayer">-->
+    <!--    <bean id="player3" class="ps.model.playerIMPL.GamePlayer">-->
     <!--        <constructor-arg value="3"/>-->
     <!--        <constructor-arg value="3000"/>-->
     <!--    </bean>-->
@@ -41,7 +41,7 @@
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--    игровой стол -->
 
-    <!--    <bean id="table" class="ps.GameTable" init-method="init" destroy-method="destroy">-->
+    <!--    <bean id="table" class="ps.model.tableIMPL.GameTable" init-method="init" destroy-method="destroy">-->
     <!--        <constructor-arg>-->
     <!--            <list>-->
     <!--                <ref bean="player1"/>-->
@@ -58,7 +58,7 @@
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
     <!--               колода карт-->
 
-    <!--    <bean id="cardDesk" class="ps.CardsDeck" lazy-init="true"/>-->
+    <!--    <bean id="cardDesk" class="ps.model.deckIMPL.CardsDeck" lazy-init="true"/>-->
 
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -100,7 +100,7 @@
     <!--    режим автоматического определения компонентов-->
     <!--     регестрируем все экземпляры колоды карт автоматом -->
     <!--    <context:component-scan base-package="ps">-->
-    <!--        <context:include-filter type="assignable" expression="ps.Deck"/>-->
+    <!--        <context:include-filter type="assignable" expression="ps.model.Deck"/>-->
     <!--    </context:component-scan>-->
 
     <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->

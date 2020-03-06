@@ -1,19 +1,37 @@
-package ps;
+package ps.model.base;
 
 
-public abstract class Player {
+import org.springframework.beans.factory.annotation.Autowired;
+import ps.model.Think;
 
-    private final int id;
+import javax.persistence.*;
+
+@Table
+@Entity
+public  class Player {
+
+    @Id
+    private int id;
     private int chips;
+    @Transient
     private String hand;
+    @Transient
     private int strongHand;
+    @Transient
     private boolean win;
+    @Autowired
+    @Transient
+    private Think think;
 
 
+    public Player() {
+    }
 
-    public Player(int id, int chips) {
+    public Player(int id, int chips ) {
+        if((id <1)&&(chips<0)) throw new IllegalArgumentException("bad");
         this.id = id;
         this.chips = chips;
+        this.think= think;
     }
 
     public int getId() {
@@ -36,19 +54,12 @@ public abstract class Player {
         this.hand = hand;
     }
 
-    public int bet() {
 
+    public int bet() {
         int rang = rangHand();
         int bet = 0;
-
-        if (rang <= 8) {
-            bet = 100;
-        }
-        if (rang > 8) {
-            bet = 200;
-        }
-
-        return bet;  // если скинул то 0 иначе 100
+        bet = think.bet(rang);
+        return bet;
     }
 
 
@@ -59,8 +70,8 @@ public abstract class Player {
 
 
     /**
-     *
      * сумма которую передаем в банк
+     *
      * @param total
      * @return
      */
@@ -93,13 +104,13 @@ public abstract class Player {
         String[] s = valueOf(hand);
         char a = s[0].charAt(0);
         char b = s[1].charAt(0);
-        int cc = nominal(b);
-        int ss = nominal(a);
+        int rangCard1 = nominal(b);
+        int rangCard2 = nominal(a);
 
-        if (cc == ss) {
-            rang = (cc + ss) + 2; //
+        if (rangCard1 == rangCard2) {
+            rang = (rangCard1 + rangCard2) + 2; //
         } else {
-            rang = (cc + ss) / 2;
+            rang = (rangCard1 + rangCard2) / 2;
         }
 
         return rang;
@@ -119,7 +130,7 @@ public abstract class Player {
 
 
     /**
-     * Метод nominalBot возвращает число из указанного символа пример Q (дама)
+     * Метод nominal возвращает число из указанного символа пример Q (дама)
      * возвращаем 12 число
      *
      * @param handType

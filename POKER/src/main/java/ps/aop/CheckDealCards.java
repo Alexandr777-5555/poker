@@ -5,9 +5,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-@Aspect
+//@Aspect
 public class CheckDealCards {
-    private int count=0;
 
     @Pointcut("execution(* *.game(..))")
     public void perform() { }
@@ -18,7 +17,7 @@ public class CheckDealCards {
     }
 
 
-    @After("execution(* ps.GameTable.game(..))")
+    @After("execution(* ps.model.tableIMPL.GameTable.game(..))")
     public void afterDealCards() {
         System.out.println("после игры");
     }

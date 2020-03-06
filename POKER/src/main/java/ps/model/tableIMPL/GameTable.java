@@ -1,14 +1,17 @@
-package ps;
+package ps.model.tableIMPL;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import ps.evulator.HandEvaluator;
+import ps.model.Deck;
+import ps.model.base.Player;
+import ps.model.Table;
+import ps.model.deckIMPL.CardsDeck;
+import ps.model.evulator.HandEvaluator;
 import ps.qualifiers.DeskAnnotation;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * реализует функциональность игрового стола
@@ -18,88 +21,45 @@ public class GameTable implements Table {
 
     @DeskAnnotation
     private Deck deck;
-
     private List<Player> playerList;
-
     private boolean win;
 
 
-//    public void setDeck(CardsDeck deck) {
-//        this.deck = deck;
-//    }
-
     public GameTable(List<Player> playerList) {
-        this.playerList = playerList;
+        this.playerList = Objects.requireNonNull(playerList, "null");
     }
-
 
     @Override
     public void dealCards(Deck deck) {
-
         for (Player player : playerList) {
-            int id = player.getId();
-            if (id == 1) {
-                player.setHand(deck.getCards1Player());
-            }
-            if (id == 2) {
-                player.setHand(deck.getCards2Player());
-            }
-            if (id == 3) {
-                player.setHand(deck.getCards3Player());
-            }
+            player.setHand(deck.getCardsPlayer(player.getId()));
         }
     }
 
     @Override
     public void game() {
-
-        int count = 0;
-
-
         while (isWin() == false) {  // до победы
-
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-
-
             int bank = 0;
-
-            // тут новая колода карт!!!
-
             init();
             deck.shuffle(); // перемешаем колоду
             dealCards(deck); // присваиваем игрокам карманные карты
             printHandsPlayer(); // распечатаем руки у игроков ранг и ставки
-
             for (Player player : playerList) {
-
                 bank += player.chipsInPot(player.bet());
             }
-
             System.out.println("Общий банк равен" + bank);
-
             streetFlop(deck);
             streetTern(deck);
             streetRiver(deck);
-
             System.out.println();
-
             allStreets(deck);
-
-
             determinationHandsPLayer();
-
-
             int winner = winner();
-
             System.out.println("победил игрок" + winner);
-
-
             chipsToWinner(winner, bank);
-
             printAmountChips();
-
             checkGameOver();
-
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
             if (checkWinner() == true) {// условие победы
@@ -112,21 +72,46 @@ public class GameTable implements Table {
     }
 
 
+    /**
+     * раздать флоп на игровой стол ( 3 карты)
+     * @param deck колода карт
+     */
     public void streetFlop(Deck deck) {
-        System.out.println("Карты флоп :" + deck.getFlop()); // раздать флоп
+        if (deck == null) {
+            throw new SecurityException("Missing deck");
+        }
+        System.out.println("Карты флоп :" + deck.getFlop());
     }
 
 
+    /**
+     * раздать терн на игровой стол (1 карта)
+     * @param deck
+     */
     public void streetTern(Deck deck) {
+        if (deck == null) {
+            throw new SecurityException("Missing deck");
+        }
         System.out.println("Карты терн :" + deck.getTern()); // раздать терн
     }
 
+
+    /**
+     * раздать ривер на игровой стол (1 карта)
+     * @param deck
+     */
     public void streetRiver(Deck deck) {
+        if (deck == null) {
+            throw new SecurityException("Missing deck");
+        }
         System.out.println("Карты ривер :" + deck.getRiver()); // раздать ривер
     }
 
 
     public void allStreets(Deck deck) {
+        if (deck == null) {
+            throw new SecurityException("Missing deck");
+        }
         System.out.println("ОБЩИЕ КАРТЫ : " + deck.commonCards());
     }
 
@@ -162,14 +147,12 @@ public class GameTable implements Table {
      * @param bank
      */
     private void chipsToWinner(int id, int bank) {
-        // TODO попробуй заменить на STREAM  все такие методы 
+        if((id<1)&&(bank<0)) throw new IllegalArgumentException("bad");
         for (Player player : playerList) {
             if (player.getId() == id) {
                 player.setChips(player.getChips() + bank);
             }
         }
-
-
     }
 
 
@@ -195,20 +178,22 @@ public class GameTable implements Table {
      * определяем победителя раздачи
      */
     private int winner() {
-
+        int id = -1;
         List<Integer> players = new ArrayList<>();
         for (Player player : playerList) {
             players.add(player.getStrongHand());
         }
-
-        //TODO определение MAX силы руки в отдельный метод сделать
         Integer max = Collections.max(players); // у кого самая сильная рука
-        for (Player player : playerList) {
-            player.setWin(false);
-            if (player.getStrongHand() == max) {
-                player.setWin(true);
-            }
-        }
+        powerMAX(max);
+        id = winnerId();
+        return id;
+    }
+
+
+    /**
+     * @return id победителя в раздаче
+     */
+    private int winnerId() {
         int id = 0;
         for (Player player : playerList) {
             if (player.isWin() == true) {
@@ -219,6 +204,20 @@ public class GameTable implements Table {
     }
 
 
+    /**
+     * метод определяет сильнешего игрока в раздаче
+     *
+     * @param max
+     */
+    private void powerMAX(int max) {
+        if (max < 0) throw new IllegalArgumentException("unknown number: "+ max);
+        for (Player player : playerList) {
+            player.setWin(false);
+            if (player.getStrongHand() == max) {
+                player.setWin(true);
+            }
+        }
+    }
 
 
     private void init() {
@@ -230,7 +229,6 @@ public class GameTable implements Table {
             System.out.println(deck.toString());
             deck = null;
         }
-
     }
 
     private void printHandsPlayer() {
@@ -247,11 +245,11 @@ public class GameTable implements Table {
     }
 
 
-    public boolean isWin() {
+    private boolean isWin() {
         return win;
     }
 
-    public void setWin(boolean win) {
+    private void setWin(boolean win) {
         this.win = win;
     }
 }

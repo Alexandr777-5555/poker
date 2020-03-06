@@ -20,9 +20,6 @@ public class BeanCounter implements BeanFactoryPostProcessor {
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory factory) throws BeansException {
-
         LOGGER.info("Bean count " + factory.getBeanDefinitionCount() );
-
-
     }
 }

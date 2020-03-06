@@ -1,8 +1,8 @@
-package ps;
+package ps.model.deckIMPL;
 
 
-import org.springframework.stereotype.Component;
-import ps.qualifiers.DeskAnnotation;
+import ps.exceptions.CardsException;
+import ps.model.Deck;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.Collections;
 /**
  * колода карт 4х13
  */
-@Component
+//@Component
 //@DeskAnnotation
 public class CardsDeck implements Deck {
 
@@ -28,6 +28,22 @@ public class CardsDeck implements Deck {
     }
 
 
+    /**
+     * получить карту по индексу
+     * @param index
+     * @return
+     */
+    public String getCard(int index) {
+
+        for (int i = 0; i < deck.length; i++) {
+            if (deck[i] == deck[index]) {
+                return deck[i];
+            }
+        }
+        return "";
+    }
+
+
     @Override
     public void print() {
         for (String card : deck) {
@@ -36,32 +52,34 @@ public class CardsDeck implements Deck {
     }
 
 
-    @Override
-    public String getCards1Player() {
-        String card1 = deck[0];
-        String card2 = deck[1];
-        String player = card1 + card2;
+    /**
+     * получить из массива карты для игрока
+     * @param id
+     * @return
+     */
+    public String getCardsPlayer(int id){
+        if(id<0) throw new CardsException("id игрока должно быть больше нуля ");
+        String player ="empty";
+        String card1 = "null";
+        String card2 = "null";
 
-        return splitsSpace(player);
-    }
-
-    @Override
-    public String getCards2Player() {
-
-        String card1 = deck[2];
-        String card2 = deck[3];
-        String player = card1 + card2;
-        return splitsSpace(player);
-    }
-
-
-    @Override
-    public String getCards3Player() {
-
-        String card1 = deck[4];
-        String card2 = deck[5];
-        String player = card1 + card2;
-
+        switch(id){
+            case 1:
+                 card1 = deck[0];
+                 card2 = deck[1];
+                player = card1 + card2;
+                break;
+            case 2:
+                card1 = deck[2];
+                card2 = deck[3];
+                player = card1 + card2;
+                break;
+            case 3:
+                card1 = deck[4];
+                card2 = deck[5];
+                player = card1 + card2;
+                break;
+        }
         return splitsSpace(player);
     }
 
@@ -78,7 +96,6 @@ public class CardsDeck implements Deck {
         String player = card19 + card20 + card21;
 
         return splitsSpace(player);
-
     }
 
 
@@ -102,7 +119,7 @@ public class CardsDeck implements Deck {
         return splitsSpace(card23);
     }
 
-    private String splitsSpace(String card) {
+    public static String splitsSpace(String card) {
         String cards = card.replaceAll("(.{2})", "$1 "); //разделяет пробел
         return cards;
     }
@@ -119,7 +136,6 @@ public class CardsDeck implements Deck {
     }
 
 
-
     /**
      * рука игрока с общими картами
      * @param id
@@ -128,13 +144,13 @@ public class CardsDeck implements Deck {
     public String allHandPlayer(int id) {
         String hand = commonCards(); // общие карты
         if (id == 1) {
-            return hand + getCards1Player();
+            return hand + getCardsPlayer(id);
         }
         if (id == 2) {
-            return hand + getCards2Player();
+            return hand + getCardsPlayer(id);
         }
         if (id == 3) {
-            return hand + getCards3Player();
+            return hand + getCardsPlayer(id);
         }
         return "null";
     }

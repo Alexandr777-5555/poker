@@ -1,4 +1,4 @@
-package ps.evulator;
+package ps.model.evulator;
 
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class HandEvaluator {
     public static int rankHand(String[] hand) {
         int rang = 0;
         ArrayList<Integer> maxHand = new ArrayList<>();
-        Map<Integer, Long> collect = Stream.of(hand) //"2c", "Ah", "4d", "2s", "Kc"
+        Map<Integer, Long> collect = Stream.of(hand)
                 .collect(Collectors.groupingBy(c -> new Card(c).getRank(), Collectors.counting()));
         //collect.forEach((s, count) -> System.out.println(s + " " + count));
         List<Long> valueList = new ArrayList(collect.values());
@@ -45,7 +45,7 @@ public class HandEvaluator {
                 rang = SET;
             }
             if (value > 3) {
-                System.out.println("Карэ 4 карты одного ранга!!!!!");
+                System.out.println("Карэ 4 карты одного ранга");
             }
             maxHand.add(rang);
         }
