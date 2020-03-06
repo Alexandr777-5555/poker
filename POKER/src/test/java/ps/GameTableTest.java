@@ -2,17 +2,16 @@ package ps;
 
 import org.junit.Before;
 import org.junit.Test;
-import ps.model.*;
+import ps.model.Deck;
+import ps.model.Table;
 import ps.model.base.Player;
 import ps.model.deckIMPL.CardsDeck;
-import ps.model.playerIMPL.GamePlayer;
 import ps.model.tableIMPL.GameTable;
-import ps.model.thinkIMPL.Brain;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * тест функциональности игрового стола {@link GameTable}
@@ -29,8 +28,8 @@ public class GameTableTest {
 
        // think=new Brain();
 
-        Player player1 = new GamePlayer(1, 7 );
-        Player player2 = new GamePlayer(2, 6 );
+        Player player1 = new Player(1, 7 );
+        Player player2 = new Player(2, 6 );
 
         players = new ArrayList<>();
         players.add(player1);

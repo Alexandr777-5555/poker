@@ -1,7 +1,6 @@
 package ps.main;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.util.StopWatch;
 import ps.config.PokerConfig;
@@ -34,9 +33,7 @@ public class Main {
         bean.save(player2);
 
         List<Player> list = bean.list();
-        System.out.println("размер" + list.size());
-
-
+        System.out.println("количество : " + list.size());
 
 
     }

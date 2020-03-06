@@ -1,12 +1,14 @@
 package ps.model.tableIMPL;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ps.model.Deck;
 import ps.model.base.Player;
 import ps.model.Table;
 import ps.model.deckIMPL.CardsDeck;
 import ps.model.evulator.HandEvaluator;
 import ps.qualifiers.DeskAnnotation;
+import ps.service.PlayerService;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -21,6 +23,8 @@ public class GameTable implements Table {
     private Deck deck;
     private List<Player> playerList;
     private boolean win;
+    @Autowired
+    private PlayerService service;
 
 
     public GameTable(List<Player> playerList) {
@@ -64,8 +68,17 @@ public class GameTable implements Table {
                 win = true;
                 System.out.println("Выиграл игру игрок ");
                 printAmountChips();
+                winnerWrite();
+
             }
             destroy();
+        }
+    }
+
+
+    private void winnerWrite() {
+        for (Player player : playerList) {
+            service.save(player);
         }
     }
 
@@ -251,6 +264,7 @@ public class GameTable implements Table {
     private void printAmountChips() {
         for (Player player : playerList) {
             System.out.println("у игрока " + player.getId() + " остаток фишек : " + player.getChips());
+
         }
     }
 

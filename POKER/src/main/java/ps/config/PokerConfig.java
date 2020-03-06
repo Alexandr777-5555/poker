@@ -10,7 +10,6 @@ import ps.model.Table;
 import ps.model.Think;
 import ps.model.base.Player;
 import ps.model.deckIMPL.CardsDeck;
-import ps.model.playerIMPL.GamePlayer;
 import ps.model.tableIMPL.GameTable;
 import ps.model.thinkIMPL.Brain;
 
@@ -27,19 +26,19 @@ public class PokerConfig {
 
     @Bean
     public Player player1() {
-        return new GamePlayer(1, 3000 );
+        return new Player(1, 3000 );
     }
 
 
     @Bean
     public Player player2() {
-        return new GamePlayer(2, 3000);
+        return new Player(2, 3000);
     }
 
 
     @Bean
     public Player player3() {
-        return new GamePlayer(3, 3000 );
+        return new Player(3, 3000 );
     }
 
 

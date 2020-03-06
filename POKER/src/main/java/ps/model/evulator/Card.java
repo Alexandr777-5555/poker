@@ -1,6 +1,6 @@
 package ps.model.evulator;
 
-public class Card {
+class Card {
 
     public final static int TWO = 2;
     public final static int THREE = 3;
