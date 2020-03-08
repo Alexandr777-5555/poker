@@ -7,6 +7,7 @@ import ps.config.PokerConfig;
 import ps.counters.Counter;
 import ps.model.Table;
 import ps.model.base.Player;
+import ps.model.tableIMPL.GameTable;
 import ps.service.PlayerService;
 
 import java.util.List;
@@ -34,6 +35,8 @@ public class Main {
 
         List<Player> list = bean.list();
         System.out.println("количество : " + list.size());
+
+
 
 
     }
