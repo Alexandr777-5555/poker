@@ -17,11 +17,22 @@ public class SpringMvcConfig extends WebMvcConfigurationSupport {
 
     @Bean
     public ViewResolver viewResolver(){
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver(); // арбитр представлений
         viewResolver.setPrefix("/WEB-INF/views/"); // /WEB-INF/views/
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
+
+
+
+    @Bean
+    public ViewResolver viewResolver2(){
+        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver(); // арбитр представлений
+        viewResolver.setPrefix("/WEB-INF/views/"); // /WEB-INF/views/
+        viewResolver.setSuffix(".jsp");
+        return viewResolver;
+    }
+
 
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

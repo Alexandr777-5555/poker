@@ -10,6 +10,7 @@ import ps.model.evulator.HandEvaluator;
 import ps.qualifiers.DeskAnnotation;
 import ps.service.PlayerService;
 
+import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -39,6 +40,7 @@ public class GameTable implements Table {
     }
 
     @Override
+    @PostConstruct
     public void game() {
         while (isWin() == false) {  // до победы
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
