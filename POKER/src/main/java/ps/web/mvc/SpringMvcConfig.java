@@ -27,21 +27,11 @@ public class SpringMvcConfig extends WebMvcConfigurationSupport {
     }
 
 
-
-//    @Bean
-//    public ViewResolver viewResolver2(){
-//        TilesViewResolver viewResolver = new TilesViewResolver(); //Apache Tiles
-//        viewResolver.setPrefix("/WEB-INF/views/**/views.xml");
-//        viewResolver.setSuffix(".jsp");
-//        return viewResolver;
-//    }
-
-
-
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
 
 
 }

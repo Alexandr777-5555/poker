@@ -17,8 +17,7 @@ import ps.web.mvc.SpringMvcConfig;
 import static org.mockito.Mockito.mock;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
 /**
@@ -47,10 +46,9 @@ public class HomeControllerTest {
 
         mockMvc.perform(get("/"))
                 .andDo(print())    // выведем детали на экран
-                .andExpect(status().is3xxRedirection())  // статус запроса
-                .andExpect(redirectedUrl("/home"));
-
-
+                .andExpect(status().is2xxSuccessful());  // статус запроса
     }
+
+
 
 }
