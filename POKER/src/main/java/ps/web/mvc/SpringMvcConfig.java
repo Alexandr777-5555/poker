@@ -8,11 +8,14 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @ComponentScan(basePackages = {"ps.web.controller"})
 @EnableWebMvc
 public class SpringMvcConfig extends WebMvcConfigurationSupport {
+
 
 
     @Bean
@@ -25,13 +28,14 @@ public class SpringMvcConfig extends WebMvcConfigurationSupport {
 
 
 
-    @Bean
-    public ViewResolver viewResolver2(){
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver(); // арбитр представлений
-        viewResolver.setPrefix("/WEB-INF/views/"); // /WEB-INF/views/
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-    }
+//    @Bean
+//    public ViewResolver viewResolver2(){
+//        TilesViewResolver viewResolver = new TilesViewResolver(); //Apache Tiles
+//        viewResolver.setPrefix("/WEB-INF/views/**/views.xml");
+//        viewResolver.setSuffix(".jsp");
+//        return viewResolver;
+//    }
+
 
 
     @Override

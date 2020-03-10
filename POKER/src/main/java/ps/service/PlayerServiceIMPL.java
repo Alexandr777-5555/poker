@@ -10,7 +10,7 @@ import ps.repository.PlayerRepository;
 
 import java.util.List;
 
-@Service
+@Service("playerService")
 public class PlayerServiceIMPL implements PlayerService {
 
     @Autowired

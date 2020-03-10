@@ -1,10 +1,13 @@
 package ps.web.controller;
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import ps.model.base.Player;
+import ps.model.base.Players;
 import ps.service.PlayerService;
 
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.List;
 public class PlayerController {
 
     @Autowired
+    @Qualifier("playerService")
     private PlayerService service;
 
 
@@ -22,7 +26,6 @@ public class PlayerController {
         model.put("players" , list);
         return "view_winner";
     }
-
 
 
 }

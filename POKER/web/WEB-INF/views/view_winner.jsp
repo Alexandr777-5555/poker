@@ -16,7 +16,6 @@
  <h4>список победителей</h4>
 
 <c:if test="${not empty players }">
-
       <table border="1">
             <tr>
                 <td>Player id</td>
@@ -31,8 +30,6 @@
       </table>
 </c:if>
 
-
-
-
 </body>
+
 </html>
