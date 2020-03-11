@@ -200,8 +200,8 @@ public class GameTable implements Table {
             players.add(player.getStrongHand());
         }
         Integer max = Collections.max(players); // у кого самая сильная рука
-        powerMAX(max);
-        id = winnerId();
+        findMaxHand(max);
+        id = findWinnerId();
         return id;
     }
 
@@ -209,7 +209,7 @@ public class GameTable implements Table {
     /**
      * @return id победителя в раздаче
      */
-    private int winnerId() {
+    private int findWinnerId() {
         Random random = ThreadLocalRandom.current();
         List<Integer> integers = new ArrayList<>();
         int id = 0;
@@ -235,7 +235,7 @@ public class GameTable implements Table {
      *
      * @param max
      */
-    private void powerMAX(int max) {
+    private void findMaxHand(int max) {
         if (max < 0) throw new IllegalArgumentException("unknown number: " + max);
         for (Player player : playerList) {
             player.setWin(false);

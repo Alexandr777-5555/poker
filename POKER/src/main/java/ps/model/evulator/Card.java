@@ -70,10 +70,12 @@ class Card {
     }
 
     public static int toIndex(int rank, int suit) {
+        if(rank<0 || suit <0) throw new RuntimeException("bad toIndex rank or suit");
         return (NUM_RANKS*suit) + rank;
     }
 
     public Card(String s) {
+        if (s==null || s.isEmpty()) throw new RuntimeException("bad s constructor");
         if (s.length()==2)
             gIndex = chars2index(s.charAt(0),s.charAt(1));
     }

@@ -30,10 +30,12 @@ public class CardsDeck implements Deck {
 
     /**
      * получить карту по индексу
+     *
      * @param index
      * @return
      */
     public String getCard(int index) {
+        if(index <0) throw new CardsException("index length restrictions ") ;
 
         for (int i = 0; i < deck.length; i++) {
             if (deck[i] == deck[index]) {
@@ -54,19 +56,20 @@ public class CardsDeck implements Deck {
 
     /**
      * получить из массива карты для игрока
+     *
      * @param id
      * @return
      */
-    public String getCardsPlayer(int id){
-        if(id<0) throw new CardsException("id игрока должно быть больше нуля ");
-        String player ="empty";
+    public String getCardsPlayer(int id) {
+        if (id < 0) throw new CardsException("id игрока должно быть больше нуля ");
+        String player = "empty";
         String card1 = "null";
         String card2 = "null";
 
-        switch(id){
+        switch (id) {
             case 1:
-                 card1 = deck[0];
-                 card2 = deck[1];
+                card1 = deck[0];
+                card2 = deck[1];
                 player = card1 + card2;
                 break;
             case 2:
@@ -120,6 +123,7 @@ public class CardsDeck implements Deck {
     }
 
     public static String splitsSpace(String card) {
+        if (card == null || card.isEmpty()) throw new RuntimeException("parameter is empty or null");
         String cards = card.replaceAll("(.{2})", "$1 "); //разделяет пробел
         return cards;
     }
@@ -138,10 +142,12 @@ public class CardsDeck implements Deck {
 
     /**
      * рука игрока с общими картами
+     *
      * @param id
      * @return
      */
     public String allHandPlayer(int id) {
+        if(id<1) throw new CardsException("id length restrictions ");
         String hand = commonCards(); // общие карты
         if (id == 1) {
             return hand + getCardsPlayer(id);
@@ -160,10 +166,10 @@ public class CardsDeck implements Deck {
      * приводит строку к массиву строк
      *
      * @param str
-     * @return
-     * @throws NumberFormatException
+     * @return     *
      */
-    public static String[] valueOf(String str) throws NumberFormatException {
+    public static String[] valueOf(String str) {
+        if(str==null || str.isEmpty())  throw new RuntimeException("parameter is empty or null");
         String[] subStr = str.split(" ");
         return subStr;
 
