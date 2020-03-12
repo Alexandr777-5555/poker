@@ -40,7 +40,7 @@ public class GameTable implements Table {
     }
 
     @Override
-    @PostConstruct
+ //   @PostConstruct
     public void game() {
         while (isWin() == false) {  // до победы
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
