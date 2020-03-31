@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
     <title>POKER STAT</title>
@@ -14,10 +16,10 @@
 
 <h3>МЕНЮ</h3>
 
-<li><h2><a href="view_winner">посмотреть победителя</a></h2></li>
+<li><h3><a href="view_winner">посмотреть победителя</a></h3></li>
 
 
-<form id="card" action="/" method="get" target="_blank">
+<form id="card" action="aaa" method="post" target="_blank">
     <div class="buttons_box">
         <button id="playgame" type="button" class="btn btn-default btn-lg active">
             play game
@@ -26,6 +28,11 @@
 </form>
 
 
+<form method="post" >
+
+<input type="submit" name="action-button" value="Russian"/>
+
+</form>
 
 </body>
 </html>

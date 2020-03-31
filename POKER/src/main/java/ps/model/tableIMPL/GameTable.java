@@ -40,7 +40,7 @@ public class GameTable implements Table {
     }
 
     @Override
- //   @PostConstruct
+    //   @PostConstruct
     public void game() {
         while (isWin() == false) {  // до победы
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
@@ -140,6 +140,20 @@ public class GameTable implements Table {
                 playerList.remove(i);
             }
         }
+    }
+
+    @Override
+    public Player getWinPlayer() {
+        //TODO ПРОВЕРИТЬ
+        for (int i = 0; i < playerList.size(); i++) {
+
+        }
+
+        if (playerList.size() == 1) {
+            return playerList.get(0);
+        }
+// TODO вместо null надо что то возвращать ! это неправильно!!!
+        return null;
     }
 
 
@@ -278,4 +292,6 @@ public class GameTable implements Table {
     private void setWin(boolean win) {
         this.win = win;
     }
+
+
 }

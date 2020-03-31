@@ -1,5 +1,7 @@
 package ps.model;
 
+import ps.model.base.Player;
+
 public interface Table {
 
 
@@ -18,4 +20,9 @@ public interface Table {
      * метод проверяет окончания  игры игрока
      */
     void checkGameOver();
+
+
+    Player getWinPlayer();
+
+
 }
