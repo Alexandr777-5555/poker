@@ -1,4 +1,4 @@
-package ps.exceptions;
+package ps.model.exceptions;
 
 public class CardsException extends RuntimeException{
     public CardsException() {

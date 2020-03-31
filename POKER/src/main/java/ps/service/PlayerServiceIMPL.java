@@ -3,9 +3,7 @@ package ps.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ps.model.Table;
 import ps.model.base.Player;
-import ps.model.tableIMPL.GameTable;
 import ps.repository.PlayerRepository;
 
 import java.util.List;

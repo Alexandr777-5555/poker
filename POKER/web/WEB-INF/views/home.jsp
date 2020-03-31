@@ -19,18 +19,9 @@
 <li><h3><a href="view_winner">посмотреть победителя</a></h3></li>
 
 
-<form id="card" action="aaa" method="post" target="_blank">
-    <div class="buttons_box">
-        <button id="playgame" type="button" class="btn btn-default btn-lg active">
-            play game
-        </button>
-    </div>
-</form>
-
-
 <form method="post" >
 
-<input type="submit" name="action-button" value="Russian"/>
+<input type="submit" name="action-button" value="выполнить задачу"/>
 
 </form>
 

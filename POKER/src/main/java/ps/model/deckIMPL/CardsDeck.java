@@ -1,7 +1,7 @@
 package ps.model.deckIMPL;
 
 
-import ps.exceptions.CardsException;
+import ps.model.exceptions.CardsException;
 import ps.model.Deck;
 
 import java.util.Arrays;
