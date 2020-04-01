@@ -10,5 +10,9 @@ public interface PlayerService {
 
     public List<Player> list();
 
+    public List<Player> queryId(int id);
+
+
+
 
 }

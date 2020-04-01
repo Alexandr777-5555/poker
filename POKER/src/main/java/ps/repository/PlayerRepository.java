@@ -19,4 +19,7 @@ public interface PlayerRepository {
      */
     List<Player> findAll();
 
+
+    List<Player> listForId(int id);
+
 }

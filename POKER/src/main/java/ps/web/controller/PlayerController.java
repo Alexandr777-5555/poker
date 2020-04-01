@@ -18,12 +18,14 @@ public class PlayerController {
     private PlayerService service;
 
 
-     @GetMapping("/view_winner")
+     @GetMapping("/view_winners")
     public String all(ModelMap model) {
         List<Player> list=service.list();
         model.put("players" , list);
-        return "view_winner";
+        return "view_winners";
     }
+
+
 
 
 

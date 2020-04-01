@@ -21,9 +21,21 @@ public class HibernatePlayerRepo implements PlayerRepository {
         return (int) sessionFactory.getCurrentSession().save(player);
     }
 
+
+
     @Override
     public List<Player> findAll() {
         return  sessionFactory.getCurrentSession().createQuery("FROM Player").list();
     }
+
+    @Override
+    public List<Player> listForId(int id) {
+
+        return sessionFactory
+                .getCurrentSession()
+                .createQuery("FROM Player WHERE id= "+id).list();
+    }
+
+
 }
 

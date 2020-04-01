@@ -16,7 +16,10 @@
 
 <h3>МЕНЮ</h3>
 
-<li><h3><a href="view_winner">посмотреть победителя</a></h3></li>
+<li><h3><a href="view_winners">посмотреть список победителя</a></h3></li>
+<br>
+<br>
+<li><h3><a href="view_winner_id">посмотреть победителя по id</a></h3></li>
 
 
 <form method="post" >
