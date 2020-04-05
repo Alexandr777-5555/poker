@@ -18,14 +18,21 @@ public class HibernatePlayerRepo implements PlayerRepository {
 
     @Override
     public int save(Player player) {
-        return (int) sessionFactory.getCurrentSession().save(player);
+
+        return (int) sessionFactory
+                .getCurrentSession()
+                .save(player);
     }
 
 
 
     @Override
     public List<Player> findAll() {
-        return  sessionFactory.getCurrentSession().createQuery("FROM Player").list();
+        return
+                sessionFactory
+                        .getCurrentSession()
+                        .createQuery("FROM Player")
+                        .list();
     }
 
     @Override
@@ -33,7 +40,8 @@ public class HibernatePlayerRepo implements PlayerRepository {
 
         return sessionFactory
                 .getCurrentSession()
-                .createQuery("FROM Player WHERE id= "+id).list();
+                .createQuery("FROM Player WHERE id= "+id)
+                .list();
     }
 
 

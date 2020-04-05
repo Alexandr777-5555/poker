@@ -12,6 +12,8 @@ import ps.model.base.Player;
 import ps.model.deckIMPL.CardsDeck;
 import ps.model.tableIMPL.GameTable;
 import ps.model.thinkIMPL.Brain;
+import ps.service.Game;
+import ps.service.GameService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,17 +21,16 @@ import java.util.List;
 
 @Configuration
 @EnableAspectJAutoProxy // включаем автоматическое проксирование
-@Import({InfrastructureConfig.class })
+@Import({InfrastructureConfig.class})
 @ComponentScan(basePackages = {"ps"})
 
 public class PokerConfig {
 
 
-
     @Bean
     @Scope(value = "prototype")
     public Player player1() {
-        return new Player(1, 3000 );
+        return new Player(1, 3000);
     }
 
 
@@ -43,7 +44,7 @@ public class PokerConfig {
     @Bean
     @Scope(value = "prototype")
     public Player player3() {
-        return new Player(3, 3000 );
+        return new Player(3, 3000);
     }
 
 
@@ -54,7 +55,7 @@ public class PokerConfig {
     }
 
 
-    @Bean(name = "table" )
+    @Bean(name = "table")
     @Scope(value = "prototype")
     public Table table() {
         return new GameTable(list());
@@ -84,10 +85,16 @@ public class PokerConfig {
     }
 
     @Bean
-    public MethodCounterAspect counterAspect(){
+    public MethodCounterAspect counterAspect() {
         return new MethodCounterAspect();
     }
 
+
+    @Bean
+    @Scope("prototype")
+    public Game game() {
+        return new GameService();
+    }
 
 
 

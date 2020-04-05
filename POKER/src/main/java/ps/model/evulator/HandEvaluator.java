@@ -1,6 +1,9 @@
 package ps.model.evulator;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,6 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class HandEvaluator {
+
+    private static final Logger log = LoggerFactory.getLogger(HandEvaluator.class);
 
     private static final int HIGH = 1;
     private static final int PAIR = 2;
@@ -45,7 +50,7 @@ public class HandEvaluator {
                 rang = SET;
             }
             if (value > 3) {
-                System.out.println("Карэ 4 карты одного ранга");
+                log.info("Карэ 4 карты одного ранга");
             }
             maxHand.add(rang);
         }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import ps.model.Table;
+import ps.service.Game;
 
 import java.util.concurrent.Callable;
 
@@ -19,7 +20,7 @@ public class HomeController {
 
     @Autowired
     @Lazy
-    private Table table;
+    private Game gameService;
 
     @GetMapping(value = "/")
     public String home() {
@@ -31,8 +32,7 @@ public class HomeController {
     public Callable<String> doIt() {
         log.info("задача создана");
         return () -> {
-            // Delayer.randomDelay();
-            table.game();
+            gameService.play();
             return "home";
         };
     }

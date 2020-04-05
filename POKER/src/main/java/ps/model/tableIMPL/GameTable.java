@@ -1,16 +1,17 @@
 package ps.model.tableIMPL;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import ps.model.Deck;
-import ps.model.base.Player;
 import ps.model.Table;
+import ps.model.base.Player;
 import ps.model.deckIMPL.CardsDeck;
 import ps.model.evulator.HandEvaluator;
 import ps.qualifiers.DeskAnnotation;
 import ps.service.PlayerService;
 
-import javax.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -19,6 +20,9 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 
 public class GameTable implements Table {
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
 
     @DeskAnnotation
     private Deck deck;
@@ -52,7 +56,7 @@ public class GameTable implements Table {
             for (Player player : playerList) {
                 bank += player.chipsInPot(player.bet());
             }
-            System.out.println("Общий банк равен" + bank);
+            log.info("Общий банк равен" + bank);
             streetFlop(deck);
             streetTern(deck);
             streetRiver(deck);
@@ -60,7 +64,7 @@ public class GameTable implements Table {
             allStreets(deck);
             determinationHandsPLayer();
             int winner = winner();
-            System.out.println("победил игрок" + winner);
+            log.info("победил игрок" + winner);
             chipsToWinner(winner, bank);
             printAmountChips();
             checkGameOver();
@@ -68,10 +72,9 @@ public class GameTable implements Table {
 
             if (checkWinner() == true) {// условие победы
                 win = true;
-                System.out.println("Выиграл игру игрок ");
+                log.info("Выиграл игру игрок ");
                 printAmountChips();
                 winnerWrite();
-
             }
             destroy();
         }
@@ -94,7 +97,7 @@ public class GameTable implements Table {
         if (deck == null) {
             throw new SecurityException("Missing deck");
         }
-        System.out.println("Карты флоп :" + deck.getFlop());
+        log.info("Карты флоп :" + deck.getFlop());
     }
 
 
@@ -107,7 +110,7 @@ public class GameTable implements Table {
         if (deck == null) {
             throw new SecurityException("Missing deck");
         }
-        System.out.println("Карты терн :" + deck.getTern()); // раздать терн
+        log.info("Карты терн :" + deck.getTern()); // раздать терн
     }
 
 
@@ -120,7 +123,7 @@ public class GameTable implements Table {
         if (deck == null) {
             throw new SecurityException("Missing deck");
         }
-        System.out.println("Карты ривер :" + deck.getRiver()); // раздать ривер
+        log.info("Карты ривер :" + deck.getRiver()); // раздать ривер
     }
 
 
@@ -128,7 +131,7 @@ public class GameTable implements Table {
         if (deck == null) {
             throw new SecurityException("Missing deck");
         }
-        System.out.println("ОБЩИЕ КАРТЫ : " + deck.commonCards());
+        log.info("ОБЩИЕ КАРТЫ : " + deck.commonCards());
     }
 
     /**
@@ -144,11 +147,6 @@ public class GameTable implements Table {
 
     @Override
     public Player getWinPlayer() {
-        //TODO ПРОВЕРИТЬ
-        for (int i = 0; i < playerList.size(); i++) {
-
-        }
-
         if (playerList.size() == 1) {
             return playerList.get(0);
         }
@@ -231,14 +229,14 @@ public class GameTable implements Table {
         for (Player player : playerList) {
             if (player.isWin() == true) {
                 id = player.getId();
-                System.out.println("победитель в раздаче " + player.getId());
+                log.info("победитель в раздаче " + player.getId());
                 countWin++;
                 integers.add(id);
             }
         }
         if (countWin > 1) {
-            System.out.println("победителей " + countWin);
-            System.out.println("поэтому определяем случайным образом");
+            log.info("победителей " + countWin);
+            log.info("поэтому определяем случайным образом");
             id = integers.get(random.nextInt(integers.size()));
         }
         return id;
@@ -272,14 +270,14 @@ public class GameTable implements Table {
 
     private void printHandsPlayer() {
         for (Player player : playerList) {
-            System.out.println("рука " + player.getHand() + " у игрока " + player.getId() + " ранг " + player.rangHand() + "ставка " + player.bet());
+            log.info("рука " + player.getHand() + " у игрока " + player.getId() + " ранг " + player.rangHand() + "ставка " + player.bet());
         }
     }
 
 
     private void printAmountChips() {
         for (Player player : playerList) {
-            System.out.println("у игрока " + player.getId() + " остаток фишек : " + player.getChips());
+            log.info("у игрока " + player.getId() + " остаток фишек : " + player.getChips());
 
         }
     }

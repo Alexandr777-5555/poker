@@ -19,4 +19,10 @@ public class SpringApplicationInitializer extends AbstractAnnotationConfigDispat
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
+
+    @Override
+    protected boolean isAsyncSupported() {
+        return true;
+    }
 }
