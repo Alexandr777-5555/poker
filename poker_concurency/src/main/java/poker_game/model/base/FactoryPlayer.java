@@ -21,7 +21,7 @@ public class FactoryPlayer {
      * @param scheme схема игры -> есть A , B, C
      * @return
      */
-    public static Player createPlayer(int id, int chips , char  scheme){
+    public static Player createPlayer(int id, int chips , String  scheme){
 
         if(id<1) throw new IllegalArgumentException("unknown id ");
         if(chips<1) throw new IllegalArgumentException("unknown chips ");
@@ -38,6 +38,9 @@ public class FactoryPlayer {
             log.info("create Player C");
             return new PlayerC(id, chips, new ThinkC());
         }
+
+
+
         throw new IllegalArgumentException("unknown player");
     }
 
