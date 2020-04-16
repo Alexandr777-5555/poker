@@ -28,7 +28,7 @@ public abstract class Player {
 
     /**
      * мозг игрока , принимает решения в зависимости
-     * от условий
+     * от условий  ( по какой  схеме играет игрок )
      */
     private Think think;
 
@@ -40,6 +40,12 @@ public abstract class Player {
         this.chips = chips;
         this.think = think;
     }
+
+
+
+
+
+
 
 
 

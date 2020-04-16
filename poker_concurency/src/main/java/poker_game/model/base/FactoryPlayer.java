@@ -22,10 +22,7 @@ public class FactoryPlayer {
      * @return
      */
     public static Player createPlayer(int id, int chips , String  scheme){
-
-        if(id<1) throw new IllegalArgumentException("unknown id ");
-        if(chips<1) throw new IllegalArgumentException("unknown chips ");
-
+        if((id<1)||(chips<1)) throw new IllegalArgumentException("unknown id or chips");
         if("A".equals(scheme)){
             log.info("create Player A");
             return new PlayerA(id, chips, new ThinkA());
@@ -38,9 +35,6 @@ public class FactoryPlayer {
             log.info("create Player C");
             return new PlayerC(id, chips, new ThinkC());
         }
-
-
-
         throw new IllegalArgumentException("unknown player");
     }
 

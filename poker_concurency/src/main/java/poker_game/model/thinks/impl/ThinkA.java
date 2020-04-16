@@ -10,7 +10,7 @@ import poker_game.model.thinks.Think;
 public class ThinkA implements Think {
 
     @Override
-    public int bet(int rang) {
+    public  int bet(int rang) {
         if(rang<1) throw new IllegalArgumentException("Unknown rang");
         int bet = 0;
         if (rang <= 8) {
