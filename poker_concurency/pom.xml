@@ -23,6 +23,10 @@
         <artifactId>slf4j-simple</artifactId>
         <version>1.7.28</version>
     </dependency>
+
+
+
+<!--    тестирование -->
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
