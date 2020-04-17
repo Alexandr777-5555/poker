@@ -64,7 +64,7 @@ public class HandEvaluator {
      *
      * @return
      */
-    public int determiningCardRank(String hand) {
+    public static int determiningCardRank(String hand) {
 
         int rang;
         String[] s = valueOf(hand);
@@ -72,24 +72,22 @@ public class HandEvaluator {
         char b = s[1].charAt(0);
         int rangCard1 = nominal(b);
         int rangCard2 = nominal(a);
-
         if (rangCard1 == rangCard2) {
             rang = (rangCard1 + rangCard2) + 2; //
         } else {
             rang = (rangCard1 + rangCard2) / 2;
         }
-
         return rang;
     }
 
 
     /**
-     * метод valueOf преобразует строку в массив
+     * метод valueOf преобразует строку в массив c пробелом
      *
      * @param line
      * @return
      */
-    private String[] valueOf(String line) {
+    public static String[] valueOf(String line) {
         if (line.isEmpty())
             throw new IllegalArgumentException("line is empty");
 
@@ -105,7 +103,7 @@ public class HandEvaluator {
      * @param handType
      * @return возвращает число из указанного символа
      */
-    private int nominal(char handType) {
+    public static int nominal(char handType) {
         switch (handType) {
             case '2':
                 return 1;
