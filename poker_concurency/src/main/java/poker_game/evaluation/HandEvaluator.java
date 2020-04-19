@@ -88,7 +88,7 @@ public class HandEvaluator {
      * @return
      */
     public static String[] valueOf(String line) {
-        if (line.isEmpty())
+        if (line.isEmpty() || line==null)
             throw new IllegalArgumentException("line is empty");
 
         String[] arrline = line.split(" ");

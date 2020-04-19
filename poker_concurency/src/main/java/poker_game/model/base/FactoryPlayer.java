@@ -22,7 +22,8 @@ public class FactoryPlayer {
      * @return
      */
     public static Player createPlayer(int id, int chips , String  scheme){
-        if((id<1)||(chips<1)) throw new IllegalArgumentException("unknown id or chips");
+        if(id<1 || chips<1 || scheme.isEmpty() || scheme==null) throw new IllegalArgumentException("unknown id or chips or scheme null");
+
         if("A".equals(scheme)){
             log.info("create Player A");
             return new PlayerA(id, chips, new ThinkA());
