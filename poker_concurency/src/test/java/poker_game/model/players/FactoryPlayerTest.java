@@ -1,8 +1,6 @@
-package poker_game.model.base;
+package poker_game.model.players;
 
 import org.junit.Test;
-import poker_game.model.thinks.Think;
-import poker_game.model.thinks.impl.ThinkB;
 import poker_game.model.thinks.impl.ThinkC;
 
 import static org.junit.Assert.*;

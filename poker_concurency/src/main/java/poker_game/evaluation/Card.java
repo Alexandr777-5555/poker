@@ -25,7 +25,11 @@ class Card {
     public final static int NUM_RANKS = 13;  // по 13 карт каждой
     public final static int NUM_CARDS = 52;  // количеств карт 52
 
-    private int gIndex; // у каждой карты свой индекс
+    /**
+     * индекс карты
+     *
+     */
+    private int gIndex;
 
     public Card(char rank, char suit) {
         gIndex = chars2index(rank,suit);

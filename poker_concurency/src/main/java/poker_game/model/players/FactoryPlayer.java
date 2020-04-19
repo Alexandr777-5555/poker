@@ -1,4 +1,4 @@
-package poker_game.model.base;
+package poker_game.model.players;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

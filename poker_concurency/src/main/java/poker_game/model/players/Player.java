@@ -1,4 +1,4 @@
-package poker_game.model.base;
+package poker_game.model.players;
 
 
 import poker_game.model.thinks.Think;
