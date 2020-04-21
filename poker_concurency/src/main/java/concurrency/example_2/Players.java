@@ -1,21 +1,19 @@
-package concurrency.example_1;
+package concurrency.example_2;
 
-
-import concurrency.annotation.NotThreadSafe;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-@NotThreadSafe
 public class Players {
 
     private List<Player> list;
 
     public Players() {
-        list=new ArrayList<>();
+        list= Collections.synchronizedList(new ArrayList<Player>());
     }
 
-    public void add(Player player){
+    public synchronized void add(Player player){
         if (!list.contains(player)){
             list.add(player);
         }
