@@ -3,6 +3,8 @@ package poker_game.model.place;
 
 import poker_game.model.players.Player;
 
+import java.util.List;
+
 /**
  *
  * класс представляет собой игральный стол , за которым
@@ -15,9 +17,15 @@ import poker_game.model.players.Player;
 
 public class GameTable implements Table {
 
-    //TODO внутренние объекты стола колода
-    // карт и банк POT их надо сделать так что бы наружу их не было видно вобще!!!
-    // для колоды карт также создать фабрику!!!
+
+    /**
+     * колода карт
+     */
+    private Deck deckOfCards;
+
+    private List<Player> players;
+
+
 
 
 

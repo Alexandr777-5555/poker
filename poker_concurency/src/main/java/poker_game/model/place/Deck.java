@@ -1,4 +1,4 @@
-package poker_game.model.place.cards;
+package poker_game.model.place;
 
 
 

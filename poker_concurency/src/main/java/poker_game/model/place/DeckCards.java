@@ -1,8 +1,7 @@
 package poker_game.model.place;
 
-import poker_game.model.place.cards.Deck;
 
-public class DeckCards implements Deck {
+class DeckCards implements Deck {
 
     // колода карт
     private  String[] deck ;
