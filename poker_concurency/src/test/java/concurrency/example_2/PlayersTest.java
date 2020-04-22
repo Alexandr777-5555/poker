@@ -30,11 +30,14 @@ public class PlayersTest {
         players.add(player1);
         Player player2 = new Player(2, "NATI");
 
+        Player player3 = new Player(2, "Maria");
+
 
         for (int i = 0; i < threadCount; i++) {
             future.add(service.submit(() -> {
                         players.add(player2);
-                        players2.add(player1);
+                        players.getList();
+                        players2.add(player3);
                     }
             ));
         }
