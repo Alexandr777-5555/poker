@@ -21,7 +21,7 @@ public class FactoryPlayer {
      * @param scheme схема игры -> есть A , B, C
      * @return
      */
-    public static Player createPlayer(int id, int chips , String  scheme){
+    public  Player createPlayer(int id, int chips , String  scheme){
         if(id<1 || chips<1 || scheme.isEmpty() || scheme==null) throw new IllegalArgumentException("unknown id or chips or scheme null");
 
         if("A".equals(scheme)){
