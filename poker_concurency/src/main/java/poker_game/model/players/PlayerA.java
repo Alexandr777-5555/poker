@@ -17,7 +17,10 @@ public class PlayerA extends Player {
 
 
 
-    public PlayerA(int id, int chips, Think think) {
+
+
+
+    public PlayerA( int id, int chips, Think think) {
         super(id, chips, think);
     }
 

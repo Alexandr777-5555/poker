@@ -8,12 +8,12 @@ public abstract class Player {
     /**
      * id игрока
      */
-    private  int id;
+    private   int id;
 
     /**
      * количество фишек у игрока
      */
-    private int chips;
+    private  int chips;
 
     /**
      * рука (2 карманные карты) у игрока
@@ -30,10 +30,13 @@ public abstract class Player {
      * мозг игрока , принимает решения в зависимости
      * от условий  ( по какой  схеме играет игрок )
      */
-    private Think think;
+    private  Think think;
 
     public Player() {
     }
+
+
+
 
     public Player(int id, int chips, Think think) {
         this.id = id;
