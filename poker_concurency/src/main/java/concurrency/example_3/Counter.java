@@ -10,6 +10,7 @@ public  class Counter {
 
     public synchronized long getValue() {
         return value;
+
     }
 
     public synchronized long increment() {

@@ -17,10 +17,10 @@ public class PlayersTest {
 
 
     /**
-     * тест игнорирую он так и должен не выполнятся
+     * тест игнорирую он так и должен НЕ выполнятся
      */
     @Test
-    //@Ignore
+    @Ignore
     public void add() throws InterruptedException {
         ExecutorService service= Executors.newCachedThreadPool();
         int threadCount=500;
