@@ -20,8 +20,8 @@ public class PlayersTest {
      * тест игнорирую он так и должен не выполнятся
      */
     @Test
-    @Ignore
-    public void add() {
+    //@Ignore
+    public void add() throws InterruptedException {
         ExecutorService service= Executors.newCachedThreadPool();
         int threadCount=500;
 
@@ -36,6 +36,8 @@ public class PlayersTest {
                     }
             ));
         }
+
+        Thread.sleep(5000);
         assertEquals(2 , players.getList().size());
     }
 }

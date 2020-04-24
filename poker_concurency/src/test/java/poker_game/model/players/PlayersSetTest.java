@@ -15,11 +15,10 @@ import static org.junit.Assert.*;
 
 
 /**
- * TODO 23/04/2020 тесты CRASH скорее всего из за того что объект Player не потокобезопасен ссылка убигает
  *
  *
  */
-@Ignore
+
 public class PlayersSetTest {
 
 
@@ -33,7 +32,7 @@ public class PlayersSetTest {
 
 
     @Test
-    public void add() {
+    public void add() throws InterruptedException {
 
         ExecutorService service=Executors.newCachedThreadPool();
         Player player1 = factoryPlayer.createPlayer(1, 1500, "A");
@@ -51,13 +50,15 @@ public class PlayersSetTest {
                     }
             ));
         }
+
+        Thread.sleep(5000);
         assertEquals(3, set.getPlayers().size());
         service.shutdown();
     }
 
 
     @Test
-    public void delete() {
+    public void delete() throws InterruptedException {
 
         ExecutorService service=Executors.newCachedThreadPool();
         Player player1 = factoryPlayer.createPlayer(1, 1500, "A");
@@ -75,6 +76,7 @@ public class PlayersSetTest {
                     }
             ));
         }
+        Thread.sleep(5000);
         assertEquals(1 , set.getPlayers().size());
         service.shutdown();
     }
