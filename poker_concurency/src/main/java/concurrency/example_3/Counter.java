@@ -6,6 +6,8 @@ import concurrency.annotation.ThreadSafe;
 @ThreadSafe
 public  class Counter {
 
+
+
     private long value = 0;
 
     public synchronized long getValue() {
