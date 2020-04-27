@@ -13,15 +13,22 @@ public class GameTable implements Table {
     private List<Player> playerList;
 
     public GameTable() {
-        playerList= Collections.synchronizedList(new ArrayList<Player>());
+        playerList = Collections.synchronizedList(new ArrayList<Player>());
     }
 
-    public void addPlayer(Player player){
-       synchronized (playerList){
-           if(!playerList.contains(player)){
-               playerList.add(player);
-           }
-       }
+
+    @Override
+    public void addPlayer(Player player) {
+        synchronized (playerList) {
+            if (!playerList.contains(player)) {
+                playerList.add(player);
+            }
+        }
+    }
+
+    @Override
+    public List<Player> getPlayerList() {
+        return playerList;
     }
 
     @Override
