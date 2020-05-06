@@ -33,6 +33,7 @@ public class GameTable implements Table {
 
 
     public GameTable(List<Player> playerList) {
+
         this.playerList = Objects.requireNonNull(playerList, "null");
     }
 
