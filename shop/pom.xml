@@ -7,6 +7,7 @@
     <groupId>shop</groupId>
     <artifactId>sale-remote</artifactId>
     <version>1.0</version>
+    <packaging>war</packaging>
 
 
     <properties>
