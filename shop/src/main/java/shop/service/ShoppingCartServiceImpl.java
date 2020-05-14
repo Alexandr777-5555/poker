@@ -20,11 +20,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 new Product("Молоко" , 22.35) ,
                 new GregorianCalendar(2020 , 20 ,14 ).getTime()));
 
-
-
-
+        shoppingCarts.add(new ShoppingCart("Natalia" ,
+                new Product("Food" , 45) ,
+                new GregorianCalendar(2020 , 20 ,14 ).getTime()));
 
     }
+
+
 
     @Override
     public List<ShoppingCart> query(String owner) {

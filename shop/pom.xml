@@ -9,12 +9,22 @@
     <version>1.0</version>
 
 
+    <properties>
+        <springframework.version>5.2.3.RELEASE</springframework.version>
+    </properties>
 
 
 
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+
         <!--          логи-->
         <dependency>
             <groupId>org.slf4j</groupId>
