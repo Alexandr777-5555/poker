@@ -24,6 +24,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 new Product("Food" , 45) ,
                 new GregorianCalendar(2020 , 20 ,14 ).getTime()));
 
+
+        shoppingCarts.add(new ShoppingCart("Alexander" ,
+                new Product("Хлеб" , 20.11) ,
+                new GregorianCalendar(2020 , 20 ,15 ).getTime()));
+
+
     }
 
 
