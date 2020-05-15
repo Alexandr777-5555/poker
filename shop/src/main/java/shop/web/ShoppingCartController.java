@@ -23,6 +23,7 @@ public class ShoppingCartController {
     }
 
 
+    @RequestMapping(method = RequestMethod.GET)
     public void defaultForm() {
 
 
