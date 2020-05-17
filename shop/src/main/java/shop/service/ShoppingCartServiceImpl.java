@@ -9,11 +9,9 @@ import java.util.List;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
-
     private List<ShoppingCart> shoppingCarts;
 
     public ShoppingCartServiceImpl() {
-
         shoppingCarts=new ArrayList<>();
 
         shoppingCarts.add(new ShoppingCart("Alexander" ,
@@ -28,15 +26,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCarts.add(new ShoppingCart("Alexander" ,
                 new Product("Хлеб" , 20.11) ,
                 new GregorianCalendar(2020 , 20 ,15 ).getTime()));
-
-
     }
-
-
 
     @Override
     public List<ShoppingCart> query(String owner) {
-
         List<ShoppingCart> result=new ArrayList<>();
         for(ShoppingCart cart:shoppingCarts){
             if(cart.getOwner().equals(owner)){

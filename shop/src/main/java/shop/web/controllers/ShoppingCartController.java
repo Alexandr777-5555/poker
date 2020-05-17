@@ -1,4 +1,4 @@
-package shop.web;
+package shop.web.controllers;
 
 
 import org.springframework.stereotype.Controller;
@@ -25,8 +25,6 @@ public class ShoppingCartController {
 
     @RequestMapping(method = RequestMethod.GET)
     public void defaultForm() {
-
-
     }
 
     @RequestMapping(method = RequestMethod.POST)

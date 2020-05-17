@@ -24,6 +24,7 @@
      <tr>
          <th>Имя пользователя</th>
          <th>Продукт</th>
+         <th>Цена</th>
      </tr>
 
      <c:forEach items="${shopping}" var="shopcart">
@@ -31,6 +32,7 @@
          <tr>
              <td>${shopcart.owner}</td>
              <td>${shopcart.product.name}</td>
+             <td>${shopcart.product.price}</td>
          </tr>
 
      </c:forEach>
