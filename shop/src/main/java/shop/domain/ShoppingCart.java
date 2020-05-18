@@ -1,6 +1,8 @@
 package shop.domain;
 
 
+import shop.domain.products.Product;
+
 import java.util.Date;
 
 /***
@@ -15,7 +17,6 @@ public class ShoppingCart {
     private String owner;
     private Product product;
     private Date date;
-
 
     public ShoppingCart() {
     }
@@ -50,4 +51,6 @@ public class ShoppingCart {
     public void setDate(Date date) {
         this.date = date;
     }
+
+
 }
