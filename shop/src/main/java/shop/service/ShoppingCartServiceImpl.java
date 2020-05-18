@@ -22,7 +22,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 new GregorianCalendar(2020 , 20 ,14 ).getTime()));
 
         shoppingCarts.add(new ShoppingCart("Natalia" ,
-                new Butter("Food" , 45) ,
+                new Butter("Масло" , 45) ,
                 new GregorianCalendar(2020 , 20 ,14 ).getTime()));
 
 
