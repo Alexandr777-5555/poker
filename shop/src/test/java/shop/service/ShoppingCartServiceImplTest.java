@@ -27,4 +27,11 @@ public class ShoppingCartServiceImplTest {
         assertEquals(2 , alexander.size());
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void queryError(){
+        List<ShoppingCart> alexander = cartService.query(null);
+
+    }
+
 }
