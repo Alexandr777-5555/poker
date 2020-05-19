@@ -34,7 +34,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         if (owner==null){
             throw new IllegalArgumentException("this null");
         }
-
         List<ShoppingCart> result = new ArrayList<>();
         for (ShoppingCart cart : shoppingCarts) {
             if (cart.getOwner().equals(owner)) {
@@ -43,6 +42,20 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         }
         return result;
 
+    }
+
+    @Override
+    public double totalValue(String owner) {
+        if (owner==null){
+            throw new IllegalArgumentException("this null");
+        }
+        double amount=0;
+        for (ShoppingCart cart:shoppingCarts){
+            if(cart.getOwner().equals(owner)){
+               amount+=cart.getProduct().getPrice();
+            }
+        }
+        return amount;
     }
 
 
