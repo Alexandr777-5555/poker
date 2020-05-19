@@ -1,9 +1,6 @@
 package shop.service;
 
-import shop.domain.products.Bread;
-import shop.domain.products.Butter;
-import shop.domain.products.Milk;
-import shop.domain.products.Product;
+import shop.domain.products.*;
 import shop.domain.ShoppingCart;
 
 import java.util.ArrayList;
@@ -19,16 +16,16 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCarts = new ArrayList<>();
 
         shoppingCarts.add(new ShoppingCart("Alexander",
-                new Milk("Молоко", 22.35),
+                FactoryProduct.create("молоко", 22.35),
                 new GregorianCalendar(2020, 20, 14).getTime()));
 
         shoppingCarts.add(new ShoppingCart("Natalia",
-                new Butter("Масло", 45),
+                FactoryProduct.create("масло", 45),
                 new GregorianCalendar(2020, 20, 14).getTime()));
 
 
         shoppingCarts.add(new ShoppingCart("Alexander",
-                new Bread("Хлеб", 20.11),
+                FactoryProduct.create("хлеб", 20.11),
                 new GregorianCalendar(2020, 20, 15).getTime()));
     }
 
