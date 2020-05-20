@@ -28,15 +28,17 @@
      </tr>
 
      <c:forEach items="${shopping}" var="shopcart">
-
          <tr>
              <td>${shopcart.owner}</td>
              <td>${shopcart.product.name}</td>
              <td>${shopcart.product.price}</td>
+             <c:set var="amount" value="${amount+shopcart.product.price}"/>
          </tr>
-
      </c:forEach>
  </table>
+<br>
+<br>
+общая стоимость покупок : ${amount}
 
 </body>
 
