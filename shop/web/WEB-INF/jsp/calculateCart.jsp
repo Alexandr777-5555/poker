@@ -12,37 +12,23 @@
 </head>
 <body>
 
-   Подсчет стоимости покупок пользователя:
-   <form method="post">
-       <input type="text" name="calc" value="${calc}"/>
-       <input type="submit" value="найти"/>
-   </form>
+Подсчет стоимости покупок пользователя:
+<form method="post">
+    <input type="text" name="calc" value="${calc}"/>
+    <input type="submit" value="найти"/>
+</form>
 
-   <table border="1" >
-
-       <tr>
-           <th>Имя пользователя</th>
-           <th>общая сумма покупок</th>
-
-       </tr>
-
-<%--       <c:forEach items="${total}" var="calc">--%>
-<%--           <tr>--%>
-<%--               <td>${calc}</td>--%>
-<%--           </tr>--%>
-<%--       </c:forEach>--%>
-
-       <tr>
-           <td>  <p>Name: <%= request.getParameter("calc") %></p></td>
-           <td> ${total}</td>
-       </tr>
-
-
-
-
-   </table>
-
-
+<table border="1">
+    <tr>
+        <th>Имя пользователя</th>
+        <th>общая сумма покупок</th>
+    </tr>
+    <tr>
+        <td><p><%=request.getParameter("calc")%>
+        </p></td>
+        <td> ${total}</td>
+    </tr>
+</table>
 
 </body>
 </html>
