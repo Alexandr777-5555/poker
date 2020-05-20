@@ -13,6 +13,9 @@
 
 
 <a href="shopCart">поиск покупок по держателю карты</a>
+<br>
+<a href="calculateCart">общая стоимость покупок</a>
+
 </body>
 
 </html>
