@@ -1,5 +1,6 @@
 package shop.service;
 
+import org.springframework.stereotype.Component;
 import shop.domain.products.*;
 import shop.domain.ShoppingCart;
 
