@@ -3,10 +3,7 @@ package shop.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import shop.domain.ShoppingCart;
 import shop.service.ShoppingCartService;
 
@@ -24,12 +21,11 @@ public class ShoppingCartController {
     }
 
 
-    //@RequestMapping(method = RequestMethod.GET)
     @GetMapping
     public void defaultForm() {
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public String submitForm(@RequestParam("owner") String owner, Model model) {
         List<ShoppingCart> cartList = Collections.emptyList();
         if (owner != null) {
