@@ -18,7 +18,7 @@
 
  <br>
 
-  <h3>${totalTime}</h3>
+  <h5>${totalTime} mc </h5>
 
 </body>
 
