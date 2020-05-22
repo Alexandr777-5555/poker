@@ -3,10 +3,7 @@ package shop.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import shop.service.ShoppingCartService;
 
 @Controller
@@ -24,8 +21,7 @@ public class CalculateCartController {
     public void defaultForm() {
     }
 
-
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public String submitForm(@RequestParam("calc") String owner, Model model) {
         double totalValue=0;
         if(owner!=null) {
