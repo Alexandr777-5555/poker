@@ -16,6 +16,10 @@
 <br>
 <a href="calculateCart">общая стоимость покупок</a>
 
+ <br>
+
+  <h3>${totalTime}</h3>
+
 </body>
 
 </html>
