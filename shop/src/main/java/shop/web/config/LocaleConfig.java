@@ -5,7 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
+
+import java.util.Locale;
 
 @Configuration
 public class LocaleConfig implements WebMvcConfigurer {
@@ -25,6 +28,17 @@ public class LocaleConfig implements WebMvcConfigurer {
     }
 
 
+    /**
+     * используются Cookie и для смены языка.
+     *  без этого метода язык не сменю
+     */
+    @Bean
+    public CookieLocaleResolver localeResolver() {
+        CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
+        cookieLocaleResolver.setCookieName("language");
+        cookieLocaleResolver.setDefaultLocale(new Locale("ru_Ru")); // язык по умолчанию
+        return cookieLocaleResolver;
+    }
 
 
 }
