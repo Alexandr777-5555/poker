@@ -20,6 +20,8 @@
 
   <h5>${totalTime} mc </h5>
 
+
+  <h5>${pageContext.response.locale}</h5>
 </body>
 
 </html>
