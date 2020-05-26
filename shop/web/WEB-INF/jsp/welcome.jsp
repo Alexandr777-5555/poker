@@ -1,4 +1,5 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page pageEncoding="UTF-8"%>
 <html>
 <head>
@@ -22,6 +23,14 @@
 
 
   <h5>язык отображения  : ${pageContext.response.locale}</h5>
+
+  <h5> <spring:message code=" "  />  : ${pageContext.response.locale}</h5>
+
+
+
+
+
+
 </body>
 
 </html>
