@@ -11,10 +11,11 @@ public class RedirectController {
 
 
     @RequestMapping(value = "/{type:.+}", method = RequestMethod.GET)
-    public ModelAndView getPages(@PathVariable("type") String type)
+    public void getPages(@PathVariable("type") String type)
             throws Exception {
-
         throw new Exception();
     }
+
+
 
 }

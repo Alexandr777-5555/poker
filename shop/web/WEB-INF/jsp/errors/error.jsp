@@ -12,7 +12,9 @@
 </head>
 <body>
 
-  ОШИБКА такой страницы не существует
+ <h3>ERROR THIS PAGE NOT FOUND</h3>
+
+
 
 </body>
 </html>

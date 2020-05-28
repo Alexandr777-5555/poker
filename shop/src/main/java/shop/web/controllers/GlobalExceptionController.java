@@ -16,19 +16,14 @@ public class GlobalExceptionController {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 
-    //@ResponseStatus(value = HttpStatus.NOT_FOUND)
-    // @ExceptionHandler(Exception.class)
-    public void handleException() {
-        // log.info("exeption");
-    }
-
-    //@ResponseStatus(value = HttpStatus.NOT_FOUND)
     @ExceptionHandler(Exception.class)
     public ModelAndView handleAllException(Exception error) {
         ModelAndView model = new ModelAndView("errors/error");
         model.addObject("err" , error.getMessage());
         return model;
     }
+
+
 
 
 }
