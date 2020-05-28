@@ -10,8 +10,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class RedirectController {
 
 
-    @RequestMapping(value = "/{type:.+}", method = RequestMethod.GET)
-    public void getPages(@PathVariable("type") String type)
+    @RequestMapping(value = "/*", method = RequestMethod.GET)
+    public void getPages()
             throws Exception {
         throw new Exception();
     }
