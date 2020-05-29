@@ -16,8 +16,11 @@
 <a href="shopCart">поиск покупок по держателю карты</a>
 <br>
 <a href="calculateCart">общая стоимость покупок</a>
-
  <br>
+<a href="createUser">создание покупателя</a>
+<br>
+
+
 
   <h5>${totalTime} mc </h5>
 
