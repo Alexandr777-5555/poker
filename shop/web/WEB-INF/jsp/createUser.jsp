@@ -14,26 +14,33 @@
 <body>
 
 
-  <form:form method="post" modelAttribute="customer" >
+<form:form method="post" modelAttribute="customer">
 
-      <table>
+    <table>
+        <tr>
+            <td>Имя</td>
+            <td><form:input path="firstName"/></td>
+        </tr>
+        <tr>
+            <td>Фамилия</td>
+            <td><form:input path="lastName"/></td>
 
-          <tr>
-              <td>Имя</td>
-              <td></td>
-
-          </tr>
-
-
-
-      </table>
+        </tr>
+        <tr>
+            <td>Дата рождения</td>
+            <td><form:input path="dateOfBirth"/></td>
+        </tr>
 
 
+        <tr>
+            <td><input type="submit"/> </td>
+
+        </tr>
+
+    </table>
 
 
-
-  </form:form>
-
+</form:form>
 
 
 </body>
