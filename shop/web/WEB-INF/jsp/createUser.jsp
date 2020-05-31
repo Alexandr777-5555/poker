@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: AVDEY
@@ -12,6 +13,26 @@
 </head>
 <body>
 
+
+  <form:form method="post" modelAttribute="customer" >
+
+      <table>
+
+          <tr>
+              <td>Имя</td>
+              <td></td>
+
+          </tr>
+
+
+
+      </table>
+
+
+
+
+
+  </form:form>
 
 
 
