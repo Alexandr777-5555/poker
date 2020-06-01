@@ -15,11 +15,12 @@
 
 
 <form:form method="post" modelAttribute="customer">
-
+    <form:errors path="*" cssClass="error"/>
     <table>
         <tr>
             <td>Имя</td>
             <td><form:input path="firstName"/></td>
+            <td><form:errors path="firstName"/></td>
         </tr>
         <tr>
             <td>Фамилия</td>
