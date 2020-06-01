@@ -1,10 +1,12 @@
 package shop.web.controllers;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import shop.domain.Customer;
@@ -15,18 +17,20 @@ import shop.domain.CustomerValidator;
 @SessionAttributes("customer")
 public class CreateUserController {
 
-  private CustomerValidator validator;
-
-
+    @Autowired
+    private CustomerValidator validator;
 
 
     @GetMapping
     public void setupForm(Model model) {
-       Customer customer=new Customer();
-       model.addAttribute("customer" , customer);
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
     }
 
 
+    public void initBuilder(WebDataBinder binder) {
+        binder.setValidator(validator);
+    }
 
 
     @RequestMapping(method = RequestMethod.POST)
@@ -34,14 +38,14 @@ public class CreateUserController {
             @ModelAttribute("customer") @Validated Customer customer,
             BindingResult result, SessionStatus status) {
 
-       // TODO завтра логику обработки делаю
-       if(result.hasErrors()){
+        // TODO завтра логику обработки делаю
+        if (result.hasErrors()) {
+            return "createUser";
+        }
 
-           return "createUser";
-       }
 
-
-        return "createUser";
+        status.setComplete();
+        return "createUserSuccess";
     }
 
 
