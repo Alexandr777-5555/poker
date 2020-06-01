@@ -12,8 +12,6 @@
     <title>create user</title>
 </head>
 <body>
-
-
 <form:form method="post" modelAttribute="customer">
     <form:errors path="*" cssClass="error"/>
     <table>
@@ -25,24 +23,15 @@
         <tr>
             <td>Фамилия</td>
             <td><form:input path="lastName"/></td>
-
         </tr>
         <tr>
             <td>Дата рождения</td>
             <td><form:input path="dateOfBirth"/></td>
         </tr>
-
-
         <tr>
             <td><input type="submit"/> </td>
-
         </tr>
-
     </table>
-
-
 </form:form>
-
-
 </body>
 </html>
