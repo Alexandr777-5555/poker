@@ -38,16 +38,14 @@ public class CreateUserController {
     public String submitForm(
             @ModelAttribute("customer") @Validated Customer customer,
             BindingResult result, SessionStatus status) {
-
-        // TODO завтра логику обработки делаю
         if (result.hasErrors()) {
             return "createUser";
         }
 
-
         status.setComplete();
         return "createUserSuccess";
     }
+
 
 
 }

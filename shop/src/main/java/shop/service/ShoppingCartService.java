@@ -2,6 +2,7 @@ package shop.service;
 
 import shop.domain.ShoppingCart;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ShoppingCartService {
@@ -14,6 +15,16 @@ public interface ShoppingCartService {
      * @return
      */
     double totalValue(String owner);
+
+    /**
+     *  список корзины покупок по дате
+     * @param date
+     * @return
+     */
+    List<ShoppingCart> findByDate(LocalDate date);
+
+
+
 
 
 

@@ -4,10 +4,12 @@ import org.springframework.stereotype.Component;
 import shop.domain.products.*;
 import shop.domain.ShoppingCart;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
@@ -32,7 +34,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public List<ShoppingCart> query(String owner) {
-        if (owner==null){
+        if (owner == null) {
             throw new IllegalArgumentException("this null");
         }
         List<ShoppingCart> result = new ArrayList<>();
@@ -47,16 +49,24 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Override
     public double totalValue(String owner) {
-        if (owner==null){
+        if (owner == null) {
             throw new IllegalArgumentException("this null");
         }
-        double amount=0;
-        for (ShoppingCart cart:shoppingCarts){
-            if(cart.getOwner().equals(owner)){
-               amount+=cart.getProduct().getPrice();
+        double amount = 0;
+        for (ShoppingCart cart : shoppingCarts) {
+            if (cart.getOwner().equals(owner)) {
+                amount += cart.getProduct().getPrice();
             }
         }
         return amount;
+    }
+
+    @Override
+    public List<ShoppingCart> findByDate(LocalDate date) {
+        return shoppingCarts
+                .stream()
+                .filter(cart -> Objects.equals(cart.getDate(), date))
+                .collect(Collectors.toList());
     }
 
 
