@@ -20,16 +20,16 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
         shoppingCarts.add(new ShoppingCart("Alexander",
                 FactoryProduct.create("молоко", 22.35),
-                new GregorianCalendar(2020, 20, 14).getTime()));
+                LocalDate.of(2020 , 05 , 2)));
 
         shoppingCarts.add(new ShoppingCart("Natalia",
                 FactoryProduct.create("масло", 45),
-                new GregorianCalendar(2020, 20, 14).getTime()));
+                LocalDate.of(2020 , 06 , 2)));
 
 
         shoppingCarts.add(new ShoppingCart("Alexander",
                 FactoryProduct.create("хлеб", 20.11),
-                new GregorianCalendar(2020, 20, 15).getTime()));
+                LocalDate.of(2020 , 06 , 3)));
     }
 
     @Override

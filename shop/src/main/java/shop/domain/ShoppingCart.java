@@ -1,8 +1,10 @@
 package shop.domain;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
 import shop.domain.products.Product;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /***
@@ -16,12 +18,13 @@ public class ShoppingCart {
 
     private String owner;
     private Product product;
-    private Date date;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private LocalDate date;
 
     public ShoppingCart() {
     }
 
-    public ShoppingCart(String owner, Product product, Date date) {
+    public ShoppingCart(String owner, Product product, LocalDate date) {
         this.owner = owner;
         this.product = product;
         this.date = date;
@@ -44,11 +47,11 @@ public class ShoppingCart {
         this.product = product;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
