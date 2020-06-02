@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 
 
 @Component
-public class CustomerValidator  implements Validator {
+public class CustomerValidator implements Validator {
 
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -21,28 +21,27 @@ public class CustomerValidator  implements Validator {
     }
 
 
-
     @Override
     public void validate(Object o, Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName"  ,
-                "firstName is required" , "заполните имя");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "firstName",
+                "firstName is required", "заполните имя");
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName" , "заполните фамилию" ,
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "lastName", "заполните фамилию",
                 "заполните фамилию");
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfBirth" ,
-                "dateOfBirth is required" , "заполните д.р.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "dateOfBirth",
+                "dateOfBirth is required", "заполните д.р.");
 
-
-        Customer customer=(Customer) o;
-
+        Customer customer = (Customer) o;
         String firstName = customer.getFirstName();
-
-        if(firstName.length()<4){
+        int length = firstName.length();
+        if (length<3) {
+            errors.reject("length < 3 chars" , "length < 3 chars");
             log.info("first name " + firstName.length());
-            errors.reject("length < 4 chars" , "length < 4 chars");
         }
+
+
 
     }
 }
