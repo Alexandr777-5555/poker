@@ -18,16 +18,14 @@ import java.util.Map;
 @Configuration
 public class ViewResolverConfig implements WebMvcConfigurer {
 
-
     @Autowired
     private ContentNegotiationManager manager;
 
-
     @Override
     public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-        Map<String, MediaType> mediatypes = new HashMap<>();
-        mediatypes.put("pdf", MediaType.valueOf("application/pdf"));
-        configurer.mediaTypes(mediatypes);
+        Map<String, MediaType> mediaType = new HashMap<>();
+        mediaType.put("pdf", MediaType.valueOf("application/pdf"));
+        configurer.mediaTypes(mediaType);
     }
 
     @Bean
@@ -37,7 +35,6 @@ public class ViewResolverConfig implements WebMvcConfigurer {
         return viewResolver;
     }
 
-
     @Bean
     public ViewResolver pdfViewResolver() {
         ResourceBundleViewResolver viewResolver = new ResourceBundleViewResolver();
@@ -45,6 +42,4 @@ public class ViewResolverConfig implements WebMvcConfigurer {
         viewResolver.setBasename("views");
         return viewResolver;
     }
-
-
 }

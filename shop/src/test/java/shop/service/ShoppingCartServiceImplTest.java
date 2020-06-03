@@ -6,7 +6,7 @@ import shop.domain.ShoppingCart;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * тестируем функциональность класса {@link ShoppingCartServiceImpl}

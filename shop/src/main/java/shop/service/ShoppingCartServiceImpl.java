@@ -17,19 +17,19 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         shoppingCarts = new ArrayList<>();
 
         shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("молоко", 22.35),
+                FactoryProduct.create("milk", 22.35),
                 LocalDate.of(2020 , 05 , 2)));
 
         shoppingCarts.add(new ShoppingCart("Natalia",
-                FactoryProduct.create("масло", 45),
+                FactoryProduct.create("butter", 45),
                 LocalDate.of(2020 , 06 , 2)));
 
         shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("хлеб", 20.11),
+                FactoryProduct.create("bread", 20.11),
                 LocalDate.of(2020 , 06 , 3)));
 
         shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("молоко", 33.50),
+                FactoryProduct.create("milk", 33.50),
                 LocalDate.of(2020 , 05 , 2)));
     }
 

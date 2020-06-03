@@ -43,9 +43,9 @@ public class PdfReport extends AbstractPdfView {
 
 
     private void addTitleDoc(Table table) throws BadElementException {
-        table.addCell("Name");
-        table.addCell("Product");
-        table.addCell("date");
+        table.addCell("NAME");
+        table.addCell("PRODUCT");
+        table.addCell("DATE");
     }
 
 
