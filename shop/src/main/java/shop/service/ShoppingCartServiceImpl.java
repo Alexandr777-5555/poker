@@ -1,12 +1,10 @@
 package shop.service;
 
-import org.springframework.stereotype.Component;
-import shop.domain.products.*;
 import shop.domain.ShoppingCart;
+import shop.domain.products.FactoryProduct;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -26,10 +24,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 FactoryProduct.create("масло", 45),
                 LocalDate.of(2020 , 06 , 2)));
 
-
         shoppingCarts.add(new ShoppingCart("Alexander",
                 FactoryProduct.create("хлеб", 20.11),
                 LocalDate.of(2020 , 06 , 3)));
+
+        shoppingCarts.add(new ShoppingCart("Alexander",
+                FactoryProduct.create("молоко", 33.50),
+                LocalDate.of(2020 , 05 , 2)));
     }
 
     @Override

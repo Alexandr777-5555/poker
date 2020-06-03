@@ -24,7 +24,7 @@ public class ShoppingCartServiceImplTest {
     @Test
     public void query() {
         List<ShoppingCart> alexander = cartService.query("Alexander");
-        assertEquals(2 , alexander.size());
+        assertEquals(3 , alexander.size());
     }
 
 
