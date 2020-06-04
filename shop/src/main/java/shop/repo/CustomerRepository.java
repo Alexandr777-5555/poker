@@ -10,6 +10,6 @@ public interface CustomerRepository {
   Customer add(Customer customer);
   List<Customer> findAll();
   void remove(int id);
-  Customer findOne(int id); 
+  Customer findOne(int id);
 
 }
