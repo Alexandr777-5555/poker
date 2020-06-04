@@ -81,6 +81,12 @@
             <artifactId>spring-jdbc</artifactId>
             <version>5.2.3.RELEASE</version>
         </dependency>
+        <!--         подключаем бд-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.194</version>
+        </dependency>
 
 
     </dependencies>
