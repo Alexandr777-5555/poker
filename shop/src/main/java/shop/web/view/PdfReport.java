@@ -31,6 +31,7 @@ public class PdfReport extends AbstractPdfView {
         for (ShoppingCart cart : cartList) {
             addContent(table, cart);
         }
+        document.addTitle("title");
         document.add(table);
     }
 
