@@ -2,6 +2,7 @@ package shop.repo.jdbc;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Repository;
 import shop.domain.Customer;
 import shop.repo.CustomerRepository;
 
@@ -10,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 
+@Repository
 public class JdbcCustomerRepo implements CustomerRepository {
 
     private final JdbcTemplate jdbc;
