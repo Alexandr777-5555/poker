@@ -41,10 +41,11 @@ public class CreateUserController {
         if (result.hasErrors()) {
             return "createUser";
         }
-
         status.setComplete();
         return "createUserSuccess";
     }
+
+
 
 
 
