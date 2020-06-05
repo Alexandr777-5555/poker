@@ -12,7 +12,6 @@ import org.springframework.validation.Validator;
 @Component
 public class CustomerValidator implements Validator {
 
-
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
     @Override
