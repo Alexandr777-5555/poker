@@ -5,6 +5,8 @@ import shop.domain.Customer;
 import shop.repo.CustomerRepository;
 import shop.service.CustomerService;
 
+import java.util.List;
+
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -20,6 +22,12 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.add(customer);
     }
 
+    @Override
+    public List<Customer> list() {
+        return customerRepository.findAll();
+    }
 
 
+
+    
 }

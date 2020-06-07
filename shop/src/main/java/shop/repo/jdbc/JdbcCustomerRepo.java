@@ -1,5 +1,6 @@
 package shop.repo.jdbc;
 
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
@@ -39,7 +40,8 @@ public class JdbcCustomerRepo implements CustomerRepository {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        return jdbc.query("select * from customer",
+                BeanPropertyRowMapper.newInstance(Customer.class));
     }
 
     @Override
