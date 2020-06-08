@@ -9,6 +9,18 @@
 <html>
 <head>
     <title>Title</title>
+    <table>
+
+        <tr>
+            <td>FIRST NAME</td>
+            <td>LAST NAME </td>
+            <td></td>
+        </tr>
+
+
+
+
+    </table>
 </head>
 <body>
 

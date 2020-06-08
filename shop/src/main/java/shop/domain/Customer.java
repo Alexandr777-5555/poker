@@ -7,6 +7,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
+
+/**
+ *
+ *  покупатель
+ */
 public class Customer {
 
   private int id;
