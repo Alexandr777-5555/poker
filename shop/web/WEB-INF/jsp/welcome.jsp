@@ -19,7 +19,8 @@
  <br>
 <a href="createUser">создание покупателя</a>
 <br>
-
+<a href="listCustomer">список покупателей</a>
+<br>
 
 
   <h5>${totalTime} mc </h5>
