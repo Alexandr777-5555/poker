@@ -11,6 +11,8 @@
 <html>
 <head>
     <title>Title</title>
+    <link type="text/css" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
 </head>
 
 <body>
@@ -19,11 +21,19 @@
         <tr>
             <td>FIRST NAME</td>
             <td>LAST NAME</td>
+            <td>DEL</td>
         </tr>
         <c:forEach var="customer" items="${customers}">
             <tr>
                 <td>${customer.firstName}</td>
                 <td>${customer.lastName}</td>
+                <td>
+                    <c:url value="/listCustomer/${customer.id}" var="deleteUrl"/>
+                    <form action="${deleteUrl}" method="post" style="float: left;">
+                        <input type="hidden" name="_method" value="DELETE"/>
+                        <button class="ui mini axis-tick-mark icon button"><i class="remove circle icon"></i></button>
+                    </form>
+                </td>
             </tr>
         </c:forEach>
     </table>
