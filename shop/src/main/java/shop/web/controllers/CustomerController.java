@@ -24,12 +24,6 @@ public class CustomerController {
         this.service = service;
     }
 
-
-//    @GetMapping
-//    public void setupForm(){
-//
-//    }
-
     @GetMapping
     public String defaultForm(Model model) {
         List<Customer> list=service.list();
@@ -37,6 +31,7 @@ public class CustomerController {
         model.addAttribute("customers" , list);
         return "listCustomer";
     }
+
 
 
 

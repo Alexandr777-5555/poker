@@ -13,7 +13,6 @@
     <title>Title</title>
 </head>
 
-
 <body>
 <c:if test="${not empty customers }">
     <table border="1">
