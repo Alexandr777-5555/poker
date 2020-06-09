@@ -5,6 +5,7 @@ import shop.domain.Customer;
 
 import java.util.List;
 
+
 public interface CustomerRepository {
 
   Customer add(Customer customer);
