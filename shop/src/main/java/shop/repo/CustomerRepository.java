@@ -10,7 +10,7 @@ public interface CustomerRepository {
 
   Customer add(Customer customer);
   List<Customer> findAll();
-  void remove(int id);
+  void remove(long id);
   Customer findOne(int id);
 
 }

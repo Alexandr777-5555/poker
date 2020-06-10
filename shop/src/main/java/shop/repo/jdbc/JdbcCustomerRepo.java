@@ -45,12 +45,15 @@ public class JdbcCustomerRepo implements CustomerRepository {
     @Override
     public List<Customer> findAll() {
         final String SELECT_ALL_SQL = " SELECT * FROM customer ";
-        return this.jdbc.query( SELECT_ALL_SQL,
+        return this.jdbc.query(SELECT_ALL_SQL,
                 BeanPropertyRowMapper.newInstance(Customer.class));
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(long id) {
+        final String DELETE_SQL = "";
+
+        
 
     }
 
