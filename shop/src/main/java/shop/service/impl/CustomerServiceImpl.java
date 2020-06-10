@@ -30,6 +30,10 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
+    @Override
+    public void remove(long id) {
+     // TODO остановился тут
+    }
 
 
 }
