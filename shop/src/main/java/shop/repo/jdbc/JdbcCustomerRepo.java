@@ -51,10 +51,8 @@ public class JdbcCustomerRepo implements CustomerRepository {
 
     @Override
     public void remove(long id) {
-        final String DELETE_SQL = "";
-
-        
-
+        final String DELETE_SQL = "delete from customer where id=?";
+        this.jdbc.update(DELETE_SQL, id);
     }
 
     @Override
