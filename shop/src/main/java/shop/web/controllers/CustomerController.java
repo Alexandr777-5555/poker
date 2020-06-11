@@ -16,7 +16,6 @@ import java.util.List;
 public class CustomerController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-
     private final CustomerService service;
 
     public CustomerController(CustomerService service) {
@@ -31,15 +30,11 @@ public class CustomerController {
         return "listCustomer";
     }
 
-
     @DeleteMapping("/{customerId}")
-    //@RequestMapping(method = RequestMethod.DELETE)
     public String delete(@PathVariable("customerId") long id) {
         log.info("customer id " + id);
         service.remove(id);
-        //return "redirect:/listCustomer";
-        return "listCustomer";
+        return "redirect:/listCustomer";
     }
-
 
 }

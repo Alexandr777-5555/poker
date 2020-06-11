@@ -39,41 +39,5 @@
         </c:forEach>
     </table>
 </c:if>
-
-
- НИЖНЯЯ
-
-<%--<form:form method="put" >--%>
-
-
-<%--    <table class="ui celled table">--%>
-<%--        <tr>--%>
-<%--            <td>FIRST NAME</td>--%>
-<%--            <td>LAST NAME</td>--%>
-<%--            <td>DEL</td>--%>
-<%--        </tr>--%>
-<%--        <c:forEach var="customer" items="${customers}">--%>
-<%--            <tr>--%>
-<%--                <td>${customer.firstName}</td>--%>
-<%--                <td>${customer.lastName}</td>--%>
-<%--                <td>--%>
-
-<%--                    <c:url value="/listCustomer/${customer.id}" var="deleteUrl"/>--%>
-<%--                    <form:form action="${deleteUrl}" method="delete" style="float: left;">--%>
-<%--&lt;%&ndash;                        <input type="hidden" name="_method" value="DELETE"/>&ndash;%&gt;--%>
-<%--                        <button class="ui mini axis-tick-mark icon button"><i class="remove circle icon"></i></button>--%>
-<%--                    </form:form>--%>
-<%--                </td>--%>
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-<%--    </table>--%>
-
-<%--</form:form>--%>
-
-
-
-
 </body>
-
-
 </html>
