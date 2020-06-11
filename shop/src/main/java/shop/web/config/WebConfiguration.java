@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebMvc
 @ComponentScan("shop")
-public class WebConfiguration extends WebMvcConfigurerAdapter {
+public class WebConfiguration {
 
     @Bean
     public ViewResolver internalResourceViewResolver() {
@@ -26,16 +26,5 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
-
-
-    @Bean
-    public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .setName("shop")
-                .addScript("classpath:/schema.sql")
-                .build();
-    }
-
 
 }
