@@ -5,8 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import shop.domain.Customer;
 import shop.service.CustomerService;
 
@@ -26,14 +25,21 @@ public class CustomerController {
 
     @GetMapping
     public String defaultForm(Model model) {
-        List<Customer> list=service.list();
+        List<Customer> list = service.list();
         log.info("size " + list.size());
-        model.addAttribute("customers" , list);
+        model.addAttribute("customers", list);
         return "listCustomer";
     }
 
 
-
+    @DeleteMapping("/{customerId}")
+    //@RequestMapping(method = RequestMethod.DELETE)
+    public String delete(@PathVariable("customerId") long id) {
+        log.info("customer id " + id);
+        service.remove(id);
+        //return "redirect:/listCustomer";
+        return "listCustomer";
+    }
 
 
 }

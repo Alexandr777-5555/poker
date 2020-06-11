@@ -17,7 +17,6 @@ public class InterceptConfig implements WebMvcConfigurer {
         registry.addInterceptor(timeInterceptor());
         registry.addInterceptor(pdfInterceptor())
                 .addPathPatterns("/report*");
-
     }
 
     @Bean
@@ -29,5 +28,7 @@ public class InterceptConfig implements WebMvcConfigurer {
     public PDFInterceptor pdfInterceptor() {
         return new PDFInterceptor();
     }
+
+
 
 }

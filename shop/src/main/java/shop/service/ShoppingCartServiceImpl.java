@@ -1,5 +1,6 @@
 package shop.service;
 
+import org.springframework.stereotype.Service;
 import shop.domain.ShoppingCart;
 import shop.domain.products.FactoryProduct;
 
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     private List<ShoppingCart> shoppingCarts;

@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @Service
-//@Transactional
+@Transactional
 public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
