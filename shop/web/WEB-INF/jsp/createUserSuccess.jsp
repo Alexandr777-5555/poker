@@ -13,6 +13,6 @@
 <body>
 
 USER CREATE
-<a href="redirect:welcome">на главную</a>
+<a href="welcome">на главную</a>
 </body>
 </html>

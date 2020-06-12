@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class PdfReport extends AbstractPdfView {
 
-
     @Override
     protected void buildPdfDocument(Map<String, Object> map,
                                     Document document,
@@ -39,15 +38,12 @@ public class PdfReport extends AbstractPdfView {
         table.addCell(cart.getOwner());
         table.addCell(cart.getProduct().getName());
         table.addCell(cart.getDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-
     }
-
 
     private void addTitleDoc(Table table) throws BadElementException {
         table.addCell("NAME");
         table.addCell("PRODUCT");
         table.addCell("DATE");
     }
-
 
 }

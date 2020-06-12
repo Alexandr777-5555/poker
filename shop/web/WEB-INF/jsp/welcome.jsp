@@ -21,6 +21,8 @@
 <br>
 <a href="listCustomer">список покупателей</a>
 <br>
+<a href="all_reports">все отчеты</a>
+<br>
 
 
   <h5>${totalTime} mc </h5>
