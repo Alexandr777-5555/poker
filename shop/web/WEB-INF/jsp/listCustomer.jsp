@@ -8,12 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <html>
 <head>
     <title>Title</title>
     <link type="text/css" rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
+
+    <spring:url value="/listCustomer/list/pdf" var="pdfLink" />
 </head>
 
 <body>
@@ -38,6 +41,9 @@
             </tr>
         </c:forEach>
     </table>
+
+    <a href="${pdfLink}">PDF</a>
+
 </c:if>
 </body>
 </html>

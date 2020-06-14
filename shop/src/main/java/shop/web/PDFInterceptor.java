@@ -23,6 +23,9 @@ public class PDFInterceptor extends HandlerInterceptorAdapter {
         if (request.getServletPath().endsWith(".pdf")) {
             report = "report" + reportDate + ".pdf";
         }
+        if (request.getServletPath().endsWith(".pdf")) {
+            report = "reports" + reportDate + ".pdf";
+        }
         if (report != null) {
             response.setHeader("Content-Disposition", "attachment; filename=" + report);
         }

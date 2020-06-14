@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Title</title>
@@ -13,7 +14,10 @@
 <body>
 
 
-
+<form method="post">
+    <input type="text" name="bydate" value="${bydate}"/>
+    <input type="submit" value="найти"/>
+</form>
 
 </body>
 </html>

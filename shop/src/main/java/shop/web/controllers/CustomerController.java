@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 import shop.domain.Customer;
 import shop.service.CustomerService;
 
@@ -35,6 +36,17 @@ public class CustomerController {
         log.info("customer id " + id);
         service.remove(id);
         return "redirect:/listCustomer";
+    }
+
+
+
+    @RequestMapping(value = "/list/pdf" , method = RequestMethod.GET)
+    public ModelAndView showPdf(){
+
+        List<Customer> list = service.list();
+      //  model.addAttribute("customers", list);
+
+        return new ModelAndView("pdfView", "customers" , list);
     }
 
 }
