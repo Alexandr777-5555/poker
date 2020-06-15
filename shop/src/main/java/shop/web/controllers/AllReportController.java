@@ -4,11 +4,16 @@ package shop.web.controllers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import shop.domain.Customer;
 import shop.service.ShoppingCartService;
+import shop.web.view.PdfReport;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -29,10 +34,25 @@ public class AllReportController {
 
 
     @PostMapping()
-    public void showPDF(@RequestParam("bydate") String date) {
+    public String showPDF(@RequestParam("bydate") String date) {
         log.info("showPDF " + date);
+        return "report";
     }
 
 
+   // @RequestMapping(value = "/rep", method = RequestMethod.GET)
+    @RequestMapping(value = "/" , method = RequestMethod.GET)
+    public ModelAndView list(HttpServletRequest request, HttpServletResponse response) {
+        String typeReport = request.getParameter("bydate");
+        List<Customer> list = new ArrayList<>();
+        list.add(new Customer());
+        list.add(new Customer());
+        list.add(new Customer());
+        if (typeReport != null) {
+            log.info("not null");
+            return new ModelAndView("report", "customers" , list );
+        }
+        return new ModelAndView("report", "customers" , list );
+    }
 
 }

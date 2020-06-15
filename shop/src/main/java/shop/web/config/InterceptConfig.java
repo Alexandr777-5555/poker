@@ -17,8 +17,9 @@ public class InterceptConfig implements WebMvcConfigurer {
         registry.addInterceptor(timeInterceptor());
         registry.addInterceptor(pdfInterceptor())
                 .addPathPatterns("/report*")
-                .addPathPatterns("/listCustomer/list/pdf");
-
+        .addPathPatterns("all_reports/?bydate=pdf")
+        .addPathPatterns("/all_reports/?bydate=pdf");
+        ;
     }
 
     @Bean
