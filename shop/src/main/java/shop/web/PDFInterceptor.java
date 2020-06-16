@@ -6,6 +6,12 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ *
+ * формирование имени перехватичик
+ */
+
 public class PDFInterceptor extends HandlerInterceptorAdapter {
 
 
@@ -22,9 +28,6 @@ public class PDFInterceptor extends HandlerInterceptorAdapter {
 
         if (request.getServletPath().endsWith(".pdf")) {
             report = "report" + reportDate + ".pdf";
-        }
-        if (request.getServletPath().endsWith(".pdf")) {
-            report = "reports" + reportDate + ".pdf";
         }
         if (report != null) {
             response.setHeader("Content-Disposition", "attachment; filename=" + report);

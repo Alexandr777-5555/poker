@@ -14,17 +14,14 @@
 </head>
 <body>
 
-
 <form method="post">
     <input type="text" name="bydate" value="${bydate}"/>
     <input type="submit" value="найти"/>
 </form>
 
+<spring:url value="/all_reports?bydate=pdf" var="pdf"/>
 
-
- <spring:url value="/all_reports/?bydate=pdf" var="pdf"/>
-
-  <a href="${pdf}">download pdf</a>
+<a href="${pdf}">download pdf</a>
 
 </body>
 </html>

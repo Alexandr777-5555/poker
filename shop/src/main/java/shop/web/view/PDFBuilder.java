@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * не использую этот класс
+ */
 public class PDFBuilder extends AbstractPdfView {
 
 
@@ -30,19 +34,17 @@ public class PDFBuilder extends AbstractPdfView {
         addTitleDoc(table);
 
 
-
         document.add(table);
     }
 
 
-    private void addContent(Table table , Customer customer){
-
+    private void addContent(Table table, Customer customer) {
 
 
     }
 
 
-    private void addTitleDoc(Table table){
+    private void addTitleDoc(Table table) {
 
 
     }
