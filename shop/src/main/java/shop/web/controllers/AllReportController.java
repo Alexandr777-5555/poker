@@ -36,13 +36,13 @@ public class AllReportController {
     }
 
     @PostMapping
-    public String submitForm(
-            @RequestParam("bydate")
-                    String selectedDate,
-            //  @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate selectedDate,
-            Model model) {
+    public String submitForm(@RequestParam("bydate") String selectedDate, Model model) {
         log.info("method submitForm " + selectedDate);
-        //List<ShoppingCart> list = cartService.findByDate(selectedDate);
+        LocalDate localDate=LocalDate.parse(selectedDate);
+        List<ShoppingCart> list = cartService.findByDate(localDate);
+        if(list!=null){
+            log.info("data ");
+        }
         // model.addAttribute("shopcarts", list);
         return "report";
     }
