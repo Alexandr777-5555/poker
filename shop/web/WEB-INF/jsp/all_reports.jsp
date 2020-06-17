@@ -19,7 +19,7 @@
     <input type="submit" value="найти"/>
 </form>
 
-<spring:url value="/all_reports?bydate=pdf" var="pdf"/>
+<spring:url value="/all_reports/createPDF" var="pdf"/>
 
 <a href="${pdf}">download pdf</a>
 

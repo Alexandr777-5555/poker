@@ -3,19 +3,19 @@ package shop.web.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-import shop.domain.Customer;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import shop.domain.ShoppingCart;
 import shop.service.ShoppingCartService;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,14 +38,22 @@ public class AllReportController {
     @PostMapping
     public String submitForm(@RequestParam("bydate") String selectedDate, Model model) {
         log.info("method submitForm " + selectedDate);
-        LocalDate localDate=LocalDate.parse(selectedDate);
+        LocalDate localDate = LocalDate.parse(selectedDate);
         List<ShoppingCart> list = cartService.findByDate(localDate);
-        if(list!=null){
+        if (list != null) {
             log.info("data ");
         }
-        // model.addAttribute("shopcarts", list);
         return "report";
     }
+
+
+    @RequestMapping(value = "/createPDF")
+    public void generatePdf(HttpServletRequest req, HttpServletResponse res) {
+        res.setContentType("text/html;charset=UTF-8");
+        res.setContentType("application/pdf");
+        res.setHeader("Content-Disposition", "attachment;filename=report.pdf");
+    }
+
 
 
 }
