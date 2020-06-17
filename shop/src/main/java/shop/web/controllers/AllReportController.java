@@ -36,12 +36,18 @@ public class AllReportController {
     }
 
     @PostMapping
-    public String submitForm(@RequestParam("bydate") String selectedDate, Model model) {
+    public String submitForm(@RequestParam("bydate") String selectedDate, Model model
+            , HttpServletResponse res
+    ) {
         log.info("method submitForm " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
+
         List<ShoppingCart> list = cartService.findByDate(localDate);
         if (list != null) {
             log.info("data ");
+            res.setContentType("application/pdf");
+            res.setHeader("Content-Disposition", "attachment;filename=report.pdf");
+
         }
         return "report";
     }
