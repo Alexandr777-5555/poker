@@ -1,6 +1,7 @@
 package shop.web.controllers;
 
 
+import com.lowagie.text.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -12,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import shop.domain.ShoppingCart;
 import shop.service.ShoppingCartService;
 
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -36,9 +37,9 @@ public class AllReportController {
     }
 
     @PostMapping
-    public String submitForm(@RequestParam("bydate") String selectedDate, Model model
+  public String submitForm(@RequestParam("bydate") String selectedDate, Model model
             , HttpServletResponse res
-    ) {
+    ) throws DocumentException, IOException {
         log.info("method submitForm " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
 
@@ -46,12 +47,10 @@ public class AllReportController {
         if (list != null) {
             log.info("data ");
             res.setContentType("application/pdf");
-            res.setHeader("Content-Disposition", "attachment;filename=report.pdf");
-
+            res.setHeader("Content-Disposition", "attachment; filename=report.pdf");
         }
         return "report";
     }
-
 
     @RequestMapping(value = "/createPDF")
     public void generatePdf(HttpServletRequest req, HttpServletResponse res) {
@@ -59,7 +58,5 @@ public class AllReportController {
         res.setContentType("application/pdf");
         res.setHeader("Content-Disposition", "attachment;filename=report.pdf");
     }
-
-
 
 }

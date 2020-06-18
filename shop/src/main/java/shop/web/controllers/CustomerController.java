@@ -42,10 +42,8 @@ public class CustomerController {
 
     @RequestMapping(value = "/list/pdf" , method = RequestMethod.GET)
     public ModelAndView showPdf(){
-
         List<Customer> list = service.list();
       //  model.addAttribute("customers", list);
-
         return new ModelAndView("pdfView", "customers" , list);
     }
 
