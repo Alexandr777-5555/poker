@@ -1,7 +1,6 @@
 package shop.web.controllers;
 
 
-import com.lowagie.text.DocumentException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-
 
 @Controller
 @RequestMapping("/all_reports")
@@ -37,12 +35,11 @@ public class AllReportController {
     }
 
     @PostMapping
-  public String submitForm(@RequestParam("bydate") String selectedDate, Model model
+    public String submitForm(@RequestParam("bydate") String selectedDate, Model model
             , HttpServletResponse res
-    ) throws DocumentException, IOException {
+    ) throws IOException {
         log.info("method submitForm " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
-
         List<ShoppingCart> list = cartService.findByDate(localDate);
         if (list != null) {
             log.info("data ");
@@ -58,5 +55,6 @@ public class AllReportController {
         res.setContentType("application/pdf");
         res.setHeader("Content-Disposition", "attachment;filename=report.pdf");
     }
+
 
 }

@@ -27,13 +27,10 @@ public class PDFBuilder extends AbstractPdfView {
                                     HttpServletResponse httpServletResponse) throws Exception {
 
 
-        List<Customer> cartList = (List<Customer>) map.get("customers");
-
+        List<Customer> cartList = (List<Customer>) map.get("repo");
         // строим документ
         Table table = new Table(3);
         addTitleDoc(table);
-
-
         document.add(table);
     }
 
@@ -45,6 +42,7 @@ public class PDFBuilder extends AbstractPdfView {
 
 
     private void addTitleDoc(Table table) {
+
 
 
     }

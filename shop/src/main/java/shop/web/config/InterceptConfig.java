@@ -17,7 +17,7 @@ public class InterceptConfig implements WebMvcConfigurer {
         registry.addInterceptor(timeInterceptor());
         registry.addInterceptor(pdfInterceptor())
                 // паттерны для открытия PDF doc не в браузере
-                .addPathPatterns("/report*")
+          .addPathPatterns("/report*")
         ;
     }
 

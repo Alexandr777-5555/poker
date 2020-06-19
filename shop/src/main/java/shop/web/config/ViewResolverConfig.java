@@ -8,6 +8,7 @@ import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.BeanNameViewResolver;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.ResourceBundleViewResolver;
 
@@ -38,8 +39,11 @@ public class ViewResolverConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver pdfViewResolver() {
         ResourceBundleViewResolver viewResolver = new ResourceBundleViewResolver();
-        viewResolver.setOrder(0);
+        viewResolver.setOrder(1);
         viewResolver.setBasename("views");
         return viewResolver;
     }
+
+
+
 }

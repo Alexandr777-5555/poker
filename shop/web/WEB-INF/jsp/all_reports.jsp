@@ -21,7 +21,11 @@
 
 <spring:url value="/all_reports/createPDF" var="pdf"/>
 
+<spring:url value="report.pdf?date=2020-05-02" var="pdf2"/>
+
+
 <a href="${pdf}">download pdf</a>
+<a href="${pdf2}">download pdf2</a>
 
 </body>
 </html>
