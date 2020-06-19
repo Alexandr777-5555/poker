@@ -41,12 +41,13 @@ public class AllReportController {
         log.info("method submitForm " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
         List<ShoppingCart> list = cartService.findByDate(localDate);
+        String ReportName = "text";
         if (list != null) {
             log.info("data ");
-            res.setContentType("application/pdf");
-            res.setHeader("Content-Disposition", "attachment; filename=report.pdf");
+            model.addAttribute("shopcarts", list);
+            return "redirect:/report.pdf?date=" + selectedDate;
         }
-        return "report";
+        return "redirect:/all_reports";
     }
 
     @RequestMapping(value = "/createPDF")
