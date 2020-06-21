@@ -15,8 +15,12 @@
 <body>
 
 <form method="post">
-    <input type="text" name="bydate" value="${bydate}"/>
-    <input type="submit" value="найти"/>
+    <tx>
+        <td>find by date</td>
+        <td><input type="text" name="bydate" value="${bydate}"/></td>
+    </tx>
+    <td></td>
+    <td><input type="submit" value="найти"/></td>
 </form>
 
 
