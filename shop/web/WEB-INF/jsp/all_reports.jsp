@@ -17,7 +17,7 @@
 <form method="post">
     <tx>
         <td>find by date</td>
-        <td><input type="text" name="bydate" value="${bydate}"/></td>
+        <td><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></td>
     </tx>
     <td></td>
     <td><input type="submit" value="найти"/></td>
