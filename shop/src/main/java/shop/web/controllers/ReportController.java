@@ -32,7 +32,6 @@ public class ReportController {
         List<ShoppingCart> list = cartService.findByDate(selectedDate);
         model.addAttribute("shopcarts", list);
         return "report";
-       // return "rep"; // и так работает если jsp сделана
     }
 
 

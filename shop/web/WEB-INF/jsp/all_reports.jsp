@@ -13,7 +13,6 @@
     <title>Title</title>
 </head>
 <body>
-
 <form method="post">
     <tx>
         <td>find by date</td>
@@ -22,7 +21,5 @@
     <td></td>
     <td><input type="submit" value="найти"/></td>
 </form>
-
-
 </body>
 </html>
