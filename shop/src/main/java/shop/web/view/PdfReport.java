@@ -1,17 +1,18 @@
 package shop.web.view;
 
 import com.lowagie.text.*;
+import com.lowagie.text.pdf.PdfContentByte;
 import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 import shop.domain.ShoppingCart;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
-
-import static com.lowagie.text.Font.DEFAULTSIZE;
 
 public class PdfReport extends AbstractPdfView {
 
@@ -25,9 +26,8 @@ public class PdfReport extends AbstractPdfView {
         List<ShoppingCart> cartList = (List<ShoppingCart>) map.get("shopcarts");
         // строим документ
         Table table = new Table(3);
+        table.setWidth(58);
         addTitleDoc(table);
-
-        
 
         Paragraph title = new Paragraph("Report");
         document.add(title);
@@ -35,7 +35,6 @@ public class PdfReport extends AbstractPdfView {
         for (ShoppingCart cart : cartList) {
             addContent(table, cart);
         }
-        document.addTitle("title");
         document.add(table);
     }
 
