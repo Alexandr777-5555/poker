@@ -1,8 +1,6 @@
 package shop.web.view;
 
-import com.lowagie.text.BadElementException;
-import com.lowagie.text.Document;
-import com.lowagie.text.Table;
+import com.lowagie.text.*;
 import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 import shop.domain.ShoppingCart;
@@ -12,6 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+
+import static com.lowagie.text.Font.DEFAULTSIZE;
 
 public class PdfReport extends AbstractPdfView {
 
@@ -26,6 +26,11 @@ public class PdfReport extends AbstractPdfView {
         // строим документ
         Table table = new Table(3);
         addTitleDoc(table);
+
+        
+
+        Paragraph title = new Paragraph("Report");
+        document.add(title);
 
         for (ShoppingCart cart : cartList) {
             addContent(table, cart);

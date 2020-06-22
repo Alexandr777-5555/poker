@@ -32,7 +32,7 @@ public class CalculateCartController {
         model.addAttribute("total" , totalValue);
         return "calculateCart";
     }
-    
+
 }
 
 
