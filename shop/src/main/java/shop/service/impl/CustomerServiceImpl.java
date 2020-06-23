@@ -1,5 +1,7 @@
 package shop.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import shop.domain.Customer;
@@ -15,7 +17,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerServiceImpl(CustomerRepository customerRepository) {
+
+    public CustomerServiceImpl(@Qualifier("jdbcCustomer") CustomerRepository
+                                       customerRepository) {
         this.customerRepository = customerRepository;
     }
 

@@ -1,15 +1,15 @@
 package shop.web.view;
 
-import com.lowagie.text.*;
-import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.BadElementException;
+import com.lowagie.text.Document;
+import com.lowagie.text.Paragraph;
+import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 import shop.domain.ShoppingCart;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;

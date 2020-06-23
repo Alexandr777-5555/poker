@@ -14,7 +14,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 
-@Repository
+@Repository("jdbcCustomer")
 public class JdbcCustomerRepo implements CustomerRepository {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
