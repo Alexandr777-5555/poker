@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WelcomeController {
 
     @GetMapping
-    public String welcome(Model model){
-          return "welcome";
+    public String welcome(Model model) {
+
+        return "welcome";
     }
-
-
 
 
 }

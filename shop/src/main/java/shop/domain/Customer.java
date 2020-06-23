@@ -3,6 +3,10 @@ package shop.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -12,8 +16,11 @@ import java.time.LocalDate;
  *
  *  покупатель
  */
+@Entity
 public class Customer {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
     /**
@@ -29,12 +36,12 @@ public class Customer {
   private String lastName;
 
 
-  /**
-   * дата рождения
-   */
-  @NotNull
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  private LocalDate dateOfBirth;
+//  /**
+//   * дата рождения
+//   */
+//  @NotNull
+//  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+//  private LocalDate dateOfBirth;
 
 
 
@@ -63,11 +70,11 @@ public class Customer {
     this.lastName = lastName;
   }
 
-  public LocalDate getDateOfBirth() {
-    return dateOfBirth;
-  }
-
-  public void setDateOfBirth(LocalDate dateOfBirth) {
-    this.dateOfBirth = dateOfBirth;
-  }
+//  public LocalDate getDateOfBirth() {
+//    return dateOfBirth;
+//  }
+//
+//  public void setDateOfBirth(LocalDate dateOfBirth) {
+//    this.dateOfBirth = dateOfBirth;
+//  }
 }

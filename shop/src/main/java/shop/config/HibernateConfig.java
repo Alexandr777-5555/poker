@@ -2,11 +2,14 @@ package shop.config;
 
 
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import shop.domain.Customer;
 import shop.repo.CustomerRepository;
 import shop.repo.hibernate.HibernateCustomerRepo;
@@ -14,9 +17,9 @@ import shop.repo.hibernate.HibernateCustomerRepo;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+@EnableTransactionManagement
 @Configuration
 public class HibernateConfig {
-
 
     @Bean("hibCustomer")
     CustomerRepository customerRepository(SessionFactory sessionFactory) {
@@ -25,13 +28,20 @@ public class HibernateConfig {
 
 
     @Bean
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
+        return new HibernateTransactionManager(sessionFactory);
+    }
+
+
+    @Bean
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setAnnotatedClasses(Customer.class);
+        sessionFactoryBean.setPackagesToScan(new String[]{"shop.domain"});
         Properties props = new Properties();
         props.setProperty("dialect",
                 "org.hibernate.dialect.H2Dialect");
+        props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
         sessionFactoryBean.setHibernateProperties(props);
 
         return sessionFactoryBean;

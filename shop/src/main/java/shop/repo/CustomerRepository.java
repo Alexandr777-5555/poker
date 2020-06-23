@@ -11,6 +11,6 @@ public interface CustomerRepository {
   Customer add(Customer customer);
   List<Customer> findAll();
   void remove(long id);
-  Customer findOne(int id);
+  Customer findOne(long id);
 
 }

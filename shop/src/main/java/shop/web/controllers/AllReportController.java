@@ -3,13 +3,16 @@ package shop.web.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import shop.domain.Customer;
 import shop.domain.ShoppingCart;
+import shop.service.CustomerService;
 import shop.service.ShoppingCartService;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,18 +29,23 @@ public class AllReportController {
 
     private final ShoppingCartService cartService;
 
-    public AllReportController(ShoppingCartService cartService) {
+    private final CustomerService service;
+
+    public AllReportController(ShoppingCartService cartService , CustomerService service) {
         this.cartService = cartService;
+        this.service=service;
     }
 
     @GetMapping
     public void setupForm() {
+
     }
 
     @PostMapping
     public String submitForm(@RequestParam("bydate") String selectedDate, Model model
             , HttpServletResponse res
     ) throws IOException {
+
         log.info("method submitForm " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
         List<ShoppingCart> list = cartService.findByDate(localDate);

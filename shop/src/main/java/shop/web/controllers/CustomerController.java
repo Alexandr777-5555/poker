@@ -17,7 +17,9 @@ import java.util.List;
 public class CustomerController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     private final CustomerService service;
+
 
     public CustomerController(CustomerService service) {
         this.service = service;

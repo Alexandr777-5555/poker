@@ -56,7 +56,7 @@ public class JdbcCustomerRepo implements CustomerRepository {
     }
 
     @Override
-    public Customer findOne(int id) {
+    public Customer findOne(long id) {
         return null;
     }
 }
