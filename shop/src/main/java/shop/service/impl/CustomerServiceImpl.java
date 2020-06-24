@@ -9,6 +9,7 @@ import shop.domain.Customer;
 import shop.repo.CustomerRepository;
 import shop.service.CustomerService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,12 +29,14 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setId(1L);
         customer.setFirstName("Alex");
         customer.setLastName("Avd");
+        customer.setDateOfBirth(LocalDate.of(1982, 6, 23));
         customerRepository.add(customer);
 
         customer = new Customer();
         customer.setId(2L);
         customer.setFirstName("AAA");
         customer.setLastName("BBB");
+        customer.setDateOfBirth(LocalDate.of(2020, 1, 13));
         customerRepository.add(customer);
     }
 

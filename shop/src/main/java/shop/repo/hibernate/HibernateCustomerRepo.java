@@ -2,7 +2,6 @@ package shop.repo.hibernate;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import shop.domain.Customer;
 import shop.repo.CustomerRepository;
@@ -13,16 +12,11 @@ import java.util.List;
 @Transactional
 public class HibernateCustomerRepo implements CustomerRepository {
 
-
-    @Autowired
     private final SessionFactory sessionFactory;
-
 
     public HibernateCustomerRepo(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
-
     }
-
 
     @Override
     public Customer add(Customer customer) {

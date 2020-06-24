@@ -36,12 +36,12 @@ public class Customer {
   private String lastName;
 
 
-//  /**
-//   * дата рождения
-//   */
-//  @NotNull
-//  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-//  private LocalDate dateOfBirth;
+  /**
+   * дата рождения
+   */
+  @NotNull
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate dateOfBirth;
 
 
 
@@ -70,11 +70,11 @@ public class Customer {
     this.lastName = lastName;
   }
 
-//  public LocalDate getDateOfBirth() {
-//    return dateOfBirth;
-//  }
-//
-//  public void setDateOfBirth(LocalDate dateOfBirth) {
-//    this.dateOfBirth = dateOfBirth;
-//  }
+  public LocalDate getDateOfBirth() {
+    return dateOfBirth;
+  }
+
+  public void setDateOfBirth(LocalDate dateOfBirth) {
+    this.dateOfBirth = dateOfBirth;
+  }
 }
