@@ -39,9 +39,9 @@ public class HibernateCustomerRepo implements CustomerRepository {
 
     @Override
     public void remove(long id) {
-        //TODO тут остановился
-
-
+        Session session = sessionFactory.getCurrentSession();
+        Customer  customer=session.get(Customer.class , id);
+        session.delete(customer);
     }
 
     @Override
