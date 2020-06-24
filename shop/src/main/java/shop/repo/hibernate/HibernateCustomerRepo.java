@@ -25,7 +25,6 @@ public class HibernateCustomerRepo implements CustomerRepository {
 
 
     @Override
-
     public Customer add(Customer customer) {
         Session session = sessionFactory.getCurrentSession();
         session.save(customer);
@@ -34,11 +33,14 @@ public class HibernateCustomerRepo implements CustomerRepository {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Customer", Customer.class).list();
     }
 
     @Override
     public void remove(long id) {
+        //TODO тут остановился
+
 
     }
 
