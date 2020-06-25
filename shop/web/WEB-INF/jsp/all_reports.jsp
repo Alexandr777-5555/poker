@@ -21,5 +21,11 @@
     <td></td>
     <td><input type="submit" value="найти"/></td>
 </form>
+
+<br>
+<br>
+
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
 </body>
 </html>

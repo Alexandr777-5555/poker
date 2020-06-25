@@ -36,5 +36,13 @@
         </tr>
     </table>
 </form:form>
+
+
+
+<br>
+<br>
+
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
 </body>
 </html>

@@ -40,6 +40,12 @@
 <br>
 общая стоимость покупок : ${amount}
 
+
+<br>
+<br>
+
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
 </body>
 
 

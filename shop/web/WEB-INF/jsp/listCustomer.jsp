@@ -42,7 +42,10 @@
         </c:forEach>
     </table>
 
-    <a href="${pdfLink}">PDF</a>
+    <br>
+    <br>
+
+    <a href="${pageContext.request.contextPath}/">welcome</a>
 
 </c:if>
 </body>

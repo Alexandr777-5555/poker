@@ -13,6 +13,12 @@
 <body>
 
 USER CREATE
-<a href="welcome">на главную</a>
+<br>
+<br>
+
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
+
+
 </body>
 </html>

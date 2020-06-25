@@ -30,5 +30,11 @@
     </tr>
 </table>
 
+
+<br>
+<br>
+
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
 </body>
 </html>
