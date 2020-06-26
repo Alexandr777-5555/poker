@@ -22,11 +22,13 @@
 <body>
 <c:if test="${not empty customers }">
     <table class="ui celled table">
+        <thead>
         <tr>
-            <td>FIRST NAME</td>
-            <td>LAST NAME</td>
-            <td>DEL</td>
+            <th>FIRST NAME</th>
+            <th>LAST NAME</th>
+            <th class="two wide">DEL</th>
         </tr>
+        </thead>
         <c:forEach var="customer" items="${customers}">
             <tr>
                 <td>${customer.firstName}</td>
@@ -41,12 +43,15 @@
             </tr>
         </c:forEach>
     </table>
-
-    <br>
-    <br>
-
-    <a href="${pageContext.request.contextPath}/">welcome</a>
-
 </c:if>
+
+<br>
+<br>
+<a href="${pageContext.request.contextPath}/">welcome</a>
+
+<br>
+
+<h5>${totalTime} mc </h5>
+
 </body>
 </html>
