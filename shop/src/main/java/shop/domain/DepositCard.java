@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class DepositCard {
 
-
     @Id
     @GeneratedValue
     protected Long id;
@@ -15,6 +14,13 @@ public class DepositCard {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     protected Customer customer;
+
+
+    public DepositCard(@NotNull Customer customer) {
+        this.customer = customer;
+        customer.getCards().add(this);
+    }
+
 
     public Customer getCustomer() {
         return customer;
