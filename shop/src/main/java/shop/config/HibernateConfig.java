@@ -41,6 +41,7 @@ public class HibernateConfig {
         props.setProperty("dialect",
                 "org.hibernate.dialect.H2Dialect");
         props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
+       // props.setProperty(AvailableSettings.HBM2DDL_CREATE_SOURCE , String.valueOf(true));
         sessionFactoryBean.setHibernateProperties(props);
 
         return sessionFactoryBean;

@@ -3,10 +3,7 @@ package shop.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
@@ -24,7 +21,8 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //protected Set<DepositCard> cards=new HashSet<DepositCard>();
+    @OneToMany
+    protected Set<DepositCard> cards = new HashSet<DepositCard>();
 
 
     /**
@@ -46,6 +44,18 @@ public class Customer {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfBirth;
+
+
+    public void addCard(DepositCard card) {
+        if (card == null) {
+            throw new NullPointerException("can't add null card");
+        }
+        if (card.getCustomer() != null) {
+            throw new IllegalArgumentException("card is already assigned customer");
+        }
+        cards.add(card);
+        card.setCustomer(this);
+    }
 
 
     public Long getId() {
@@ -79,4 +89,14 @@ public class Customer {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    public Set<DepositCard> getCards() {
+        return cards;
+    }
+
+    public void setCards(Set<DepositCard> cards) {
+        this.cards = cards;
+    }
+
+
 }
