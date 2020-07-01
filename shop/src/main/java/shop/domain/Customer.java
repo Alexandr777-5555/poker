@@ -29,7 +29,10 @@ public class Customer {
      * имя
      */
     @NotNull
-    @Size(min = 3)
+    @Size(min = 3 ,
+            max = 7 ,
+            message = "firstName is required"
+    )
     private String firstName;
 
     /**
@@ -50,9 +53,9 @@ public class Customer {
         if (card == null) {
             throw new NullPointerException("can't add null card");
         }
-        if (card.getCustomer() != null) {
-            throw new IllegalArgumentException("card is already assigned customer");
-        }
+//        if (card.getCustomer() != null) {
+//            throw new IllegalArgumentException("card is already assigned customer");
+//        }
         cards.add(card);
         card.setCustomer(this);
     }

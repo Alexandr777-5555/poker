@@ -42,6 +42,8 @@ public class HibernateConfig {
                 "org.hibernate.dialect.H2Dialect");
         props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
        // props.setProperty(AvailableSettings.HBM2DDL_CREATE_SOURCE , String.valueOf(true));
+        props.setProperty(AvailableSettings.HBM2DDL_AUTO, "update");
+
         sessionFactoryBean.setHibernateProperties(props);
 
         return sessionFactoryBean;
@@ -53,7 +55,7 @@ public class HibernateConfig {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setName("shop")
-                .addScript("classpath:/schema.sql")
+              //  .addScript("classpath:/schema.sql")
                 .build();
     }
 
