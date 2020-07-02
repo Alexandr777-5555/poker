@@ -12,7 +12,6 @@ public class WelcomeController {
 
     @GetMapping
     public String welcome(Model model) {
-
         return "welcome";
     }
 

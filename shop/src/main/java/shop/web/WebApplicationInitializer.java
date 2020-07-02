@@ -1,5 +1,6 @@
 package shop.web;
 
+import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import shop.config.ShopConfig;
@@ -24,10 +25,15 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     }
 
 
+
     @Override
     protected Filter[] getServletFilters() {
+        // настройка фильтра при получении запроса
+        CharacterEncodingFilter filter=new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
         return new Filter[] {
-                new HiddenHttpMethodFilter()
+                new HiddenHttpMethodFilter() , filter
         };
     }
 
