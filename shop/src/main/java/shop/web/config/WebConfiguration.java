@@ -11,7 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("shop")
-public class WebConfiguration {
+public class WebConfiguration  {
 
     @Bean
     public ViewResolver internalResourceViewResolver() {
