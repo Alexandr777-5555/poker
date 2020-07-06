@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/home")
-public class ApacheTiles {
-
+public class HomeController {
 
     @GetMapping
     public String setupForm(){
