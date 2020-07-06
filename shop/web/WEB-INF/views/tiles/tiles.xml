@@ -4,11 +4,21 @@
 
 <tiles-definitions>
 
+
+    <!--    default-->
     <definition name="template-def" template="layouts/defaultLayout.jsp">
         <put-attribute name="header" value="/WEB-INF/views/tiles/templates/defaultHeader.jsp"/>
 
 
     </definition>
 
+
+    <!-- Main Page -->
+
+    <definition>
+        <put-attribute name="title" value="Home"/>
+
+        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/home.jsp"/>
+    </definition>
 
 </tiles-definitions>
