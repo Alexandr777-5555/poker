@@ -6,19 +6,21 @@
 
 
     <!--    default-->
-    <definition name="template-def" template="layouts/defaultLayout.jsp">
-        <put-attribute name="header" value="/WEB-INF/views/tiles/templates/defaultHeader.jsp"/>
+    <definition name="template-def" template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
 
+        <put-attribute name="header" value="/WEB-INF/views/tiles/templates/defaultHeader.jsp"/>
+        <put-attribute name="menu" value="/WEB-INF/views/tiles/templates/defaultMenu.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/views/tiles/templates/defaultFooter.jsp"/>
+        <put-attribute name="body" value="" />
 
     </definition>
 
 
     <!-- Main Page -->
 
-    <definition>
-        <put-attribute name="title" value="Home"/>
-
-        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/home.jsp"/>
+    <definition name="hello" extends="template-def">
+        <put-attribute name="title" value="ZZZZZ" />
+        <put-attribute name="body" value="/WEB-INF/views/tiles/pages/hello.jsp"/>
     </definition>
 
 </tiles-definitions>

@@ -1,19 +1,21 @@
-package shop.web.controllers;
+package shop.web.controllers.tlles;
 
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/wel")
-public class WelcomeController {
+@RequestMapping("/")
+public class HelloController {
+
 
     @GetMapping
-    public String welcome(Model model) {
-        return "welcome";
+   // @RequestMapping(value = { "/" }, method = RequestMethod.GET)
+    public String setupForm() {
+        return "hello";
     }
+
 
 
 }
