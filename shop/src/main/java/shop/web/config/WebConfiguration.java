@@ -19,26 +19,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @ComponentScan("shop")
 public class WebConfiguration  implements WebMvcConfigurer {
 
-   // @Bean
-    public ViewResolver internalResourceViewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setPrefix("/WEB-INF/jsp/");
-        viewResolver.setSuffix(".jsp");
-        viewResolver.setOrder(2);
-        return viewResolver;
-    }
-
-//    @Bean
-//    public ViewResolver internalResourceViewResolverTiles() {
-//        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-//       // viewResolver.setViewClass(JstlView.class);
-//        viewResolver.setPrefix("/WEB-INF/views/tiles/pages/");
-//     //   viewResolver.setPrefix("/WEB-INF/views/tiles/");
-//        viewResolver.setSuffix(".jsp");
-//     //   viewResolver.setOrder(1);
-//        return viewResolver;
-//    }
-
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         TilesViewResolver viewResolver = new TilesViewResolver();
@@ -48,7 +28,6 @@ public class WebConfiguration  implements WebMvcConfigurer {
         bean.setPrefix("/WEB-INF/views/tiles/pages/");
         bean.setSuffix(".jsp");
         registry.viewResolver(bean);
-
     }
 
     @Bean
@@ -58,7 +37,4 @@ public class WebConfiguration  implements WebMvcConfigurer {
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
     }
-
-
-
 }
