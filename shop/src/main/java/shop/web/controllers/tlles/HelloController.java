@@ -11,7 +11,6 @@ public class HelloController {
 
 
     @GetMapping
-   // @RequestMapping(value = { "/" }, method = RequestMethod.GET)
     public String setupForm() {
         return "hello";
     }

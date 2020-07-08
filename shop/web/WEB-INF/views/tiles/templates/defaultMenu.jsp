@@ -13,6 +13,8 @@
     <ul id="menu">
 
         <li><a href="${pageContext.request.contextPath}/">главная</a></li>
+        <li><a href="${pageContext.request.contextPath}/all_reports">отчеты</a></li>
+
 
         создать пользователя
 

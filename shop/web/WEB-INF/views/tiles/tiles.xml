@@ -17,10 +17,18 @@
 
 
     <!-- Main Page -->
-
     <definition name="hello" extends="template-def">
         <put-attribute name="title" value="ZZZZZ" />
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/hello.jsp"/>
     </definition>
+
+
+    <!-- all_reports-->
+    <definition name="all_reports" extends="template-def">
+        <put-attribute name="title" value="reports" />
+        <put-attribute name="body" value="/WEB-INF/jsp/all_reports.jsp"/>
+    </definition>
+
+
 
 </tiles-definitions>
