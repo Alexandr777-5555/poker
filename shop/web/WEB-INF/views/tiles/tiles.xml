@@ -18,7 +18,7 @@
 
     <!-- Main Page -->
     <definition name="hello" extends="template-def">
-        <put-attribute name="title" value="ZZZZZ" />
+        <put-attribute name="title" value="Главная" />
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/hello.jsp"/>
     </definition>
 
