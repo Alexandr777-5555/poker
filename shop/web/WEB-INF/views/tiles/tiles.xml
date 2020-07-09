@@ -11,24 +11,30 @@
         <put-attribute name="header" value="/WEB-INF/views/tiles/templates/defaultHeader.jsp"/>
         <put-attribute name="menu" value="/WEB-INF/views/tiles/templates/defaultMenu.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/views/tiles/templates/defaultFooter.jsp"/>
-        <put-attribute name="body" value="" />
+        <put-attribute name="body" value=""/>
 
     </definition>
 
 
     <!-- Main Page -->
     <definition name="hello" extends="template-def">
-        <put-attribute name="title" value="Главная" />
+        <put-attribute name="title" value="Главная"/>
         <put-attribute name="body" value="/WEB-INF/views/tiles/pages/hello.jsp"/>
     </definition>
 
 
-    <!-- all_reports-->
+    <!-- all_reports page-->
     <definition name="all_reports" extends="template-def">
-        <put-attribute name="title" value="reports" />
+        <put-attribute name="title" value="reports"/>
         <put-attribute name="body" value="/WEB-INF/jsp/all_reports.jsp"/>
     </definition>
 
+
+    <!--    listCustomer page-->
+    <definition name="listCustomer" extends="template-def">
+        <put-attribute name="title" value=""/>
+        <put-attribute name="body" value="/WEB-INF/jsp/listCustomer.jsp"/>
+    </definition>
 
 
 </tiles-definitions>

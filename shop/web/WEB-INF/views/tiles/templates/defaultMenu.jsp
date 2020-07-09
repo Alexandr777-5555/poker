@@ -8,18 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="nav">
 
-    <a href="${pageContext.request.contextPath}/"></a>
-
     <ul id="menu">
-
         <li><a href="${pageContext.request.contextPath}/">главная</a></li>
         <li><a href="${pageContext.request.contextPath}/all_reports">отчеты</a></li>
-
-
-        создать пользователя
-
-
+        <li><a href="${pageContext.request.contextPath}/listCustomer">список покупателей</a></li>
     </ul>
-
 
 </nav>
