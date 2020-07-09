@@ -12,6 +12,7 @@
         <li><a href="${pageContext.request.contextPath}/">главная</a></li>
         <li><a href="${pageContext.request.contextPath}/all_reports">отчеты</a></li>
         <li><a href="${pageContext.request.contextPath}/listCustomer">список покупателей</a></li>
+        <li><a href="${pageContext.request.contextPath}/createUser">создать пользователя</a></li>
     </ul>
 
 </nav>

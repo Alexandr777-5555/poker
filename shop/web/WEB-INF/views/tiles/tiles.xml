@@ -37,4 +37,11 @@
     </definition>
 
 
+    <!--    createUser page-->
+    <definition name="createUser" extends="template-def">
+        <put-attribute name="title" value="создание пользователя"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/createUser.jsp"/>
+    </definition>
+
+
 </tiles-definitions>
