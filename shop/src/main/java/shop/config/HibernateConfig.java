@@ -36,7 +36,7 @@ public class HibernateConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
         sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setPackagesToScan(new String[]{"shop.domain"});
+        sessionFactoryBean.setPackagesToScan(new String[]{"shop.model"});
         Properties props = new Properties();
         props.setProperty("dialect",
                 "org.hibernate.dialect.H2Dialect");

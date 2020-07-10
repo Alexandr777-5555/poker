@@ -3,7 +3,7 @@ package shop.repo.hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
-import shop.domain.Customer;
+import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
 import java.util.List;

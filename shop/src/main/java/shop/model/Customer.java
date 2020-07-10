@@ -1,4 +1,4 @@
-package shop.domain;
+package shop.model;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -49,16 +49,18 @@ public class Customer {
     private LocalDate dateOfBirth;
 
 
-    public void addCard(DepositCard card) {
+    public void addCard(DepositCard card) throws Exception {
         if (card == null) {
             throw new NullPointerException("can't add null card");
         }
-//        if (card.getCustomer() != null) {
-//            throw new IllegalArgumentException("card is already assigned customer");
-//        }
+        if(cards.contains(card)){
+            throw new Exception("card exists");
+        }
+
         cards.add(card);
         card.setCustomer(this);
     }
+
 
 
     public Long getId() {

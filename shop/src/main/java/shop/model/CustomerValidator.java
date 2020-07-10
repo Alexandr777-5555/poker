@@ -1,4 +1,4 @@
-package shop.domain;
+package shop.model;
 
 
 import org.slf4j.Logger;

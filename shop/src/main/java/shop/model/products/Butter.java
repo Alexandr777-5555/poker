@@ -1,4 +1,4 @@
-package shop.domain.products;
+package shop.model.products;
 
 public class Butter extends Product {
 

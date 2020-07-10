@@ -1,10 +1,11 @@
-package shop.domain.products;
+package shop.model.products;
 
 /**
  *
  * продукт
  *
  */
+
 public abstract class Product {
 
     /**

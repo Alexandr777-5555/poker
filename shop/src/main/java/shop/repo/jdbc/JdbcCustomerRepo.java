@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
-import shop.domain.Customer;
+import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
 import javax.sql.DataSource;

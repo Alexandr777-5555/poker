@@ -1,6 +1,6 @@
 package shop.service;
 
-import shop.domain.ShoppingCart;
+import shop.model.ShoppingCart;
 
 import java.time.LocalDate;
 import java.util.List;

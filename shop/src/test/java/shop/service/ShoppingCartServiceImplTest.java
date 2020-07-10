@@ -2,7 +2,7 @@ package shop.service;
 
 import org.junit.Before;
 import org.junit.Test;
-import shop.domain.ShoppingCart;
+import shop.model.ShoppingCart;
 
 import java.util.List;
 

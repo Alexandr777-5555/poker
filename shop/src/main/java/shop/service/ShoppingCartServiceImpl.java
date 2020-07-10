@@ -1,8 +1,8 @@
 package shop.service;
 
 import org.springframework.stereotype.Service;
-import shop.domain.ShoppingCart;
-import shop.domain.products.FactoryProduct;
+import shop.model.ShoppingCart;
+import shop.model.products.FactoryProduct;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

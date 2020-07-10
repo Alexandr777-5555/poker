@@ -4,8 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import shop.domain.Customer;
-import shop.domain.DepositCard;
+import shop.model.Customer;
 import shop.repo.CustomerRepository;
 import shop.service.CustomerService;
 

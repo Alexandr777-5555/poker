@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import shop.domain.ShoppingCart;
+import shop.model.ShoppingCart;
 import shop.service.CustomerService;
 import shop.service.ShoppingCartService;
 

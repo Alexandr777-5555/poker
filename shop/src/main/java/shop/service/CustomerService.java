@@ -1,7 +1,7 @@
 package shop.service;
 
 
-import shop.domain.Customer;
+import shop.model.Customer;
 
 import java.util.List;
 

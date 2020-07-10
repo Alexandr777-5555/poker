@@ -6,7 +6,7 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Table;
 import com.lowagie.text.pdf.PdfWriter;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
-import shop.domain.ShoppingCart;
+import shop.model.ShoppingCart;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

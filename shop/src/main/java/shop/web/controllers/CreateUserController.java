@@ -11,8 +11,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import shop.domain.Customer;
-import shop.domain.CustomerValidator;
+import shop.model.Customer;
+import shop.model.CustomerValidator;
 import shop.service.CustomerService;
 
 @Controller

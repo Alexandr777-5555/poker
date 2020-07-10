@@ -1,8 +1,8 @@
-package shop.domain;
+package shop.model;
 
 
 import org.springframework.format.annotation.DateTimeFormat;
-import shop.domain.products.Product;
+import shop.model.products.Product;
 
 import java.time.LocalDate;
 
