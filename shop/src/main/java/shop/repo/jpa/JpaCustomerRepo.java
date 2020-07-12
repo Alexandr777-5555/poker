@@ -1,39 +1,58 @@
 package shop.repo.jpa;
 
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import shop.model.Customer;
+import shop.repo.CustomerRepository;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import java.util.List;
 
 @Repository("jpaCustomer")
-public interface JpaCustomerRepo
-      extends CrudRepository <Customer , Long >
- {
+public class JpaCustomerRepo implements CustomerRepository {
 
-   // @Autowired
-  //  private EntityManagerFactory entityManagerFactory;
+    private final EntityManagerFactory entityManagerFactory;
 
-//    @Autowired
-//    public JpaCustomerRepo(EntityManagerFactory entityManagerFactory) {
-//        this.entityManagerFactory = entityManagerFactory;
-//    }
+    public JpaCustomerRepo(EntityManagerFactory entityManagerFactory) {
+        this.entityManagerFactory = entityManagerFactory;
+    }
 
-//    @Override
-//    public Customer add(Customer customer) {
-//        return null;
-//    }
-//
-//    @Override
-//    public List<Customer> findAll() {
-//        return null;
-//    }
-//
-//    @Override
-//    public void remove(long id) {
-//
-//    }
-//
-//    @Override
-//    public Customer findOne(long id) {
-//        return null;
-//    }
+    @Override
+    public Customer add(Customer customer) {
+
+        EntityManager manager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = manager.getTransaction();
+
+        try {
+            transaction.begin();
+            Customer custom = manager.merge(customer);
+            transaction.commit();
+            return custom;
+        } catch (RuntimeException ex) {
+            transaction.rollback();
+            throw ex;
+        }
+        finally {
+            manager.close();
+        }
+    }
+
+    @Override
+    public List<Customer> findAll() {
+        return null;
+    }
+
+    @Override
+    public void remove(long id) {
+
+    }
+
+    @Override
+    public Customer findOne(long id) {
+        return null;
+    }
+
+
 }

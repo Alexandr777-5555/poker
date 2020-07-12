@@ -21,20 +21,21 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerServiceImpl(@Qualifier("hibCustomer") CustomerRepository customerRepository) {
+   // public CustomerServiceImpl(@Qualifier("hibCustomer") CustomerRepository customerRepository) {
+    public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
 
         this.customerRepository = customerRepository;
         Customer customer = new Customer();
         customer.setFirstName("Alex");
         customer.setLastName("Avd");
         customer.setDateOfBirth(LocalDate.of(1982, 6, 23));
-//        customerRepository.add(customer);
+        customerRepository.add(customer);
 
         customer = new Customer();
         customer.setFirstName("AAA");
         customer.setLastName("BBB");
         customer.setDateOfBirth(LocalDate.of(2020, 1, 13));
-        //  customerRepository.add(customer);
+        customerRepository.add(customer);
     }
 
     @Override
