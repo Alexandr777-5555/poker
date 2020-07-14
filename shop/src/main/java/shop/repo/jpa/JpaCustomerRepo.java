@@ -1,7 +1,6 @@
 package shop.repo.jpa;
 
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
