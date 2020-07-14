@@ -52,7 +52,19 @@ public class JpaCustomerRepo implements CustomerRepository {
 
     @Override
     public void remove(long id) {
-
+        EntityManager manager = entityManagerFactory.createEntityManager();
+        EntityTransaction transaction = manager.getTransaction();
+        try {
+            transaction.begin();
+            Customer customer = manager.find(Customer.class, id);
+            manager.remove(customer);
+            transaction.commit();
+        } catch (RuntimeException ex) {
+            transaction.rollback();
+            throw ex;
+        } finally {
+            manager.close();
+        }
     }
 
     @Override
