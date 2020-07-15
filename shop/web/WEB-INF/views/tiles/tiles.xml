@@ -44,4 +44,12 @@
     </definition>
 
 
+
+<!--    calculateCart-->
+    <definition name="calculateCart" extends="template-def">
+        <put-attribute name="title" value="сумма покупок"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/calculateCart.jsp"/>
+    </definition>
+
+
 </tiles-definitions>
