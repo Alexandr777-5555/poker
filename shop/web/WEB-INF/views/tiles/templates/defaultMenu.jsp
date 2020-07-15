@@ -14,6 +14,7 @@
         <li><a href="${pageContext.request.contextPath}/listCustomer">список покупателей</a></li>
         <li><a href="${pageContext.request.contextPath}/createUser">создать пользователя</a></li>
         <li><a href="${pageContext.request.contextPath}/calculateCart">общая сумма покупок пользователя</a></li>
+        <li><a href="${pageContext.request.contextPath}/shopCart">поиск держателя карты</a></li>
     </ul>
 
 </nav>

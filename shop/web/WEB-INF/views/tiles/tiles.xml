@@ -44,11 +44,16 @@
     </definition>
 
 
-
-<!--    calculateCart-->
+    <!--    calculateCart page-->
     <definition name="calculateCart" extends="template-def">
         <put-attribute name="title" value="сумма покупок"/>
         <put-attribute name="body" value="/WEB-INF/jsp/calculateCart.jsp"/>
+    </definition>
+
+    <!--    shopCart page-->
+    <definition name="shopCart" extends="template-def">
+        <put-attribute name="title" value="поиск покупателя"/>
+        <put-attribute name="body" value="/WEB-INF/jsp/shopCart.jsp"/>
     </definition>
 
 
