@@ -6,22 +6,22 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form method="post">
-    <tx>
-        <td>find by date</td>
-        <td><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></td>
-    </tx>
-    <td></td>
-    <td><input type="submit" value="найти"/></td>
-</form>
 
+<table border="1">
+    <form method="post">
+        <tr>
+            <th>find by date</th>
+            <th><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></th>
+        </tr>
+        <td></td>
+        <td><input type="submit" value="найти"/></td>
+    </form>
+</table>
 <br>
 <br>
 
