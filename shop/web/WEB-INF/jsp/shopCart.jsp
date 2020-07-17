@@ -16,7 +16,7 @@
 
 <form method="post">
     <input type="text" name="owner" value="${owner}"/>
-    <input type="submit" value="найти"/>
+    <input type="submit" class="btn btn-dark" value="найти"/>
 </form>
 
  <table border="2" >

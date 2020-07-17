@@ -19,7 +19,7 @@
             <th><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></th>
         </tr>
         <td></td>
-        <td><input type="submit" value="найти"/></td>
+        <td><input type="submit" class="btn btn-dark" value="найти"/></td>
     </form>
 </table>
 <br>
