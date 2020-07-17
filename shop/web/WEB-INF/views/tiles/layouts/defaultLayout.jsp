@@ -9,17 +9,17 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:getAsString name="title"/></title>
-
-    <spring:url value="resources/css/bootstrap.css" var="bootstrap"/>
-    <spring:url value="/resources/css/modern-business.css" var="startertemplate"/>
-    <link href="${bootstrap}" rel="stylesheet" />
-    <link href="${startertemplate}" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
 </head>
 <body>
 
@@ -29,11 +29,11 @@
             <tiles:insertAttribute name="header"/>
         </td>
     </tr>
-    <tr >
-        <td width="20%">
+    <tr>
+        <td width="20%" >
             <tiles:insertAttribute name="menu"/>
         </td>
-        <td width="80%" >
+        <td width="80%" height="500px" >
             <tiles:insertAttribute name="body"/>
         </td>
     </tr>
@@ -42,8 +42,6 @@
             <tiles:insertAttribute name="footer"/>
         </td>
     </tr>
-
-
 </table>
 
 </body>

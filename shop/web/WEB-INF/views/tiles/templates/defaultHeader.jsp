@@ -8,7 +8,5 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <header>
-
-    <h3> Разработка проекта "корзина покупателя" </h3>
-
+    <h2> проекта "корзина покупателя" <span class="badge badge-secondary">Разработка</span></h2>
 </header>
