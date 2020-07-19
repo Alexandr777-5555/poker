@@ -4,20 +4,19 @@ import org.springframework.stereotype.Repository;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import java.util.List;
 
 @Repository("jpaCustomer")
 public class JpaCustomerRepo implements CustomerRepository {
 
-    private final EntityManagerFactory entityManagerFactory;
+      private final EntityManagerFactory entityManagerFactory;
+
 
     public JpaCustomerRepo(EntityManagerFactory entityManagerFactory) {
         this.entityManagerFactory = entityManagerFactory;
     }
+
 
     @Override
     public Customer add(Customer customer) {
@@ -36,6 +35,7 @@ public class JpaCustomerRepo implements CustomerRepository {
         } finally {
             manager.close();
         }
+
     }
 
     @Override
