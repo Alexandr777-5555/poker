@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>shop</groupId>
-    <artifactId>sale-remote</artifactId>
+    <artifactId>shop-remote</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
@@ -135,6 +135,27 @@
             <version>2.3.1.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>5.0.8.RELEASE</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -148,6 +169,8 @@
                 </configuration>
             </plugin>
 
+
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -158,5 +181,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
