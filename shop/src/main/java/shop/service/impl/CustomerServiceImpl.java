@@ -21,7 +21,8 @@ public class CustomerServiceImpl implements CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
+   // public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
+    public CustomerServiceImpl(@Qualifier("jpaCustomerEm") CustomerRepository customerRepository) {
 
         this.customerRepository = customerRepository;
         Customer customer = new Customer();

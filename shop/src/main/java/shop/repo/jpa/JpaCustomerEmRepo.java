@@ -16,9 +16,8 @@ public class JpaCustomerEmRepo implements CustomerRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-
-    @Transactional
     @Override
+    @Transactional
     public Customer add(Customer customer) {
         return entityManager.merge(customer);
     }
