@@ -15,7 +15,6 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(value = "shop" )
 public class WebConfiguration  implements WebMvcConfigurer {
 
     @Override
@@ -41,6 +40,7 @@ public class WebConfiguration  implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/shop");
+       // registry.addViewController("/").setViewName("redirect:/shop");
+        registry.addViewController("/").setViewName("redirect:/wel");
     }
 }

@@ -32,8 +32,8 @@ public class WebApplicationInitializer extends AbstractAnnotationConfigDispatche
     @Override
     protected String[] getServletMappings() {
         return
-            //  new String[]{"/" };
-               new String[]{"/shop" };
+              new String[]{"/" };
+            //   new String[]{"/shop" };
     }
 
 
