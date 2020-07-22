@@ -27,7 +27,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                .antMatchers(HttpMethod.DELETE, "/*").hasAuthority("ADMIN")
                .and()
                .formLogin()
-               //.successForwardUrl("/tiles")
                .and()
                .csrf()
                .disable();

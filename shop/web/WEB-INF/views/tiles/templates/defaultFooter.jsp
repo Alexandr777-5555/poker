@@ -8,6 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <footer>
 
-    footer
+    <h4> hello ${pageContext.request.remoteUser} </h4>
 
 </footer>
