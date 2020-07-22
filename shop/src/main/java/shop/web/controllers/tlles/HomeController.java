@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping
     public String setupForm(){
-       return "home";
+       return "";
     }
 
 }

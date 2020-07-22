@@ -39,6 +39,6 @@ public class WebConfiguration  implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("redirect:/wel");
+     registry.addViewController("/").setViewName("hello");
     }
 }
