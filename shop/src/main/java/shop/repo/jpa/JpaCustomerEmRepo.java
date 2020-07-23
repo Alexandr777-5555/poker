@@ -8,6 +8,7 @@ import shop.repo.CustomerRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository("jpaCustomerEm")
@@ -25,7 +26,10 @@ public class JpaCustomerEmRepo implements CustomerRepository {
 
     @Override
     public List<Customer> findAll() {
-        return null;
+        TypedQuery<Customer> query = entityManager
+                .createQuery("select cu from Customer cu", Customer.class);
+
+        return query.getResultList();
     }
 
     @Override

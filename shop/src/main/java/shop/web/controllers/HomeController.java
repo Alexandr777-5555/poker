@@ -1,4 +1,4 @@
-package shop.web.controllers.tlles;
+package shop.web.controllers;
 
 
 import org.springframework.stereotype.Controller;

@@ -18,7 +18,6 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-
     private final CustomerRepository customerRepository;
 
    // public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
@@ -45,6 +44,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Customer> list() {
+        log.info(" size Customers " + customerRepository.findAll().size());
         return customerRepository.findAll();
     }
 
@@ -59,6 +59,5 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer findById(long id) {
         return customerRepository.findOne(id);
     }
-
 
 }
