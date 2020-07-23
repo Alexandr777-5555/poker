@@ -2,6 +2,7 @@ package shop.web.config;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
+@ComponentScan(basePackages = {"shop.config" , "shop.repo" , "shop.service.impl"} )
 public class WebConfiguration  implements WebMvcConfigurer {
 
     @Override
@@ -40,5 +42,6 @@ public class WebConfiguration  implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
      registry.addViewController("/").setViewName("hello");
+     registry.addViewController("/listCustomer").setViewName("listCustomer");
     }
 }

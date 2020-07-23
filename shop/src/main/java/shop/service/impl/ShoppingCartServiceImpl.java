@@ -1,8 +1,9 @@
-package shop.service;
+package shop.service.impl;
 
 import org.springframework.stereotype.Service;
 import shop.model.ShoppingCart;
 import shop.model.products.FactoryProduct;
+import shop.service.ShoppingCartService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

@@ -3,6 +3,7 @@ package shop.service;
 import org.junit.Before;
 import org.junit.Test;
 import shop.model.ShoppingCart;
+import shop.service.impl.ShoppingCartServiceImpl;
 
 import java.util.List;
 
