@@ -34,8 +34,11 @@ public class JpaCustomerEmRepo implements CustomerRepository {
 
     @Override
     public void remove(long id) {
-
+        Customer customer=entityManager.find(Customer.class , id);
+        entityManager.remove(customer);
     }
+
+
 
     @Override
     public Customer findOne(long id) {
