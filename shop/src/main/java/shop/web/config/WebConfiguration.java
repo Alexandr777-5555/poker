@@ -16,7 +16,9 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"shop.config" , "shop.repo"
-        , "shop.service.impl", "shop.web.controllers" , "shop.model" } )
+        , "shop.service.impl", "shop.web.controllers" , "shop.model"
+        , "shop.web" } )
+
 public class WebConfiguration  implements WebMvcConfigurer {
 
     @Override
