@@ -2,9 +2,7 @@ package shop.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
@@ -20,7 +18,7 @@ public class CustomerServiceImpl implements CustomerService {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     private final CustomerRepository customerRepository;
 
-   // public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
+    // public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
     public CustomerServiceImpl(@Qualifier("jpaCustomerEm") CustomerRepository customerRepository) {
 
         this.customerRepository = customerRepository;

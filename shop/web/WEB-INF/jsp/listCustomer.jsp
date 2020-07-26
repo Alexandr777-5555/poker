@@ -36,6 +36,7 @@
                 <td>
                     <c:url value="/listCustomer/${customer.id}" var="deleteUrl"/>
                     <form action="${deleteUrl}" method="post" style="float: left;">
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                         <input type="hidden" name="_method" value="DELETE"/>
                         <button class="ui mini axis-tick-mark icon button"><i class="remove circle icon"></i></button>
                     </form>

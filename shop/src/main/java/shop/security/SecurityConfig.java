@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true , prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
@@ -22,17 +22,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-       http.authorizeRequests()
-               .antMatchers("/*").hasAuthority("USER")
-               .antMatchers(HttpMethod.DELETE, "/*").hasAuthority("ADMIN")
-               .and()
-               .formLogin()
-               .and()
-               .logout()
-               .and()
-               .csrf()
-               .disable()
-       ;
+        http.authorizeRequests()
+                .antMatchers("/*").hasAuthority("USER")
+                .antMatchers(HttpMethod.DELETE, "/*").hasAuthority("ADMIN")
+                .and()
+                .formLogin()
+                .and()
+                .logout()
+        ;
     }
 
 
@@ -49,7 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static NoOpPasswordEncoder passwordEncoder() {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
-
 
 
 }

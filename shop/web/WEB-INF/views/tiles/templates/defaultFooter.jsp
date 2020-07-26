@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: AVDEY
@@ -10,7 +11,7 @@
 <footer>
     <h6> hello ${pageContext.request.remoteUser} </h6>
     <form action="<c:url value="/logout"/>" method="post">
-        <%--                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <button>Logout</button>
     </form>
 </footer>
