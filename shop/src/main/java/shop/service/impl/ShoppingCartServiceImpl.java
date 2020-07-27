@@ -1,5 +1,6 @@
 package shop.service.impl;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import shop.model.ShoppingCart;
 import shop.model.products.FactoryProduct;
@@ -37,6 +38,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
+    @PreAuthorize("hasRole('ADMIN')")
     public List<ShoppingCart> query(String owner) {
         if (owner == null) {
             throw new IllegalArgumentException("this null");

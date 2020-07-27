@@ -3,6 +3,7 @@ package shop.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
@@ -48,6 +49,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 
     @Override
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void remove(long id) {
         log.info("delete customer by id " + id);
         customerRepository.remove(id);
