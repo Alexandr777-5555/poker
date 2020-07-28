@@ -27,11 +27,8 @@ public class AllReportController {
 
     private final ShoppingCartService cartService;
 
-    private final CustomerService service;
-
-    public AllReportController(ShoppingCartService cartService , CustomerService service) {
+    public AllReportController(ShoppingCartService cartService ) {
         this.cartService = cartService;
-        this.service=service;
     }
 
     @GetMapping
@@ -44,10 +41,9 @@ public class AllReportController {
             , HttpServletResponse res
     ) throws IOException {
 
-        log.info("method submitForm " + selectedDate);
+        log.info("method submitForm !!! " + selectedDate);
         LocalDate localDate = LocalDate.parse(selectedDate);
         List<ShoppingCart> list = cartService.findByDate(localDate);
-        String ReportName = "text";
         if (list != null) {
             log.info("data ");
             model.addAttribute("shopcarts", list);

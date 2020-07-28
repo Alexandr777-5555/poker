@@ -68,6 +68,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
+    @PreAuthorize("hasRole('ADMIN')")
     public List<ShoppingCart> findByDate(LocalDate date) {
         return shoppingCarts
                 .stream()
