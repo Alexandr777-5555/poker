@@ -1,9 +1,8 @@
 package shop.service.impl;
 
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import shop.model.ShoppingCart;
-import shop.model.products.FactoryProduct;
 import shop.service.ShoppingCartService;
 
 import java.time.LocalDate;
@@ -15,30 +14,10 @@ import java.util.stream.Collectors;
 @Service
 public class ShoppingCartServiceImpl implements ShoppingCartService {
 
+    @Autowired
     private List<ShoppingCart> shoppingCarts;
 
-    public ShoppingCartServiceImpl() {
-        shoppingCarts = new ArrayList<>();
-
-        shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("milk", 22.35),
-                LocalDate.of(2020 , 05 , 2)));
-
-        shoppingCarts.add(new ShoppingCart("Natalia",
-                FactoryProduct.create("butter", 45),
-                LocalDate.of(2020 , 06 , 2)));
-
-        shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("bread", 20.11),
-                LocalDate.of(2020 , 06 , 3)));
-
-        shoppingCarts.add(new ShoppingCart("Alexander",
-                FactoryProduct.create("milk", 33.50),
-                LocalDate.of(2020 , 05 , 2)));
-    }
-
     @Override
-    @PreAuthorize("hasRole('ADMIN')")
     public List<ShoppingCart> query(String owner) {
         if (owner == null) {
             throw new IllegalArgumentException("this null");
@@ -50,7 +29,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             }
         }
         return result;
-
     }
 
     @Override
@@ -68,13 +46,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    @PreAuthorize("hasRole('ADMIN')")
     public List<ShoppingCart> findByDate(LocalDate date) {
         return shoppingCarts
                 .stream()
                 .filter(cart -> Objects.equals(cart.getDate(), date))
                 .collect(Collectors.toList());
     }
-
 
 }

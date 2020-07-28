@@ -25,12 +25,10 @@ public class HibernateConfig {
         return new HibernateCustomerRepo(sessionFactory);
     }
 
-
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         return new HibernateTransactionManager(sessionFactory);
     }
-
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
@@ -41,21 +39,16 @@ public class HibernateConfig {
         props.setProperty("dialect",
                 "org.hibernate.dialect.H2Dialect");
         props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
-       // props.setProperty(AvailableSettings.HBM2DDL_CREATE_SOURCE , String.valueOf(true));
         props.setProperty(AvailableSettings.HBM2DDL_AUTO, "update");
-
         sessionFactoryBean.setHibernateProperties(props);
-
         return sessionFactoryBean;
     }
-
 
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
                 .setName("shop")
-              //  .addScript("classpath:/schema.sql")
                 .build();
     }
 

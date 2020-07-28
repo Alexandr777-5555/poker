@@ -24,8 +24,4 @@ public interface ShoppingCartService {
     List<ShoppingCart> findByDate(LocalDate date);
 
 
-
-
-
-
 }

@@ -16,6 +16,7 @@
 
 <form method="post">
     <input type="text" name="owner" value="${owner}"/>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="submit" class="btn btn-dark" value="найти"/>
 </form>
 
