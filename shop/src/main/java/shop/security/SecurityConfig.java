@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 import javax.sql.DataSource;
@@ -18,8 +19,6 @@ import javax.sql.DataSource;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-
 
     @Bean
     public DataSource dataSource() {
@@ -30,8 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .build();
     }
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // определяем какие пути будут защищены а какие нет
@@ -41,21 +38,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .and()
-                .logout()
-        ;
+                .logout();
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource());
+        auth
+        .jdbcAuthentication()
+        .passwordEncoder(passwordEncoder())
+        .dataSource(dataSource());
     }
 
-
-    @SuppressWarnings("deprecation")
     @Bean
-    public static NoOpPasswordEncoder passwordEncoder() {
-        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
+
+
+
 
 
 }
