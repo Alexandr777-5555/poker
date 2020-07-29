@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -47,20 +48,6 @@ public class Customer {
     @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate dateOfBirth;
-
-
-    public void addCard(DepositCard card) throws Exception {
-        if (card == null) {
-            throw new NullPointerException("can't add null card");
-        }
-        if(cards.contains(card)){
-            throw new Exception("card exists");
-        }
-
-        cards.add(card);
-        card.setCustomer(this);
-    }
-
 
 
     public Long getId() {
@@ -103,5 +90,16 @@ public class Customer {
         this.cards = cards;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
