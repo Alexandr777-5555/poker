@@ -5,10 +5,7 @@ import shop.exceptions.DuplicateCustomerException;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class InMemoryCustomRepo implements CustomerRepository {
@@ -46,11 +43,13 @@ public class InMemoryCustomRepo implements CustomerRepository {
 
     @Override
     public List<Customer> findAll() {
-        Map<Object, Object> result = new HashMap<>();
-        for (Map.Entry entry : customers.entrySet()) {
-            result.put(entry.getKey() , entry.getValue());
+        List < Customer> result = new ArrayList<>();
+        Iterator<Map.Entry<Long, Customer>> itr = customers.entrySet().iterator();
+        for (Map.Entry<Long, Customer> entry : customers.entrySet()) {
+            Customer value = entry.getValue();
+            result.add(value);
         }
-        return (List<Customer>) result;
+        return result;
     }
 
 
