@@ -4,7 +4,7 @@ package shop.repo.jpa;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import shop.model.Customer;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,7 +12,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository("jpaCustomerEm")
-public class JpaCustomerEmRepo implements CustomerRepository {
+public class JpaCustomerEmRepo implements CustomRepo {
 
     @PersistenceContext
     private EntityManager entityManager;

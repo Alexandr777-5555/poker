@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import shop.model.Customer;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 import shop.service.CustomerService;
 
 import java.time.LocalDate;
@@ -17,10 +17,10 @@ import java.util.List;
 public class CustomerServiceImpl implements CustomerService {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
-    private final CustomerRepository customerRepository;
+    private final CustomRepo customerRepository;
 
     // public CustomerServiceImpl(@Qualifier("jpaCustomer") CustomerRepository customerRepository) {
-    public CustomerServiceImpl(@Qualifier("jpaCustomerEm") CustomerRepository customerRepository) {
+    public CustomerServiceImpl(@Qualifier("jpaCustomerEm") CustomRepo customerRepository) {
 
         this.customerRepository = customerRepository;
         Customer customer = new Customer();

@@ -4,13 +4,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
 import shop.model.Customer;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 
 import java.util.List;
 
 
 @Transactional
-public class HibernateCustomerRepo implements CustomerRepository {
+public class HibernateCustomerRepo implements CustomRepo {
 
     private final SessionFactory sessionFactory;
 

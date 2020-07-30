@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import shop.model.Customer;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;
@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @Repository("jdbcCustomer")
-public class JdbcCustomerRepo implements CustomerRepository {
+public class JdbcCustomerRepo implements CustomRepo {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 

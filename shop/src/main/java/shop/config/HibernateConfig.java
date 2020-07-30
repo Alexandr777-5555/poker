@@ -10,7 +10,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 import shop.repo.hibernate.HibernateCustomerRepo;
 
 import javax.sql.DataSource;
@@ -21,7 +21,7 @@ import java.util.Properties;
 public class HibernateConfig {
 
     @Bean("hibCustomer")
-    CustomerRepository customerRepository(SessionFactory sessionFactory) {
+    CustomRepo customerRepository(SessionFactory sessionFactory) {
         return new HibernateCustomerRepo(sessionFactory);
     }
 

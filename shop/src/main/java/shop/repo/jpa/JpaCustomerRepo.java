@@ -2,13 +2,16 @@ package shop.repo.jpa;
 
 import org.springframework.stereotype.Repository;
 import shop.model.Customer;
-import shop.repo.CustomerRepository;
+import shop.repo.CustomRepo;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Repository("jpaCustomer")
-public class JpaCustomerRepo implements CustomerRepository {
+public class JpaCustomerRepo implements CustomRepo {
 
       private final EntityManagerFactory entityManagerFactory;
 
