@@ -7,14 +7,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import shop.model.Customer;
 import shop.repo.CustomRepo;
-import shop.service.CustomerService;
+import shop.service.CustomService;
 
 import java.time.LocalDate;
 import java.util.List;
 
 
 @Service
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomService {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
     private final CustomRepo customerRepository;

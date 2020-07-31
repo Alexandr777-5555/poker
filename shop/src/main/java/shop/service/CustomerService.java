@@ -7,10 +7,14 @@ import java.util.List;
 
 public interface CustomerService {
 
-    void save(Customer customer);
-    List<Customer> list();
-    void remove(long id);
-    Customer findById(long id);
+    void create(Customer customer);
 
+    void remove(Customer customer);
+
+    Customer find(Customer customer);
+
+    List<Customer> findAll();
+
+    boolean exists(Customer customer);
 
 }

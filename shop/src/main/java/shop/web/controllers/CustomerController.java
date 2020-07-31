@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import shop.model.Customer;
-import shop.service.CustomerService;
+import shop.service.CustomService;
 
 import java.util.List;
 
@@ -18,10 +18,10 @@ public class CustomerController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final CustomerService service;
+    private final CustomService service;
 
 
-    public CustomerController(CustomerService service) {
+    public CustomerController(CustomService service) {
         this.service = service;
     }
 

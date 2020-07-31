@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import shop.model.Customer;
 import shop.model.CustomerValidator;
-import shop.service.CustomerService;
+import shop.service.CustomService;
 
 @Controller
 @RequestMapping("/createUser")
@@ -22,9 +22,9 @@ public class CreateUserController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final CustomerService customerService;
+    private final CustomService customerService;
 
-    public CreateUserController(CustomerService customerService) {
+    public CreateUserController(CustomService customerService) {
         this.customerService = customerService;
     }
 
