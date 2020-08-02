@@ -5,7 +5,7 @@ import shop.model.Customer;
 
 import java.util.List;
 
-//TODO это не правильно переделаю
+//TODO это не правильно переделаю ! правильно CustomerService использовать буду класс
 public interface CustomService {
 
     void save(Customer customer);
