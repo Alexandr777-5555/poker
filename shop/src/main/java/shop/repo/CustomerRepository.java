@@ -12,11 +12,13 @@ public interface CustomerRepository {
 
     void remove(Customer customer);
 
+    void remove(long id);
+
     Customer find(Customer customer);
 
-    List<Customer> findAll();
-
     boolean exists(Customer customer);
+
+    List<Customer> findAll();
 
 
 }
