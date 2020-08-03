@@ -21,7 +21,7 @@ public class CustomerServiceImplMockTest {
         service = new CustomerServiceImpl(repository);
     }
 
-    @Test
+  //  @Test
     public void callMethodFindInService() {
         Customer customer = new Customer();
         when(repository.find(customer)).thenReturn(customer);
@@ -32,7 +32,7 @@ public class CustomerServiceImplMockTest {
     }
 
 
-    @Test
+ //   @Test
     public void callMethodCreateInService() {
         Customer customer = new Customer();
         when(repository.find(customer)).thenReturn(customer);

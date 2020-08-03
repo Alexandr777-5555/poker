@@ -11,6 +11,8 @@ public interface CustomerService {
 
     void remove(Customer customer);
 
+    void remove(long id);
+
     Customer find(Customer customer);
 
     List<Customer> findAll();

@@ -33,6 +33,11 @@ public class InMemoryCustomRepo implements CustomerRepository {
     }
 
     @Override
+    public void remove(long id) {
+
+    }
+
+    @Override
     public Customer find(Customer customer) {
         Customer customerIn = customers.get(customer.getId());
         if (customerIn == null) {

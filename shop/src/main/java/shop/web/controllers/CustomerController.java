@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import shop.model.Customer;
 import shop.service.CustomService;
+import shop.service.CustomerService;
 
 import java.util.List;
 
@@ -18,16 +19,16 @@ public class CustomerController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final CustomService service;
+    private final CustomerService service;
 
 
-    public CustomerController(CustomService service) {
+    public CustomerController(CustomerService service) {
         this.service = service;
     }
 
     @GetMapping
     public String defaultForm(Model model) {
-        List<Customer> list = service.list();
+        List<Customer> list = service.findAll();
         log.info("size " + list.size());
         model.addAttribute("customers", list);
         return "listCustomer";
@@ -44,7 +45,7 @@ public class CustomerController {
 
     @RequestMapping(value = "/list/pdf" , method = RequestMethod.GET)
     public ModelAndView showPdf(){
-        List<Customer> list = service.list();
+        List<Customer> list = service.findAll();
         return new ModelAndView("pdfView", "customers" , list);
     }
 
