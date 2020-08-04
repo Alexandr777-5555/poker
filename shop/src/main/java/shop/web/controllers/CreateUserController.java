@@ -14,6 +14,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import shop.model.Customer;
 import shop.model.CustomerValidator;
 import shop.service.CustomService;
+import shop.service.CustomerService;
 
 @Controller
 @RequestMapping("/createUser")
@@ -22,9 +23,9 @@ public class CreateUserController {
 
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final CustomService customerService;
+    private final CustomerService customerService;
 
-    public CreateUserController(CustomService customerService) {
+    public CreateUserController(CustomerService customerService) {
         this.customerService = customerService;
     }
 
@@ -52,7 +53,7 @@ public class CreateUserController {
         if (result.hasErrors()) {
             return "createUser";
         }
-        customerService.save(customer);
+        customerService.create(customer);
         log.info("save customer : " + customer.getFirstName());
         status.setComplete();
         return "createUserSuccess";
