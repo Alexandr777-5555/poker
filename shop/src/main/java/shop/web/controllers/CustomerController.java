@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import shop.model.Customer;
-import shop.service.CustomService;
 import shop.service.CustomerService;
 
 import java.util.List;

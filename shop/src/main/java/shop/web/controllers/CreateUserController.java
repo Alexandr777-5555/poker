@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import shop.model.Customer;
 import shop.model.CustomerValidator;
-import shop.service.CustomService;
 import shop.service.CustomerService;
 
 @Controller
