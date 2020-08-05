@@ -3,10 +3,10 @@ package shop.config;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AvailableSettings;
+import org.hibernate.dialect.PostgreSQL95Dialect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -36,8 +36,7 @@ public class HibernateConfig {
         sessionFactoryBean.setDataSource(dataSource());
         sessionFactoryBean.setPackagesToScan(new String[]{"shop.model"});
         Properties props = new Properties();
-        props.setProperty("dialect",
-                "org.hibernate.dialect.H2Dialect");
+        props.setProperty(AvailableSettings.DIALECT, PostgreSQL95Dialect.class.getName());
         props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
         props.setProperty(AvailableSettings.HBM2DDL_AUTO, "update");
         sessionFactoryBean.setHibernateProperties(props);
@@ -46,10 +45,13 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-        return new EmbeddedDatabaseBuilder()
-                .setType(EmbeddedDatabaseType.H2)
-                .setName("shop")
-                .build();
+        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+        dataSource.setDriverClassName(org.postgresql.Driver.class.getName());
+        dataSource.setUrl("jdbc:postgresql://localhost:5432/shop");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("777");
+        return dataSource;
     }
+
 
 }
