@@ -38,7 +38,7 @@ public class HibernateConfig {
         Properties props = new Properties();
         props.setProperty(AvailableSettings.DIALECT, PostgreSQL95Dialect.class.getName());
         props.setProperty(AvailableSettings.SHOW_SQL, String.valueOf(true));
-        props.setProperty(AvailableSettings.HBM2DDL_AUTO, "update");
+        props.setProperty(AvailableSettings.HBM2DDL_AUTO, "create-drop");
         sessionFactoryBean.setHibernateProperties(props);
         return sessionFactoryBean;
     }
