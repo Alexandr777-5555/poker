@@ -14,6 +14,7 @@
 
 Подсчет стоимости покупок пользователя:
 <form method="post">
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
     <input type="text" name="calc" value="${calc}"/>
     <input type="submit" class="btn btn-dark" value="найти"/>
 </form>
