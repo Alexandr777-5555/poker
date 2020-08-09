@@ -24,9 +24,9 @@
     <table class="ui celled table">
         <thead>
         <tr>
-            <th>FIRST NAME</th>
-            <th>LAST NAME</th>
-            <th class="two wide">DEL</th>
+            <th>ИМЯ</th>
+            <th>ФАМИЛИЯ</th>
+            <th class="two wide">удалить</th>
         </tr>
         </thead>
         <c:forEach var="customer" items="${customers}">
