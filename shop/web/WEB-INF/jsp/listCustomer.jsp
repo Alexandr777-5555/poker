@@ -21,8 +21,8 @@
 
 <body>
 <c:if test="${not empty customers }">
-    <table class="ui celled table">
-        <thead>
+    <table class="ui celled table"  >
+        <thead class="thead-dark">
         <tr>
             <th>ИМЯ</th>
             <th>ФАМИЛИЯ</th>
