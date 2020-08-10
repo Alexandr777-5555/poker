@@ -11,19 +11,20 @@
     <title>Title</title>
 </head>
 <body>
+<div class="mx-auto my-2 my-sm-3 my-lg-4 p-3">
+    <table border="1">
+        <form method="post">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <tr>
+                <th>find by date</th>
+                <th><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></th>
 
-<table border="1">
-    <form method="post">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <tr>
-            <th>find by date</th>
-            <th><input type="text" placeholder="yyyy-mm-dd" name="bydate" value="${bydate}"/></th>
-
-        </tr>
-        <td></td>
-        <td><input type="submit" class="btn btn-dark" value="найти"/></td>
-    </form>
-</table>
+            </tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-dark" value="найти"/></td>
+        </form>
+    </table>
+</div>
 <br>
 <br>
 
