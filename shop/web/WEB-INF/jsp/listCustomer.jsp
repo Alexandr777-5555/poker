@@ -21,7 +21,9 @@
 
 <body>
 <c:if test="${not empty customers }">
-    <table class="ui celled table"  >
+    <div class="mx-auto my-2 my-sm-3 my-lg-4 p-3">
+    <table class="ui celled table" >
+
         <thead class="thead-dark">
         <tr>
             <th>ИМЯ</th>
@@ -43,7 +45,9 @@
                 </td>
             </tr>
         </c:forEach>
+
     </table>
+    </div>
 </c:if>
 
 <br>
