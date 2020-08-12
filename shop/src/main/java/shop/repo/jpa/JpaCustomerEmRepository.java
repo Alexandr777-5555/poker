@@ -38,7 +38,7 @@ public class JpaCustomerEmRepository implements CustomerRepository {
 
     @Override
     public Customer find(Customer customer) {
-        return entityManager.find(Customer.class, customer);
+        return entityManager.find(Customer.class, customer.getId());
     }
 
 

@@ -28,7 +28,7 @@ public class JdbcCustomerRepo implements CustomRepo {
 
     @Override
     public Customer add(Customer customer) {
-        if (customer.getId() == null) {
+        if (customer == null) {
             final String sql = "insert into customer (firstName , lastName) values (?,?)";
             GeneratedKeyHolder holder = new GeneratedKeyHolder();
             this.jdbc.update(connection -> {
