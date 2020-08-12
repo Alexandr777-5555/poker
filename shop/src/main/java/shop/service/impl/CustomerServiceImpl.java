@@ -21,17 +21,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     public CustomerServiceImpl(@Qualifier("jpaCustomerEmRepository") CustomerRepository repository) {
         this.repository = repository;
-        Customer customer = new Customer();
-        customer.setFirstName("Alex");
-        customer.setLastName("Avd");
-        customer.setDateOfBirth(LocalDate.of(1982, 6, 23));
-        repository.create(customer);
-
-        customer = new Customer();
-        customer.setFirstName("AAA");
-        customer.setLastName("BBB");
-        customer.setDateOfBirth(LocalDate.of(2020, 1, 13));
-        repository.create(customer);
+//        Customer customer = new Customer();
+//        customer.setFirstName("Alex");
+//        customer.setLastName("Avd");
+//        customer.setDateOfBirth(LocalDate.of(1982, 6, 23));
+//        repository.create(customer);
+//
+//        customer = new Customer();
+//        customer.setFirstName("AAA");
+//        customer.setLastName("BBB");
+//        customer.setDateOfBirth(LocalDate.of(2020, 1, 13));
+//        repository.create(customer);
     }
 
 

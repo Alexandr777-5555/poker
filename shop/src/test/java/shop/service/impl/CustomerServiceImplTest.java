@@ -30,7 +30,7 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
     public void findAll() {
         List<Customer> all = service.findAll();
         assertNotNull(all);
-        assertEquals(2, all.size());
+        assertEquals(3, all.size());
     }
 
 

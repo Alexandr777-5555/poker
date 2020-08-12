@@ -11,6 +11,7 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
+import shop.init.DBInitializer;
 import shop.repo.CustomerRepository;
 import shop.repo.jpa.JpaCustomerEmRepository;
 import shop.service.CustomerService;
@@ -28,6 +29,12 @@ public class TestConfig {
     @Bean
     public CustomerRepository repository() {
         return new JpaCustomerEmRepository();
+    }
+
+
+    @Bean
+    public DBInitializer dbInitializer() {
+        return new DBInitializer();
     }
 
 
