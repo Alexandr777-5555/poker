@@ -41,5 +41,15 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertNotNull(customer);
     }
 
+    @Test
+    public void delete() {
+        service.remove(1);
+        List<Customer> all = service.findAll();
+        assertEquals(2, all.size());
+    }
+
+
+
+
 
 }
