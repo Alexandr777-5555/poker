@@ -48,7 +48,13 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertEquals(2, all.size());
     }
 
-
+    @Test
+    public void create() {
+        Customer c = new Customer();
+        service.create(c);
+        List<Customer> all = service.findAll();
+        assertEquals(4, all.size());
+    }
 
 
 
