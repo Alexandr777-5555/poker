@@ -64,6 +64,12 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertTrue(exists);
     }
 
-
+    @Test
+    public void noExists(){
+        Customer customer=new Customer();
+        customer.setId(4);
+        boolean exists = service.exists(customer);
+        assertFalse(exists);
+    }
 
 }
