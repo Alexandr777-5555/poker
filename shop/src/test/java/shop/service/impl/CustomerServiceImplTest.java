@@ -13,8 +13,7 @@ import shop.service.CustomerService;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -54,6 +53,15 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         service.create(c);
         List<Customer> all = service.findAll();
         assertEquals(4, all.size());
+    }
+
+
+    @Test
+    public void exists() {
+        Customer c = new Customer();
+        c.setId(2);
+        boolean exists = service.exists(c);
+        assertTrue(exists);
     }
 
 

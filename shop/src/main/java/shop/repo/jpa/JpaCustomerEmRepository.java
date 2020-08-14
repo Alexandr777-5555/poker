@@ -44,7 +44,7 @@ public class JpaCustomerEmRepository implements CustomerRepository {
 
     @Override
     public boolean exists(Customer customerIn) {
-        Customer customer = entityManager.find(Customer.class, customerIn);
+        Customer customer = entityManager.find(Customer.class, customerIn.getId());
         if (customer != null) {
             return true;
         }
