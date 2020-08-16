@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shop.config.TestConfig;
+import shop.exceptions.DuplicateCustomerException;
 import shop.model.Customer;
 import shop.service.CustomerService;
 
@@ -72,4 +73,11 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertFalse(exists);
     }
 
+
+    @Test(expected = DuplicateCustomerException.class)
+    public void duplicateExpected() {
+        Customer c = new Customer();
+        c.setId(1);
+        service.create(c);
+    }
 }

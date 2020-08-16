@@ -2,6 +2,7 @@ package shop.repo.jpa;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.exceptions.DuplicateCustomerException;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
 
@@ -19,6 +20,9 @@ public class JpaCustomerEmRepository implements CustomerRepository {
     @Override
     @Transactional
     public void create(Customer customer) {
+        if (exists(customer)) {
+            throw new DuplicateCustomerException();
+        }
         entityManager.merge(customer);
     }
 
