@@ -37,6 +37,9 @@ public class JpaCustomerEmRepository implements CustomerRepository {
     @Transactional
     public void remove(long id) {
         Customer customer = entityManager.find(Customer.class, id);
+        if (!exists(customer)) {
+            throw new NullPointerException();
+        }
         entityManager.remove(customer);
     }
 

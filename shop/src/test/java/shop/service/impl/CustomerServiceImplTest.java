@@ -80,4 +80,10 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         c.setId(1);
         service.create(c);
     }
+
+    @Test(expected = NullPointerException.class)
+    public void deleteExpectedNPE(){
+        service.remove(4);
+    }
+
 }
