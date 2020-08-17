@@ -2,6 +2,7 @@ package shop.repo.jpa;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.exceptions.CustomerNotFoundException;
 import shop.exceptions.DuplicateCustomerException;
 import shop.model.Customer;
 import shop.repo.CustomerRepository;
@@ -29,6 +30,9 @@ public class JpaCustomerEmRepository implements CustomerRepository {
     @Override
     @Transactional
     public void remove(Customer customerIn) {
+        if (!exists(customerIn)) {
+            throw new CustomerNotFoundException();
+        }
         Customer customer = entityManager.find(Customer.class, customerIn);
         entityManager.remove(customer);
     }

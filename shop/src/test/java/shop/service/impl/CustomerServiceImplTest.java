@@ -8,6 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import shop.config.TestConfig;
+import shop.exceptions.CustomerNotFoundException;
 import shop.exceptions.DuplicateCustomerException;
 import shop.model.Customer;
 import shop.service.CustomerService;
@@ -85,5 +86,16 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
     public void deleteExpectedNPE(){
         service.remove(4);
     }
+
+
+    @Test(expected = CustomerNotFoundException.class)
+    public void deleteNotFound(){
+        Customer customer=new Customer();
+        customer.setId(4);
+        service.remove(customer);
+    }
+
+
+
 
 }
