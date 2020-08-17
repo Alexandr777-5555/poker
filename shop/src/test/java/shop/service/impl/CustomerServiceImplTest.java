@@ -96,6 +96,12 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
     }
 
 
+    @Test(expected = CustomerNotFoundException.class)
+    public void findNotFound(){
+        Customer customer=new Customer();
+        customer.setId(4);
+        service.find(customer);
+    }
 
 
 }

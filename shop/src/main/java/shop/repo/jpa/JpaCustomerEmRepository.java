@@ -49,6 +49,9 @@ public class JpaCustomerEmRepository implements CustomerRepository {
 
     @Override
     public Customer find(Customer customer) {
+        if (!exists(customer)) {
+            throw new CustomerNotFoundException();
+        }
         return entityManager.find(Customer.class, customer.getId());
     }
 
