@@ -51,10 +51,8 @@
 </c:if>
 
 <br>
-<br>
-<a href="${pageContext.request.contextPath}/">welcome</a>
 
-<br>
+
 
 <h5>${totalTime} mc </h5>
 
