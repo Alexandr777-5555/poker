@@ -67,8 +67,8 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
     }
 
     @Test
-    public void noExists(){
-        Customer customer=new Customer();
+    public void noExists() {
+        Customer customer = new Customer();
         customer.setId(4);
         boolean exists = service.exists(customer);
         assertFalse(exists);
@@ -83,25 +83,31 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
     }
 
     @Test(expected = NullPointerException.class)
-    public void deleteExpectedNPE(){
+    public void deleteExpectedNPE() {
         service.remove(4);
     }
 
 
     @Test(expected = CustomerNotFoundException.class)
-    public void deleteNotFound(){
-        Customer customer=new Customer();
+    public void deleteNotFound() {
+        Customer customer = new Customer();
         customer.setId(4);
         service.remove(customer);
     }
 
 
     @Test(expected = CustomerNotFoundException.class)
-    public void findNotFound(){
-        Customer customer=new Customer();
+    public void findNotFound() {
+        Customer customer = new Customer();
         customer.setId(4);
         service.find(customer);
     }
 
+
+    @Test
+    public void countRow() {
+        int i = countRowsInTable("Customer");
+        assertEquals(i, 3);
+    }
 
 }
