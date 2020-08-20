@@ -18,18 +18,19 @@
     <input type="text" name="calc" value="${calc}"/>
     <input type="submit" class="btn btn-dark" value="найти"/>
 </form>
-
-<table border="1">
-    <tr>
-        <th>Имя пользователя</th>
-        <th>общая сумма покупок</th>
-    </tr>
-    <tr>
-        <td><p><%=request.getParameter("calc")%>
-        </p></td>
-        <td> ${total}</td>
-    </tr>
-</table>
+<div class="mx-auto my-2 my-sm-3 my-lg-4 p-3">
+    <table border="1">
+        <tr>
+            <th>Имя пользователя</th>
+            <th>общая сумма покупок</th>
+        </tr>
+        <tr>
+            <td><p><%=request.getParameter("calc")%>
+            </p></td>
+            <td> ${total}</td>
+        </tr>
+    </table>
+</div>
 
 
 <br>
