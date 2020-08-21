@@ -12,13 +12,14 @@
 </head>
 <body>
 
-Подсчет стоимости покупок пользователя:
-<form method="post">
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    <input type="text" name="calc" value="${calc}"/>
-    <input type="submit" class="btn btn-dark" value="найти"/>
-</form>
 <div class="mx-auto my-2 my-sm-3 my-lg-4 p-3">
+    Подсчет стоимости покупок пользователя:
+    <form method="post">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <input type="text" name="calc" value="${calc}"/>
+        <input type="submit" class="btn btn-dark" value="найти"/>
+    </form>
+
     <table border="1">
         <tr>
             <th>Имя пользователя</th>
