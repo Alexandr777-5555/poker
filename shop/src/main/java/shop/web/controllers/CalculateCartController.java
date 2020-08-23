@@ -29,6 +29,8 @@ public class CalculateCartController {
         if(owner!=null) {
              totalValue= cartService.totalValue(owner);
         }
+
+        model.addAttribute("calcOwner" , owner);
         model.addAttribute("total" , totalValue);
         return "calculateCart";
     }

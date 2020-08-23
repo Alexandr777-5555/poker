@@ -26,8 +26,8 @@
             <th>общая сумма покупок</th>
         </tr>
         <tr>
-            <td><p><%=request.getParameter("calc")%>
-            </p></td>
+<%--            <td><p><%=request.getParameter("calc")%></p></td>--%>
+            <td>${calcOwner}</td>
             <td> ${total}</td>
         </tr>
     </table>
