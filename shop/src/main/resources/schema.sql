@@ -6,19 +6,4 @@ lastName  VARCHAR(100) not null,
 dateOfBirth date not null
 );
 
-CREATE TABLE depcard (
-
-id BIGINT AUTO_INCREMENT PRIMARY KEY
-
-
-);
-
-
-CREATE TABLE CUSTOMER_DEPCARD(
-id BIGINT AUTO_INCREMENT PRIMARY KEY ,
-Customer_id BIGINT ,
-cards_id BIGINT
-
-);
-
 

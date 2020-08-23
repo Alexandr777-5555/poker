@@ -23,16 +23,12 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @OneToMany
-    protected Set<DepositCard> cards = new HashSet<DepositCard>();
-
-
     /**
      * имя
      */
     @NotNull
-    @Size(min = 3 ,
-            max = 7 ,
+    @Size(min = 3,
+            max = 7,
             message = "firstName is required"
     )
     private String firstName;
@@ -83,13 +79,6 @@ public class Customer implements Serializable {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Set<DepositCard> getCards() {
-        return cards;
-    }
-
-    public void setCards(Set<DepositCard> cards) {
-        this.cards = cards;
-    }
 
     @Override
     public boolean equals(Object o) {
