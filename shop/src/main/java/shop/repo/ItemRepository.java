@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ItemRepository {
 
-    void create(Item item);
+    void add(Item item);
 
     void remove(Item item);
 
