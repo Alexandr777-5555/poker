@@ -11,7 +11,9 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import shop.repo.CustomRepo;
+import shop.repo.ItemRepository;
 import shop.repo.hibernate.HibernateCustomerRepo;
+import shop.repo.hibernate.HibernateItemRepository;
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -24,6 +26,13 @@ public class HibernateConfig {
     CustomRepo customerRepository(SessionFactory sessionFactory) {
         return new HibernateCustomerRepo(sessionFactory);
     }
+
+
+    @Bean
+    ItemRepository itemRepository(SessionFactory sessionFactory) {
+        return new HibernateItemRepository(sessionFactory);
+    }
+
 
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
