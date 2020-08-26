@@ -10,6 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import shop.ItemInit;
 import shop.repo.CustomRepo;
 import shop.repo.ItemRepository;
 import shop.repo.hibernate.HibernateCustomerRepo;
@@ -33,11 +34,17 @@ public class HibernateConfig {
         return new HibernateItemRepository(sessionFactory);
     }
 
+    @Bean
+    public ItemInit itemInit() {
+        return new ItemInit();
+    }
+
 
     @Bean
     public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         return new HibernateTransactionManager(sessionFactory);
     }
+
 
     @Bean
     public LocalSessionFactoryBean sessionFactory() {
