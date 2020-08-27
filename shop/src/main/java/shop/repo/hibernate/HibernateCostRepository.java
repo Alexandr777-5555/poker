@@ -49,6 +49,7 @@ public class HibernateCostRepository implements CostRepository{
 
     @Override
     public List<Cost> findAll() {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        return session.createQuery("from Cost", Cost.class).list();
     }
 }
