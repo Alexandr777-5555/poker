@@ -11,8 +11,10 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import shop.ItemInit;
+import shop.repo.CostRepository;
 import shop.repo.CustomRepo;
 import shop.repo.ItemRepository;
+import shop.repo.hibernate.HibernateCostRepository;
 import shop.repo.hibernate.HibernateCustomerRepo;
 import shop.repo.hibernate.HibernateItemRepository;
 
@@ -37,6 +39,11 @@ public class HibernateConfig {
     @Bean
     public ItemInit itemInit() {
         return new ItemInit();
+    }
+
+    @Bean
+    CostRepository costRepository(SessionFactory sessionFactory) {
+        return new HibernateCostRepository(sessionFactory);
     }
 
 
