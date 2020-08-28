@@ -10,7 +10,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import shop.ItemInit;
+import shop.init.ItemInit;
+import shop.init.CostInit;
 import shop.repo.CostRepository;
 import shop.repo.CustomRepo;
 import shop.repo.ItemRepository;
@@ -39,6 +40,11 @@ public class HibernateConfig {
     @Bean
     public ItemInit itemInit() {
         return new ItemInit();
+    }
+
+    @Bean
+    public CostInit costInit() {
+        return new CostInit();
     }
 
     @Bean

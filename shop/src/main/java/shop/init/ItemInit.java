@@ -1,4 +1,4 @@
-package shop;
+package shop.init;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
