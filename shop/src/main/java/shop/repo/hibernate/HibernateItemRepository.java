@@ -50,7 +50,7 @@ public class HibernateItemRepository implements ItemRepository {
     @Transactional(readOnly = true)
     public List<Item> findAll() {
         Session session = sessionFactory.getCurrentSession();
-        return session.createQuery("from Product", Item.class).list();
+        return session.createQuery("from Item", Item.class).list();
     }
 
     @Override
