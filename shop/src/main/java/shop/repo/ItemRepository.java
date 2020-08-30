@@ -15,6 +15,8 @@ public interface ItemRepository {
 
     Item find(Item item);
 
+    Item find(long id);
+
     boolean exists(Item item);
 
     List<Item> findAll();

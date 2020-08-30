@@ -14,7 +14,7 @@ public class CostInit {
     @PostConstruct
     public void init() {
         Cost cost=new Cost();
-        cost.setNoNumber("abc");
+        cost.setNoNumber("abc123");
         cost.setPrice(11.1);
         costRepository.create(cost);
     }

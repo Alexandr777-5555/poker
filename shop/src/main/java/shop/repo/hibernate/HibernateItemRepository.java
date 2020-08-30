@@ -42,6 +42,15 @@ public class HibernateItemRepository implements ItemRepository {
     }
 
     @Override
+    public Item find(long id) {
+        return (Item) sessionFactory
+                .getCurrentSession()
+                .getNamedQuery("Item.findById")
+                .setParameter("id" , id)
+                .uniqueResult();
+    }
+
+    @Override
     public boolean exists(Item item) {
         return false;
     }

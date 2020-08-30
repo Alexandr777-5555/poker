@@ -10,7 +10,12 @@ import java.util.Set;
 @NamedQueries({
         @NamedQuery(name="Item.findAllWithCost" ,
                 query = "select DISTINCT i from Item i " +
-                        "left JOIN fetch  i.costs c")
+                        "left JOIN fetch  i.costs c") ,
+        @NamedQuery(name="Item.findById" ,
+                query = "select DISTINCT i from Item i " +
+                        "left JOIN fetch  i.costs c" +
+                        " where i.id=:id" )
+
 })
 public class Item implements Serializable {
 

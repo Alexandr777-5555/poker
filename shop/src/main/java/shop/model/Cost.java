@@ -62,4 +62,15 @@ public class Cost implements Serializable {
     public void setItems(Set<Item> items) {
         this.items = items;
     }
+
+
+    @Override
+    public String toString() {
+        return "Cost{" +
+                "noNumber='" + noNumber + '\'' +
+                ", items=" + items +
+                ", price=" + price +
+                ", createdOn=" + createdOn +
+                '}';
+    }
 }
