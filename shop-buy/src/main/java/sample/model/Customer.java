@@ -11,6 +11,8 @@ import java.util.Set;
 /**
  * покупатель
  */
+@Entity
+
 public class Customer implements Serializable {
 
     @Id

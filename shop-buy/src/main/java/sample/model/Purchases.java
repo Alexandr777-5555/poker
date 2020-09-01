@@ -1,16 +1,26 @@
 package sample.model;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
+
+import static javax.persistence.GenerationType.IDENTITY;
 
 /**
  * класс покупки
  *
  */
-public class Purchases {
+@Entity
+public class Purchases implements Serializable{
 
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "ID")
+    private Long id;
 
-
+    @Temporal(TemporalType.DATE)
+    @Column(name = "BUY_DATE")
+    private Date buy;
 
     @ManyToOne
     @JoinColumn(name = "CUSTOMER_ID")
@@ -23,5 +33,30 @@ public class Purchases {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Date getBuy() {
+        return buy;
+    }
+
+    public void setBuy(Date buy) {
+        this.buy = buy;
+    }
+
+    @Override
+    public String toString() {
+        return "Purchases{" +
+                "id=" + id +
+                ", buy date=" + buy +
+                ", customer=" + customer +
+                '}';
     }
 }
