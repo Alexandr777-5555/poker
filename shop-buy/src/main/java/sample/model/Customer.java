@@ -12,8 +12,12 @@ import java.util.Set;
  * покупатель
  */
 @Entity
-
+@NamedQueries({
+@NamedQuery(name = Customer.FIND_ALL , query = "select c from Customer c")
+})
 public class Customer implements Serializable {
+
+    public static final String FIND_ALL="Customer.findAll";
 
     @Id
     @GeneratedValue
