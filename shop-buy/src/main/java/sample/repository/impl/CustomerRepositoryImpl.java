@@ -12,7 +12,6 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-
 public class CustomerRepositoryImpl implements CustomerRepository {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -24,7 +23,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Transactional(readOnly = true)
     public List<Customer> findAll() {
         return em
-                .createQuery(Customer.FIND_ALL, Customer.class)
+                .createNamedQuery(Customer.FIND_ALL, Customer.class)
                 .getResultList();
     }
 

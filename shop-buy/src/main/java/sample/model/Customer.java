@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 
 /**
  * покупатель
@@ -20,7 +22,8 @@ public class Customer implements Serializable {
     public static final String FIND_ALL="Customer.findAll";
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
     @Column(name = "FIRST_NAME")
