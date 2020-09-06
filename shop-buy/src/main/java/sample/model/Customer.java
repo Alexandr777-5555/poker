@@ -15,11 +15,16 @@ import static javax.persistence.GenerationType.IDENTITY;
  */
 @Entity
 @NamedQueries({
-@NamedQuery(name = Customer.FIND_ALL , query = "select c from Customer c")
+        @NamedQuery(name = Customer.FIND_ALL, query = "select c from Customer c"),
+        @NamedQuery(name = Customer.FIND_ALL_WITH_PURCHASES ,
+                query = "select distinct c from Customer c " +
+                        "left join fetch c.purchases pu " +
+                        "left join fetch c.products pr")
 })
 public class Customer implements Serializable {
 
-    public static final String FIND_ALL="Customer.findAll";
+    public static final String FIND_ALL = "Customer.findAll";
+    public static final String FIND_ALL_WITH_PURCHASES = "Customer.findAllWithPurchases";
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -38,25 +43,25 @@ public class Customer implements Serializable {
     private Date birthDate;
 
 
-    @OneToMany(mappedBy = "customer" ,
-            cascade = CascadeType.ALL , orphanRemoval = true)
+    @OneToMany(mappedBy = "customer",
+            cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Purchases> purchases = new HashSet<>();
 
 
     @ManyToMany
-    @JoinTable(name = "customer_product" ,
-    joinColumns = @JoinColumn(name = "CUSTOMER_ID"),
-    inverseJoinColumns=@JoinColumn(name = "PRODUCT_ID"))
-    private Set<Product> products=new HashSet<>();
+    @JoinTable(name = "customer_product",
+            joinColumns = @JoinColumn(name = "CUSTOMER_ID"),
+            inverseJoinColumns = @JoinColumn(name = "PRODUCT_ID"))
+    private Set<Product> products = new HashSet<>();
 
 
-    public boolean addPurchases(Purchases purchases){
+    public boolean addPurchases(Purchases purchases) {
         purchases.setCustomer(this);
         return getPurchases().add(purchases);
     }
 
 
-    public void deletePurchases(Purchases purchases){
+    public void deletePurchases(Purchases purchases) {
         getPurchases().remove(purchases);
     }
 

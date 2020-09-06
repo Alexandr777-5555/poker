@@ -25,6 +25,10 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findAll();
     }
 
+    @Override
+    public List<Customer> findAllWithPurchases() {
+        return customerRepository.findAllWithPurchases();
+    }
 
 
 

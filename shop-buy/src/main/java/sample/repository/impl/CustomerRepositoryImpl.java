@@ -27,6 +27,14 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 .getResultList();
     }
 
+    @Override
+    @Transactional(readOnly = true)
+    public List<Customer> findAllWithPurchases() {
+        List<Customer> customers=
+                em.createNamedQuery(Customer.FIND_ALL_WITH_PURCHASES , Customer.class)
+                        .getResultList();
+        return customers;
+    }
 
 
 
