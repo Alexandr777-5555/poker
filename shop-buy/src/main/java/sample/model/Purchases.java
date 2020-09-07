@@ -2,6 +2,7 @@ package sample.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static javax.persistence.GenerationType.IDENTITY;
@@ -53,10 +54,11 @@ public class Purchases implements Serializable{
 
     @Override
     public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return "Purchases{" +
                 "id=" + id +
-                ", buy date=" + buy +
-                ", customer=" + customer +
+                ", buy date=" +  sdf.format(buy) +
+                ", customer=" + customer.getFirstName() +
                 '}';
     }
 }
