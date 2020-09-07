@@ -37,6 +37,26 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertEquals(3 , list.size());
     }
 
+    @Test
+    @Sql({"classpath:test/data.sql"})
+    public void findAllWithPurchases() {
+        List<Customer> list = customerService.findAllWithPurchases();
+        assertEquals(3, list.size());
+        listCustomersWithPurchases(list);
+    }
+
+    private void listCustomersWithPurchases(List<Customer> list) {
+        logger.info(" ---- Listing customers with purchases:");
+        list.forEach(c -> {
+            logger.info(c.toString());
+            if (c.getPurchases() != null) {
+                c.getPurchases().forEach(pur -> logger.info("\t purch" + pur.toString()));
+            }
+            if (c.getProducts() != null) {
+                c.getProducts().forEach(p -> logger.info("Product " + p.getProductId()));
+            }
+        });
+    }
 
 
 }
