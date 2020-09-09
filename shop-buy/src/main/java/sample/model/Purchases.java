@@ -28,6 +28,9 @@ public class Purchases implements Serializable{
     private Customer customer;
 
 
+    @Column(name = "PRODUCT")
+    private String productId;
+
     public Customer getCustomer() {
         return customer;
     }
@@ -50,6 +53,14 @@ public class Purchases implements Serializable{
 
     public void setBuy(Date buy) {
         this.buy = buy;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     @Override
