@@ -20,6 +20,11 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     private EntityManager em;
 
     @Override
+    public Customer save(Customer customer) {
+        return null;
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<Customer> findAll() {
         return em
