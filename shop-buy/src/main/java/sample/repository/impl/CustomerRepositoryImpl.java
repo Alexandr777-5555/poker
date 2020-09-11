@@ -20,8 +20,17 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     private EntityManager em;
 
     @Override
+    @Transactional
     public Customer save(Customer customer) {
-        return null;
+        if (customer.getId() == null) {
+            logger.info("insert new customer");
+            em.persist(customer);
+        } else {
+            em.merge(customer);
+            logger.info("update exists customer");
+        }
+        logger.info("customer saved with id :" + customer.getId());
+        return customer;
     }
 
     @Override
