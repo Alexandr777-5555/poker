@@ -1,5 +1,7 @@
 package sample.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import sample.model.Customer;
 import sample.repository.CustomerRepository;
@@ -11,9 +13,8 @@ import java.util.List;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-
+    private Logger log = LoggerFactory.getLogger(this.getClass());
     private CustomerRepository customerRepository;
-
 
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -22,8 +23,9 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer save(Customer customer) {
-        return null;
+        return customerRepository.save(customer);
     }
+
 
     @Override
     public List<Customer> findAll() {
