@@ -12,8 +12,11 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import sample.config.TestConfig;
 import sample.model.Customer;
+import sample.model.Purchases;
 import sample.service.CustomerService;
 
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -31,10 +34,10 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
 
 
     @Test
-    @Sql({"classpath:test/data.sql" })
+    @Sql({"classpath:test/data.sql"})
     public void findAll() {
-        List<Customer> list=customerService.findAll();
-        assertEquals(3 , list.size());
+        List<Customer> list = customerService.findAll();
+        assertEquals(3, list.size());
     }
 
     @Test
@@ -44,6 +47,36 @@ public class CustomerServiceImplTest extends AbstractTransactionalJUnit4SpringCo
         assertEquals(3, list.size());
         listCustomersWithPurchases(list);
     }
+
+
+    @Test
+    public void testInsert() {
+
+        Customer customer = new Customer();
+        customer.setFirstName("Alexander");
+        customer.setLastName("Avdeev");
+        customer.setBirthDate(new Date(
+                (new GregorianCalendar(1982, 6, 23)).getTime().getTime()));
+
+        Purchases purchases = new Purchases();
+        purchases.setProductId("Квартира");
+        purchases.setBuy(new java.sql.Date(
+                (new GregorianCalendar(1961, 7, 18)).getTime().getTime()));
+        ;
+        customer.addPurchases(purchases);
+
+        customerService.save(customer);
+        assertNotNull(customer.getId());
+
+        List<Customer> customers = customerService.findAll();
+        assertEquals(1, customers.size());
+
+        customers = customerService.findAllWithPurchases();
+        assertEquals(1, customers.size());
+
+        listCustomersWithPurchases(customers);
+    }
+
 
     private void listCustomersWithPurchases(List<Customer> list) {
         logger.info(" ---- Listing customers with purchases:");
