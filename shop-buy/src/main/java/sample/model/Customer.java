@@ -24,6 +24,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 public class Customer implements Serializable {
 
     public static final String FIND_ALL = "Customer.findAll";
+    public static final String FIND_CUSTOMER_BY_ID="Customer.findById";
     public static final String FIND_ALL_WITH_PURCHASES = "Customer.findAllWithPurchases";
 
     @Id
