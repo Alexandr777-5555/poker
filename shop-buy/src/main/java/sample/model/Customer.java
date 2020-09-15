@@ -19,7 +19,12 @@ import static javax.persistence.GenerationType.IDENTITY;
         @NamedQuery(name = Customer.FIND_ALL_WITH_PURCHASES ,
                 query = "select distinct c from Customer c " +
                         "left join fetch c.purchases pu " +
-                        "left join fetch c.products pr")
+                        "left join fetch c.products pr"),
+        @NamedQuery(name = Customer.FIND_CUSTOMER_BY_ID ,
+                query = "select distinct c from Customer c " +
+                        "left join fetch c.purchases p " +
+                        "left join fetch c.products pro " +
+                        "where c.id=:id")
 })
 public class Customer implements Serializable {
 
